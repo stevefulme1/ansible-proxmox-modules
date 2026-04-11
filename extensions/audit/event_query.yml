@@ -1,0 +1,1546 @@
+---
+# Proxmox Module Audit Query Configuration
+#
+# JMESPath/JQ query definitions for extracting and transforming Proxmox
+# infrastructure data into a standardized format with canonical facts
+# and metadata. Used for infrastructure auditing and compliance reporting.
+
+# =============================================================================
+# SDN — Software-Defined Networking
+# =============================================================================
+sfulmer.proxmox.proxmox_sdn_zone:
+  query: >-
+    .zone | select(. != null) | {
+      name: ("sdn_zone:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_zone",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN Zone"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_vnet:
+  query: >-
+    .vnet | select(. != null) | {
+      name: ("sdn_vnet:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_vnet",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN VNet"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_subnet:
+  query: >-
+    .subnet | select(. != null) | {
+      name: ("sdn_subnet:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_subnet",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN Subnet"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_controller:
+  query: >-
+    .controller | select(. != null) | {
+      name: ("sdn_controller:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_controller",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN Controller"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_dns:
+  query: >-
+    .dns | select(. != null) | {
+      name: ("sdn_dns:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_dns",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN DNS"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_ipam:
+  query: >-
+    .ipam | select(. != null) | {
+      name: ("sdn_ipam:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_ipam",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN IPAM"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_dhcp:
+  query: >-
+    .vnet | select(. != null) | {
+      name: ("sdn_dhcp:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_sdn_dhcp",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN DHCP"
+      }
+    }
+sfulmer.proxmox.proxmox_sdn_info:
+  query: >-
+    .sdn | select(. != null) | {
+      name: "sdn_info",
+      canonical_facts: {
+        module: "proxmox_sdn_info"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "SDN Configuration"
+      }
+    }
+
+# =============================================================================
+# Firewall
+# =============================================================================
+sfulmer.proxmox.proxmox_firewall_rule:
+  query: >-
+    .pos | select(. != null) | {
+      name: ("firewall_rule:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_rule",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Rule"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_ipset:
+  query: >-
+    .name | select(. != null) | {
+      name: ("firewall_ipset:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_ipset",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall IP Set"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_alias:
+  query: >-
+    .name | select(. != null) | {
+      name: ("firewall_alias:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_alias",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Alias"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_group:
+  query: >-
+    .name | select(. != null) | {
+      name: ("firewall_group:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_group",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Security Group"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_options:
+  query: >-
+    {
+      name: "firewall_options",
+      canonical_facts: {
+        module: "proxmox_firewall_options"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Options"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_refs_info:
+  query: >-
+    .refs[] | {
+      name: ("firewall_ref:" + (.name | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_refs_info",
+        id: .name
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Reference"
+      }
+    }
+sfulmer.proxmox.proxmox_firewall_log_info:
+  query: >-
+    .logs[] | {
+      name: ("firewall_log:" + (.n | tostring)),
+      canonical_facts: {
+        module: "proxmox_firewall_log_info",
+        id: .n
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Firewall Log Entry"
+      }
+    }
+
+# =============================================================================
+# Storage
+# =============================================================================
+sfulmer.proxmox.proxmox_storage:
+  query: >-
+    .storage | select(. != null) | {
+      name: ("storage:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_storage",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Storage Definition"
+      }
+    }
+sfulmer.proxmox.proxmox_storage_info:
+  query: >-
+    .storages[] | {
+      name: ("storage_info:" + (.storage | tostring)),
+      canonical_facts: {
+        module: "proxmox_storage_info",
+        id: .storage
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Storage"
+      }
+    }
+sfulmer.proxmox.proxmox_storage_content:
+  query: >-
+    .volid | select(. != null) | {
+      name: ("storage_content:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_storage_content",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Storage Content"
+      }
+    }
+sfulmer.proxmox.proxmox_storage_status_info:
+  query: >-
+    .storage | select(. != null) | {
+      name: ("storage_status:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_storage_status_info",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Storage Status"
+      }
+    }
+
+# =============================================================================
+# VM Lifecycle
+# =============================================================================
+sfulmer.proxmox.proxmox_vm_config:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_config:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_config",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_snapshot:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_snapshot:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_snapshot",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "VM Snapshot"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_clone:
+  query: >-
+    .newid | select(. != null) | {
+      name: ("vm_clone:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_clone",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_migrate:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_migrate:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_migrate",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_template:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_template:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_template",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "VM Template"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_info:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_info:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_info",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_pending_info:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_pending:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_pending_info",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_pending_apply:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_pending_apply:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_pending_apply",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Virtual Machine"
+      }
+    }
+
+# =============================================================================
+# VM Advanced Features
+# =============================================================================
+sfulmer.proxmox.proxmox_vm_agent:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_agent:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_agent",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "VM Guest Agent"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_firewall:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_firewall:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_firewall",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "VM Firewall"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_disk:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_disk:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_disk",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "VM Disk"
+      }
+    }
+sfulmer.proxmox.proxmox_vm_cloudinit:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("vm_cloudinit:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_vm_cloudinit",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "VM Cloud-Init"
+      }
+    }
+sfulmer.proxmox.proxmox_tag:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("tag:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_tag",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Resource Tag"
+      }
+    }
+
+# =============================================================================
+# Container Lifecycle
+# =============================================================================
+sfulmer.proxmox.proxmox_lxc_config:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("lxc_config:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_lxc_config",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "LXC Container"
+      }
+    }
+sfulmer.proxmox.proxmox_lxc_snapshot:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("lxc_snapshot:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_lxc_snapshot",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "LXC Snapshot"
+      }
+    }
+sfulmer.proxmox.proxmox_lxc_clone:
+  query: >-
+    .newid | select(. != null) | {
+      name: ("lxc_clone:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_lxc_clone",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "LXC Container"
+      }
+    }
+sfulmer.proxmox.proxmox_lxc_migrate:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("lxc_migrate:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_lxc_migrate",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "LXC Container"
+      }
+    }
+
+# =============================================================================
+# Backup & Restore
+# =============================================================================
+sfulmer.proxmox.proxmox_backup_job:
+  query: >-
+    .job_id | select(. != null) | {
+      name: ("backup_job:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_backup_job",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "Backup Job"
+      }
+    }
+sfulmer.proxmox.proxmox_backup_info:
+  query: >-
+    .jobs[] | {
+      name: ("backup_info:" + (.id | tostring)),
+      canonical_facts: {
+        module: "proxmox_backup_info",
+        id: .id
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "Backup Job"
+      }
+    }
+sfulmer.proxmox.proxmox_backup_restore:
+  query: >-
+    .vmid | select(. != null) | {
+      name: ("backup_restore:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_backup_restore",
+        vmid: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "Backup Restore"
+      }
+    }
+
+# =============================================================================
+# Cluster & High Availability
+# =============================================================================
+sfulmer.proxmox.proxmox_cluster_info:
+  query: >-
+    .cluster_name | select(. != null) | {
+      name: ("cluster:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_cluster_info",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Cluster"
+      }
+    }
+sfulmer.proxmox.proxmox_cluster_options:
+  query: >-
+    {
+      name: "cluster_options",
+      canonical_facts: {
+        module: "proxmox_cluster_options"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Cluster Options"
+      }
+    }
+sfulmer.proxmox.proxmox_cluster_join_info:
+  query: >-
+    {
+      name: "cluster_join_info",
+      canonical_facts: {
+        module: "proxmox_cluster_join_info"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Cluster Join Info"
+      }
+    }
+sfulmer.proxmox.proxmox_cluster_metrics:
+  query: >-
+    .name | select(. != null) | {
+      name: ("cluster_metrics:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_cluster_metrics",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Metrics Server"
+      }
+    }
+sfulmer.proxmox.proxmox_cluster_log_info:
+  query: >-
+    .logs[] | {
+      name: ("cluster_log:" + (.n | tostring)),
+      canonical_facts: {
+        module: "proxmox_cluster_log_info",
+        id: .n
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Cluster Log Entry"
+      }
+    }
+sfulmer.proxmox.proxmox_ha_group:
+  query: >-
+    .group | select(. != null) | {
+      name: ("ha_group:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ha_group",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "HA Group"
+      }
+    }
+sfulmer.proxmox.proxmox_ha_resource:
+  query: >-
+    .sid | select(. != null) | {
+      name: ("ha_resource:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ha_resource",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "HA Resource"
+      }
+    }
+
+# =============================================================================
+# Ceph
+# =============================================================================
+sfulmer.proxmox.proxmox_ceph_mon:
+  query: >-
+    .monid | select(. != null) | {
+      name: ("ceph_mon:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_mon",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph Monitor"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_osd:
+  query: >-
+    .osdid | select(. != null) | {
+      name: ("ceph_osd:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_osd",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph OSD"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_pool:
+  query: >-
+    .name | select(. != null) | {
+      name: ("ceph_pool:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_pool",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph Pool"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_fs:
+  query: >-
+    .name | select(. != null) | {
+      name: ("ceph_fs:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_fs",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "CephFS"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_mds:
+  query: >-
+    .name | select(. != null) | {
+      name: ("ceph_mds:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_mds",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph MDS"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_mgr:
+  query: >-
+    .mgr_id | select(. != null) | {
+      name: ("ceph_mgr:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_ceph_mgr",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph Manager"
+      }
+    }
+sfulmer.proxmox.proxmox_ceph_info:
+  query: >-
+    .ceph_status | select(. != null) | {
+      name: "ceph_info",
+      canonical_facts: {
+        module: "proxmox_ceph_info"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Ceph Cluster"
+      }
+    }
+
+# =============================================================================
+# Certificates
+# =============================================================================
+sfulmer.proxmox.proxmox_certificate:
+  query: >-
+    .node | select(. != null) | {
+      name: ("certificate:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_certificate",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "TLS Certificate"
+      }
+    }
+sfulmer.proxmox.proxmox_acme:
+  query: >-
+    .node | select(. != null) | {
+      name: ("acme:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_acme",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "ACME Certificate"
+      }
+    }
+
+# =============================================================================
+# User & Identity Management
+# =============================================================================
+sfulmer.proxmox.proxmox_user:
+  query: >-
+    .userid | select(. != null) | {
+      name: ("user:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_user",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "User"
+      }
+    }
+sfulmer.proxmox.proxmox_group:
+  query: >-
+    .groupid | select(. != null) | {
+      name: ("group:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_group",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "Group"
+      }
+    }
+sfulmer.proxmox.proxmox_role:
+  query: >-
+    .roleid | select(. != null) | {
+      name: ("role:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_role",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "Role"
+      }
+    }
+sfulmer.proxmox.proxmox_token:
+  query: >-
+    .tokenid | select(. != null) | {
+      name: ("token:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_token",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "API Token"
+      }
+    }
+sfulmer.proxmox.proxmox_realm:
+  query: >-
+    .realm | select(. != null) | {
+      name: ("realm:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_realm",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "Auth Realm"
+      }
+    }
+sfulmer.proxmox.proxmox_acl:
+  query: >-
+    .path | select(. != null) | {
+      name: ("acl:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_acl",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "ACL Entry"
+      }
+    }
+sfulmer.proxmox.proxmox_tfa:
+  query: >-
+    .userid | select(. != null) | {
+      name: ("tfa:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_tfa",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "TFA Configuration"
+      }
+    }
+sfulmer.proxmox.proxmox_permission_info:
+  query: >-
+    .permissions | select(. != null) | {
+      name: "permission_info",
+      canonical_facts: {
+        module: "proxmox_permission_info"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "Permissions"
+      }
+    }
+
+# =============================================================================
+# Node Management
+# =============================================================================
+sfulmer.proxmox.proxmox_node_network:
+  query: >-
+    .iface | select(. != null) | {
+      name: ("node_network:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_network",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "Network Interface"
+      }
+    }
+sfulmer.proxmox.proxmox_node_network_info:
+  query: >-
+    .interfaces[] | {
+      name: ("node_network_info:" + (.iface | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_network_info",
+        id: .iface
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "Network Interface"
+      }
+    }
+sfulmer.proxmox.proxmox_node_info:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_info:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_info",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Hypervisor Node"
+      }
+    }
+sfulmer.proxmox.proxmox_node_dns:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_dns:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_dns",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "Node DNS"
+      }
+    }
+sfulmer.proxmox.proxmox_node_hosts:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_hosts:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_hosts",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "Node Hosts File"
+      }
+    }
+sfulmer.proxmox.proxmox_node_time:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_time:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_time",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Node Timezone"
+      }
+    }
+sfulmer.proxmox.proxmox_node_syslog_info:
+  query: >-
+    .logs[] | {
+      name: ("node_syslog:" + (.n | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_syslog_info",
+        id: .n
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Syslog Entry"
+      }
+    }
+sfulmer.proxmox.proxmox_node_apt:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_apt:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_apt",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "APT Repository"
+      }
+    }
+sfulmer.proxmox.proxmox_node_service:
+  query: >-
+    .service | select(. != null) | {
+      name: ("node_service:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_service",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Node Service"
+      }
+    }
+sfulmer.proxmox.proxmox_node_disks_info:
+  query: >-
+    .disks[] | {
+      name: ("node_disk:" + (.devpath | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_disks_info",
+        id: .devpath
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Physical Disk"
+      }
+    }
+sfulmer.proxmox.proxmox_node_disk_init:
+  query: >-
+    .disk | select(. != null) | {
+      name: ("node_disk_init:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_disk_init",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Disk Init"
+      }
+    }
+sfulmer.proxmox.proxmox_node_lvm:
+  query: >-
+    .name | select(. != null) | {
+      name: ("node_lvm:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_lvm",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "LVM Volume Group"
+      }
+    }
+sfulmer.proxmox.proxmox_node_zfs:
+  query: >-
+    .name | select(. != null) | {
+      name: ("node_zfs:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_zfs",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "ZFS Pool"
+      }
+    }
+sfulmer.proxmox.proxmox_node_certs_info:
+  query: >-
+    .certificates[] | {
+      name: ("node_cert:" + (.subject | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_certs_info",
+        id: .subject
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Security",
+        device_type: "Node Certificate"
+      }
+    }
+sfulmer.proxmox.proxmox_node_subscription:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_subscription:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_subscription",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Subscription"
+      }
+    }
+sfulmer.proxmox.proxmox_node_wake_on_lan:
+  query: >-
+    .node | select(. != null) | {
+      name: ("node_wol:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_node_wake_on_lan",
+        node: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Node WOL"
+      }
+    }
+
+# =============================================================================
+# Notifications
+# =============================================================================
+sfulmer.proxmox.proxmox_notification_endpoint:
+  query: >-
+    .name | select(. != null) | {
+      name: ("notification_endpoint:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_notification_endpoint",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Notification Endpoint"
+      }
+    }
+sfulmer.proxmox.proxmox_notification_matcher:
+  query: >-
+    .name | select(. != null) | {
+      name: ("notification_matcher:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_notification_matcher",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Notification Matcher"
+      }
+    }
+
+# =============================================================================
+# Resource Management
+# =============================================================================
+sfulmer.proxmox.proxmox_pool:
+  query: >-
+    .poolid | select(. != null) | {
+      name: ("pool:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pool",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Resource Pool"
+      }
+    }
+sfulmer.proxmox.proxmox_pool_info:
+  query: >-
+    .pools[] | {
+      name: ("pool_info:" + (.poolid | tostring)),
+      canonical_facts: {
+        module: "proxmox_pool_info",
+        id: .poolid
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "Resource Pool"
+      }
+    }
+sfulmer.proxmox.proxmox_replication:
+  query: >-
+    .rep_id | select(. != null) | {
+      name: ("replication:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_replication",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Storage",
+        device_type: "Replication Job"
+      }
+    }
+sfulmer.proxmox.proxmox_vzdump_defaults:
+  query: >-
+    {
+      name: "vzdump_defaults",
+      canonical_facts: {
+        module: "proxmox_vzdump_defaults"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "Vzdump Defaults"
+      }
+    }
+sfulmer.proxmox.proxmox_task_info:
+  query: >-
+    .tasks[] | {
+      name: ("task:" + (.upid | tostring)),
+      canonical_facts: {
+        module: "proxmox_task_info",
+        id: .upid
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "Task"
+      }
+    }
+
+# =============================================================================
+# Device Mappings
+# =============================================================================
+sfulmer.proxmox.proxmox_mapping_pci:
+  query: >-
+    .name | select(. != null) | {
+      name: ("mapping_pci:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_mapping_pci",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "PCI Device Mapping"
+      }
+    }
+sfulmer.proxmox.proxmox_mapping_usb:
+  query: >-
+    .name | select(. != null) | {
+      name: ("mapping_usb:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_mapping_usb",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "USB Device Mapping"
+      }
+    }
+
+# =============================================================================
+# Proxmox Backup Server (PBS)
+# =============================================================================
+sfulmer.proxmox.proxmox_pbs_datastore:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_datastore:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_datastore",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Datastore"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_datastore_info:
+  query: >-
+    .datastores[] | {
+      name: ("pbs_datastore_info:" + (.name | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_datastore_info",
+        id: .name
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Datastore"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_namespace:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_namespace:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_namespace",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Namespace"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_gc:
+  query: >-
+    .store | select(. != null) | {
+      name: ("pbs_gc:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_gc",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Garbage Collection"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_prune_job:
+  query: >-
+    .job_id | select(. != null) | {
+      name: ("pbs_prune_job:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_prune_job",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Prune Job"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_sync_job:
+  query: >-
+    .job_id | select(. != null) | {
+      name: ("pbs_sync_job:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_sync_job",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Sync Job"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_verify_job:
+  query: >-
+    .job_id | select(. != null) | {
+      name: ("pbs_verify_job:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_verify_job",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Verify Job"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_tape_drive:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_tape_drive:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_tape_drive",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Tape Drive"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_tape_media_pool:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_tape_media_pool:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_tape_media_pool",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Tape Media Pool"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_tape_backup_job:
+  query: >-
+    .job_id | select(. != null) | {
+      name: ("pbs_tape_backup_job:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_tape_backup_job",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Tape Backup Job"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_user:
+  query: >-
+    .userid | select(. != null) | {
+      name: ("pbs_user:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_user",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "PBS User"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_token:
+  query: >-
+    .tokenid | select(. != null) | {
+      name: ("pbs_token:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_token",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "PBS API Token"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_acl:
+  query: >-
+    .path | select(. != null) | {
+      name: ("pbs_acl:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_acl",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "PBS ACL"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_realm:
+  query: >-
+    .realm | select(. != null) | {
+      name: ("pbs_realm:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_realm",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Identity",
+        device_type: "PBS Auth Realm"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_remote:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_remote:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_remote",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Backup",
+        device_type: "PBS Remote"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_traffic_control:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_traffic_control:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_traffic_control",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Network",
+        device_type: "PBS Traffic Control"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_node_info:
+  query: >-
+    .node_status | select(. != null) | {
+      name: "pbs_node_info",
+      canonical_facts: {
+        module: "proxmox_pbs_node_info"
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Compute",
+        device_type: "PBS Node"
+      }
+    }
+sfulmer.proxmox.proxmox_pbs_metrics:
+  query: >-
+    .name | select(. != null) | {
+      name: ("pbs_metrics:" + (. | tostring)),
+      canonical_facts: {
+        module: "proxmox_pbs_metrics",
+        id: .
+      },
+      facts: {
+        infra_type: "PrivateCloud",
+        infra_bucket: "Monitoring",
+        device_type: "PBS Metrics Server"
+      }
+    }
