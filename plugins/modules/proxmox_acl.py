@@ -130,9 +130,7 @@ def _get_current_acls(module):
 def _acl_exists(acls, path, role, subject_type, subject):
     """Check if a specific ACL entry already exists."""
     for acl in acls:
-        if (acl.get('path') == path
-                and acl.get('roleid') == role
-                and acl.get(subject_type) == subject):
+        if acl.get('path') == path and acl.get('roleid') == role and acl.get(subject_type) == subject:
             return True
     return False
 

@@ -176,9 +176,7 @@ def main():
         # an exact type+description match is found.
         already_exists = False
         for entry in entries:
-            if (entry.get('type') == tfa_type
-                    and description
-                    and entry.get('description') == description):
+            if entry.get('type') == tfa_type and description and entry.get('description') == description:
                 already_exists = True
                 break
 
