@@ -1,0 +1,18 @@
+namespace: sfulmer
+name: proxmox
+version: 1.0.0
+readme: README.md
+authors:
+  - sfulmer
+description: Ansible modules for Proxmox VE management (SDN, Firewall, HA, Cluster)
+license:
+  - GPL-3.0-or-later
+repository: https://github.com/sfulmer/ansible-proxmox-modules
+tags:
+  - proxmox
+  - virtualization
+  - sdn
+  - firewall
+dependencies: {}
+build_ignore:
+  - tests/
