@@ -1,0 +1,92 @@
+---
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Ansible Lint & pycodestyle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install ansible-core>=2.16 ansible-lint>=24.2 pycodestyle>=2.11
+
+      - name: Run pycodestyle
+        run: >-
+          pycodestyle
+          --max-line-length=160
+          --ignore=E402
+          plugins/modules/*.py
+
+      - name: Run ansible-lint
+        run: >-
+          ansible-lint
+          --profile production
+          plugins/modules/*.py
+
+  sanity:
+    name: Ansible Sanity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ansible_collections/sfulmer/proxmox
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ansible-core
+        run: pip install ansible-core>=2.16
+
+      - name: Run ansible-test sanity
+        working-directory: ansible_collections/sfulmer/proxmox
+        run: >-
+          ansible-test sanity
+          --python 3.12
+          --skip-test import
+          --skip-test pylint
+          --skip-test validate-modules
+          --skip-test ansible-doc
+        env:
+          ANSIBLE_COLLECTIONS_PATH: ${{ github.workspace }}
+
+  certification:
+    name: Partner Certification Checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ansible_collections/sfulmer/proxmox
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ansible-core and certification tools
+        run: |
+          pip install ansible-core>=2.16
+          pip install git+https://github.com/ansible/ansible-hub-ui.git@main#egg=galaxy-importer || pip install galaxy-importer
+
+      - name: Build collection tarball
+        working-directory: ansible_collections/sfulmer/proxmox
+        run: ansible-galaxy collection build --force
+
+      - name: Run galaxy-importer certification check
+        working-directory: ansible_collections/sfulmer/proxmox
+        run: |
+          python -m galaxy_importer.main sfulmer-proxmox-*.tar.gz
