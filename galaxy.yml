@@ -4,7 +4,7 @@ version: 1.0.0
 readme: README.md
 authors:
   - sfulmer
-description: Ansible modules for Proxmox VE management (SDN, Firewall, HA, Cluster)
+description: Ansible modules for Proxmox VE and PBS management (SDN, Firewall, HA, Cluster, Storage, VM/LXC, Ceph, Backup, Identity, and more)
 license:
   - GPL-3.0-or-later
 repository: https://github.com/stevefulme1/ansible-proxmox-modules
@@ -13,6 +13,9 @@ tags:
   - virtualization
   - sdn
   - firewall
+  - ceph
+  - backup
+  - pbs
 dependencies: {}
 build_ignore:
   - tests/
