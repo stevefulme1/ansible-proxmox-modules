@@ -56,7 +56,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a subnet on a VNet
-  sfulmer.proxmox.proxmox_sdn_subnet:
+  stevefulme1.proxmox.proxmox_sdn_subnet:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -66,7 +66,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a subnet with DHCP range
-  sfulmer.proxmox.proxmox_sdn_subnet:
+  stevefulme1.proxmox.proxmox_sdn_subnet:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -79,7 +79,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a subnet
-  sfulmer.proxmox.proxmox_sdn_subnet:
+  stevefulme1.proxmox.proxmox_sdn_subnet:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -101,7 +101,7 @@ vnet:
   sample: myvnet
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def _format_dhcp_ranges(ranges):

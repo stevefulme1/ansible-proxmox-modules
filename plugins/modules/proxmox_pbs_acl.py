@@ -46,7 +46,7 @@ options:
 
 EXAMPLES = r'''
 - name: Grant DatastoreAdmin role on a datastore
-  sfulmer.proxmox.proxmox_pbs_acl:
+  stevefulme1.proxmox.proxmox_pbs_acl:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -57,7 +57,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Grant token access to a datastore
-  sfulmer.proxmox.proxmox_pbs_acl:
+  stevefulme1.proxmox.proxmox_pbs_acl:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -67,7 +67,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove an ACL entry
-  sfulmer.proxmox.proxmox_pbs_acl:
+  stevefulme1.proxmox.proxmox_pbs_acl:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -95,7 +95,7 @@ auth_id:
   sample: backup-admin@pbs
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -51,7 +51,7 @@ author:
 
 EXAMPLES = r'''
 - name: Get recent cluster log entries
-  sfulmer.proxmox.proxmox_cluster_log_info:
+  stevefulme1.proxmox.proxmox_cluster_log_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -59,7 +59,7 @@ EXAMPLES = r'''
   register: cluster_logs
 
 - name: Get cluster logs since a timestamp
-  sfulmer.proxmox.proxmox_cluster_log_info:
+  stevefulme1.proxmox.proxmox_cluster_log_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -81,7 +81,7 @@ logs:
       tag: "qmstart"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

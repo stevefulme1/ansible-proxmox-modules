@@ -66,7 +66,7 @@ author:
 
 EXAMPLES = r'''
 - name: Set a subscription key
-  sfulmer.proxmox.proxmox_node_subscription:
+  stevefulme1.proxmox.proxmox_node_subscription:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Force re-check subscription status
-  sfulmer.proxmox.proxmox_node_subscription:
+  stevefulme1.proxmox.proxmox_node_subscription:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -84,7 +84,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove subscription key
-  sfulmer.proxmox.proxmox_node_subscription:
+  stevefulme1.proxmox.proxmox_node_subscription:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -103,7 +103,7 @@ subscription:
     key: "pve2s-1234567890"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

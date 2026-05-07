@@ -36,7 +36,7 @@ options:
 
 EXAMPLES = r'''
 - name: Enable cluster firewall with DROP default policy
-  sfulmer.proxmox.proxmox_firewall_options:
+  stevefulme1.proxmox.proxmox_firewall_options:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -45,7 +45,7 @@ EXAMPLES = r'''
     policy_out: ACCEPT
 
 - name: Disable cluster firewall
-  sfulmer.proxmox.proxmox_firewall_options:
+  stevefulme1.proxmox.proxmox_firewall_options:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -63,7 +63,7 @@ options:
     policy_out: ACCEPT
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

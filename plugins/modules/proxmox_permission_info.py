@@ -29,12 +29,12 @@ options:
       - If not specified, returns permissions for all paths.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get permissions for the current user
-  sfulmer.proxmox.proxmox_permission_info:
+  stevefulme1.proxmox.proxmox_permission_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -42,7 +42,7 @@ EXAMPLES = r'''
   register: permissions
 
 - name: Get permissions for a specific user
-  sfulmer.proxmox.proxmox_permission_info:
+  stevefulme1.proxmox.proxmox_permission_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -51,7 +51,7 @@ EXAMPLES = r'''
   register: permissions
 
 - name: Get permissions on a specific path
-  sfulmer.proxmox.proxmox_permission_info:
+  stevefulme1.proxmox.proxmox_permission_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -72,7 +72,7 @@ permissions:
       VM.Console: 1
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

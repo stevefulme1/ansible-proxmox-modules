@@ -69,7 +69,7 @@ author:
 
 EXAMPLES = r'''
 - name: Create a PCI device mapping for a GPU
-  sfulmer.proxmox.proxmox_mapping_pci:
+  stevefulme1.proxmox.proxmox_mapping_pci:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -80,7 +80,7 @@ EXAMPLES = r'''
       - "id=10de:1b80,node=pve2,path=0000:02:00.0"
 
 - name: Create a mediated device (vGPU) mapping
-  sfulmer.proxmox.proxmox_mapping_pci:
+  stevefulme1.proxmox.proxmox_mapping_pci:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -90,7 +90,7 @@ EXAMPLES = r'''
       - "id=10de:1b80,node=pve1,path=0000:01:00.0"
 
 - name: Remove a PCI mapping
-  sfulmer.proxmox.proxmox_mapping_pci:
+  stevefulme1.proxmox.proxmox_mapping_pci:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -106,7 +106,7 @@ name:
   sample: "gpu_nvidia"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def get_mapping(api, name):

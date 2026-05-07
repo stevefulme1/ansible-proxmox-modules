@@ -28,14 +28,14 @@ options:
 
 EXAMPLES = r'''
 - name: List all storage configurations
-  sfulmer.proxmox.proxmox_storage_info:
+  stevefulme1.proxmox.proxmox_storage_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
   register: all_storage
 
 - name: List only NFS storage
-  sfulmer.proxmox.proxmox_storage_info:
+  stevefulme1.proxmox.proxmox_storage_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -60,7 +60,7 @@ storages:
       content: "images,iso,vztmpl"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

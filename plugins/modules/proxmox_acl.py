@@ -58,12 +58,12 @@ options:
       - present
       - absent
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Grant PVEAdmin role to a user on a VM
-  sfulmer.proxmox.proxmox_acl:
+  stevefulme1.proxmox.proxmox_acl:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -76,7 +76,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Grant multiple roles to a group
-  sfulmer.proxmox.proxmox_acl:
+  stevefulme1.proxmox.proxmox_acl:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -91,7 +91,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove ACL entry
-  sfulmer.proxmox.proxmox_acl:
+  stevefulme1.proxmox.proxmox_acl:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -117,7 +117,7 @@ msg:
   sample: "ACL entry updated successfully."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

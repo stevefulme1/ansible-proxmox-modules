@@ -68,12 +68,12 @@ options:
       - Whether to delete the source disk after a C(move) operation.
     type: bool
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Resize a disk by 10G
-  sfulmer.proxmox.proxmox_vm_disk:
+  stevefulme1.proxmox.proxmox_vm_disk:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -85,7 +85,7 @@ EXAMPLES = r'''
     size: "+10G"
 
 - name: Move a disk to different storage
-  sfulmer.proxmox.proxmox_vm_disk:
+  stevefulme1.proxmox.proxmox_vm_disk:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -98,7 +98,7 @@ EXAMPLES = r'''
     delete: true
 
 - name: Import a disk image
-  sfulmer.proxmox.proxmox_vm_disk:
+  stevefulme1.proxmox.proxmox_vm_disk:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -130,7 +130,7 @@ msg:
   sample: "Disk 'scsi0' resized successfully on VM 100."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

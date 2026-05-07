@@ -49,7 +49,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create an API token
-  sfulmer.proxmox.proxmox_pbs_token:
+  stevefulme1.proxmox.proxmox_pbs_token:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -66,7 +66,7 @@ EXAMPLES = r'''
     var: token_result.token_secret
 
 - name: Remove an API token
-  sfulmer.proxmox.proxmox_pbs_token:
+  stevefulme1.proxmox.proxmox_pbs_token:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -99,7 +99,7 @@ token_secret:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

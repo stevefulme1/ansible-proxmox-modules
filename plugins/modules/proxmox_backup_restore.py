@@ -57,12 +57,12 @@ options:
       - Bandwidth limit in KiB/s for the restore operation. Use 0 for unlimited.
     type: int
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Restore a VM from backup
-  sfulmer.proxmox.proxmox_backup_restore:
+  stevefulme1.proxmox.proxmox_backup_restore:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -74,7 +74,7 @@ EXAMPLES = r'''
     force: true
 
 - name: Restore an LXC container from backup
-  sfulmer.proxmox.proxmox_backup_restore:
+  stevefulme1.proxmox.proxmox_backup_restore:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -97,7 +97,7 @@ task_id:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

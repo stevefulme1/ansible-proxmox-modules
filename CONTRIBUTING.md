@@ -1,4 +1,4 @@
-# Contributing to sfulmer.proxmox
+# Contributing to stevefulme1.proxmox
 
 Thank you for your interest in contributing to the Proxmox VE Ansible collection. This guide covers the development workflow, coding standards, and submission process.
 
@@ -91,7 +91,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create resource
-  sfulmer.proxmox.proxmox_example:
+  stevefulme1.proxmox.proxmox_example:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -106,7 +106,7 @@ name:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

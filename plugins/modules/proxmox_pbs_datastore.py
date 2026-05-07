@@ -72,7 +72,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a PBS datastore
-  sfulmer.proxmox.proxmox_pbs_datastore:
+  stevefulme1.proxmox.proxmox_pbs_datastore:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -87,7 +87,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Update retention policy on a datastore
-  sfulmer.proxmox.proxmox_pbs_datastore:
+  stevefulme1.proxmox.proxmox_pbs_datastore:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -97,7 +97,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a PBS datastore
-  sfulmer.proxmox.proxmox_pbs_datastore:
+  stevefulme1.proxmox.proxmox_pbs_datastore:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -113,7 +113,7 @@ name:
   sample: backups
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

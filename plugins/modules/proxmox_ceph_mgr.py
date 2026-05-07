@@ -35,12 +35,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a Ceph manager daemon using node name as ID
-  sfulmer.proxmox.proxmox_ceph_mgr:
+  stevefulme1.proxmox.proxmox_ceph_mgr:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -49,7 +49,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a Ceph manager daemon with explicit ID
-  sfulmer.proxmox.proxmox_ceph_mgr:
+  stevefulme1.proxmox.proxmox_ceph_mgr:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -59,7 +59,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a Ceph manager daemon
-  sfulmer.proxmox.proxmox_ceph_mgr:
+  stevefulme1.proxmox.proxmox_ceph_mgr:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -76,7 +76,7 @@ mgr:
   returned: on success when state is present
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

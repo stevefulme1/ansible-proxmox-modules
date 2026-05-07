@@ -58,7 +58,7 @@ options:
 
 EXAMPLES = r'''
 - name: Live migrate a VM
-  sfulmer.proxmox.proxmox_vm_migrate:
+  stevefulme1.proxmox.proxmox_vm_migrate:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -68,7 +68,7 @@ EXAMPLES = r'''
     online: true
 
 - name: Offline migrate with local disks
-  sfulmer.proxmox.proxmox_vm_migrate:
+  stevefulme1.proxmox.proxmox_vm_migrate:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -79,7 +79,7 @@ EXAMPLES = r'''
     targetstorage: local-lvm
 
 - name: Force migration
-  sfulmer.proxmox.proxmox_vm_migrate:
+  stevefulme1.proxmox.proxmox_vm_migrate:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -106,7 +106,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

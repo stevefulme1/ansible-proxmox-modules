@@ -28,14 +28,14 @@ options:
 
 EXAMPLES = r'''
 - name: Get all cluster information
-  sfulmer.proxmox.proxmox_cluster_info:
+  stevefulme1.proxmox.proxmox_cluster_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
   register: cluster_info
 
 - name: Get only VM resources
-  sfulmer.proxmox.proxmox_cluster_info:
+  stevefulme1.proxmox.proxmox_cluster_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -79,7 +79,7 @@ resources:
   elements: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

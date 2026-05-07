@@ -48,7 +48,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a tape media pool
-  sfulmer.proxmox.proxmox_pbs_tape_media_pool:
+  stevefulme1.proxmox.proxmox_pbs_tape_media_pool:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -59,7 +59,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a tape media pool
-  sfulmer.proxmox.proxmox_pbs_tape_media_pool:
+  stevefulme1.proxmox.proxmox_pbs_tape_media_pool:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ name:
   sample: weekly-pool
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

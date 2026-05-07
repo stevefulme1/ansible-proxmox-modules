@@ -25,12 +25,12 @@ options:
       - Optionally specify a node to get its specific join information.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get cluster join information
-  sfulmer.proxmox.proxmox_cluster_join_info:
+  stevefulme1.proxmox.proxmox_cluster_join_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -38,7 +38,7 @@ EXAMPLES = r'''
   register: join_info
 
 - name: Get join info for a specific node
-  sfulmer.proxmox.proxmox_cluster_join_info:
+  stevefulme1.proxmox.proxmox_cluster_join_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -64,7 +64,7 @@ join_info:
     preferred_node: pve1
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

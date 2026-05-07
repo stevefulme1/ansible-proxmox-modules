@@ -36,12 +36,12 @@ options:
     choices: ['present']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Set timezone to America/New_York
-  sfulmer.proxmox.proxmox_node_time:
+  stevefulme1.proxmox.proxmox_node_time:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -50,7 +50,7 @@ EXAMPLES = r'''
     timezone: America/New_York
 
 - name: Set timezone to UTC
-  sfulmer.proxmox.proxmox_node_time:
+  stevefulme1.proxmox.proxmox_node_time:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -66,7 +66,7 @@ timezone:
   sample: America/New_York
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

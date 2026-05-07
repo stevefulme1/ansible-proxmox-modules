@@ -18,8 +18,8 @@ description:
     enabling indirect referencing of resources in playbooks.
   - Supports VMs, containers, nodes, storage, pools, SDN zones, and SDN VNets.
 extends_documentation_fragment:
-  - sfulmer.proxmox.base_options
-  - sfulmer.proxmox.lookup_base_options
+  - stevefulme1.proxmox.base_options
+  - stevefulme1.proxmox.lookup_base_options
 options:
   _terms:
     description:
@@ -55,48 +55,48 @@ EXAMPLES = r'''
 # Look up a VM's VMID by name
 - name: Get VMID for webserver
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'webserver', resource_type='vm') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'webserver', resource_type='vm') }}"
 
 # Look up multiple VMs
 - name: Get VMIDs for several VMs
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'web1', 'web2', 'db1', resource_type='vm', wantlist=True) }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'web1', 'web2', 'db1', resource_type='vm', wantlist=True) }}"
 
 # Look up VM on a specific node
 - name: Get VMID on pve1
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'webserver', resource_type='vm', node='pve1') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'webserver', resource_type='vm', node='pve1') }}"
 
 # Look up a container by name
 - name: Get container VMID
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'dns-server', resource_type='lxc') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'dns-server', resource_type='lxc') }}"
 
 # Look up storage ID
 - name: Get storage resource
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'ceph-pool', resource_type='storage') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'ceph-pool', resource_type='storage') }}"
 
 # Look up by path (no resource_type needed)
 - name: Get VM by path
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'nodes/pve1/qemu/100') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'nodes/pve1/qemu/100') }}"
 
 # Use in a task to reference a VM indirectly
 - name: Snapshot a VM found by name
-  sfulmer.proxmox.proxmox_vm_snapshot:
+  stevefulme1.proxmox.proxmox_vm_snapshot:
     api_host: "{{ proxmox_host }}"
     api_user: "{{ proxmox_user }}"
     api_password: "{{ proxmox_password }}"
     node: pve1
-    vmid: "{{ lookup('sfulmer.proxmox.resource_id', 'webserver', resource_type='vm') }}"
+    vmid: "{{ lookup('stevefulme1.proxmox.resource_id', 'webserver', resource_type='vm') }}"
     snapname: pre-upgrade
     state: present
 
 # Use with environment variables for auth (PROXMOX_HOST, PROXMOX_USER, etc.)
 - name: Look up with env-based auth
   ansible.builtin.debug:
-    msg: "{{ lookup('sfulmer.proxmox.resource_id', 'myvm', resource_type='vm') }}"
+    msg: "{{ lookup('stevefulme1.proxmox.resource_id', 'myvm', resource_type='vm') }}"
 '''
 
 RETURN = r'''
@@ -122,7 +122,7 @@ try:
 except ImportError:
     HAS_PROXMOXER = False
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils._resource_paths import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils._resource_paths import (
     validate_resource_type,
     parse_resource_path,
     find_resource_by_name,

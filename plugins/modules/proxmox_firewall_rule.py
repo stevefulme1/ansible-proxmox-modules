@@ -79,7 +79,7 @@ options:
 
 EXAMPLES = r'''
 - name: Add a cluster-level firewall rule to accept SSH
-  sfulmer.proxmox.proxmox_firewall_rule:
+  stevefulme1.proxmox.proxmox_firewall_rule:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -92,7 +92,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Add a host-level firewall rule
-  sfulmer.proxmox.proxmox_firewall_rule:
+  stevefulme1.proxmox.proxmox_firewall_rule:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -106,7 +106,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Add a VM firewall rule
-  sfulmer.proxmox.proxmox_firewall_rule:
+  stevefulme1.proxmox.proxmox_firewall_rule:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -121,7 +121,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a firewall rule by position
-  sfulmer.proxmox.proxmox_firewall_rule:
+  stevefulme1.proxmox.proxmox_firewall_rule:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -138,7 +138,7 @@ pos:
   sample: 0
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def _get_firewall_api(api, params):

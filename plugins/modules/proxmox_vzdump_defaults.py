@@ -91,7 +91,7 @@ author:
 
 EXAMPLES = r'''
 - name: Set cluster-wide vzdump defaults
-  sfulmer.proxmox.proxmox_vzdump_defaults:
+  stevefulme1.proxmox.proxmox_vzdump_defaults:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -101,7 +101,7 @@ EXAMPLES = r'''
     maxfiles: 3
 
 - name: Set node-level vzdump defaults
-  sfulmer.proxmox.proxmox_vzdump_defaults:
+  stevefulme1.proxmox.proxmox_vzdump_defaults:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -118,7 +118,7 @@ defaults:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 CONFIGURABLE_PARAMS = [
     'bwlimit', 'compress', 'dumpdir', 'ionice', 'lockwait',

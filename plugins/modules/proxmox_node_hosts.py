@@ -36,12 +36,12 @@ options:
     choices: ['present']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Set hosts file content
-  sfulmer.proxmox.proxmox_node_hosts:
+  stevefulme1.proxmox.proxmox_node_hosts:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -52,7 +52,7 @@ EXAMPLES = r'''
       192.168.1.10 pve1.example.com pve1
 
 - name: Update hosts with multiple entries
-  sfulmer.proxmox.proxmox_node_hosts:
+  stevefulme1.proxmox.proxmox_node_hosts:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -74,7 +74,7 @@ content:
   returned: always
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

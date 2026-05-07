@@ -104,12 +104,12 @@ options:
     choices:
       - present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Enable firewall with DROP policy for incoming
-  sfulmer.proxmox.proxmox_vm_firewall:
+  stevefulme1.proxmox.proxmox_vm_firewall:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -122,7 +122,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Configure logging and MAC filter
-  sfulmer.proxmox.proxmox_vm_firewall:
+  stevefulme1.proxmox.proxmox_vm_firewall:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -148,7 +148,7 @@ msg:
   sample: "Firewall options updated for VM 100."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

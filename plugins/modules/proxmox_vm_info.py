@@ -32,7 +32,7 @@ options:
 
 EXAMPLES = r'''
 - name: Get VM information
-  sfulmer.proxmox.proxmox_vm_info:
+  stevefulme1.proxmox.proxmox_vm_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -110,7 +110,7 @@ vm_status:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

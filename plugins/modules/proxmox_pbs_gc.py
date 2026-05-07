@@ -39,7 +39,7 @@ options:
 
 EXAMPLES = r'''
 - name: Set GC schedule on a datastore
-  sfulmer.proxmox.proxmox_pbs_gc:
+  stevefulme1.proxmox.proxmox_pbs_gc:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -47,7 +47,7 @@ EXAMPLES = r'''
     schedule: "daily"
 
 - name: Run garbage collection immediately
-  sfulmer.proxmox.proxmox_pbs_gc:
+  stevefulme1.proxmox.proxmox_pbs_gc:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -55,7 +55,7 @@ EXAMPLES = r'''
     run_now: true
 
 - name: Set schedule and run immediately
-  sfulmer.proxmox.proxmox_pbs_gc:
+  stevefulme1.proxmox.proxmox_pbs_gc:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -76,7 +76,7 @@ task_id:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

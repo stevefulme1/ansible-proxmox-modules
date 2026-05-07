@@ -43,12 +43,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a CephFS filesystem
-  sfulmer.proxmox.proxmox_ceph_fs:
+  stevefulme1.proxmox.proxmox_ceph_fs:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -60,7 +60,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a CephFS filesystem
-  sfulmer.proxmox.proxmox_ceph_fs:
+  stevefulme1.proxmox.proxmox_ceph_fs:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -77,7 +77,7 @@ filesystem:
   returned: on success when state is present
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

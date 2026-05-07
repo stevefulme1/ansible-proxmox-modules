@@ -24,19 +24,19 @@ options:
       - The pool identifier to query. If omitted, all pools are returned.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: List all resource pools
-  sfulmer.proxmox.proxmox_pool_info:
+  stevefulme1.proxmox.proxmox_pool_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
   register: all_pools
 
 - name: Get details of a specific pool
-  sfulmer.proxmox.proxmox_pool_info:
+  stevefulme1.proxmox.proxmox_pool_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -67,7 +67,7 @@ pools:
           vmid: 100
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

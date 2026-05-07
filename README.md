@@ -1,4 +1,4 @@
-# Ansible Collection — sfulmer.proxmox
+# Ansible Collection — stevefulme1.proxmox
 
 Ansible modules for managing [Proxmox VE](https://www.proxmox.com/en/proxmox-virtual-environment) and [Proxmox Backup Server](https://www.proxmox.com/en/proxmox-backup-server) infrastructure. This collection provides comprehensive automation coverage — SDN, firewall, cluster/HA, certificates, identity management, node networking, notifications, storage, VM/container lifecycle, Ceph, backup/restore, and PBS — all using the Proxmox REST API via [proxmoxer](https://github.com/proxmoxer/proxmoxer).
 
@@ -12,7 +12,7 @@ Ansible modules for managing [Proxmox VE](https://www.proxmox.com/en/proxmox-vir
 ## Installation
 
 ```bash
-ansible-galaxy collection install sfulmer.proxmox
+ansible-galaxy collection install stevefulme1.proxmox
 ```
 
 Or from source:
@@ -32,7 +32,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create SDN zone
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ vault_proxmox_password }}"
@@ -47,7 +47,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create SDN zone
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: pve.example.com
     api_user: automation@pve
     api_token_id: ci-token
@@ -252,7 +252,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create VLAN zone
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -262,7 +262,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Create VNet in zone
-  sfulmer.proxmox.proxmox_sdn_vnet:
+  stevefulme1.proxmox.proxmox_sdn_vnet:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -272,7 +272,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Create subnet
-  sfulmer.proxmox.proxmox_sdn_subnet:
+  stevefulme1.proxmox.proxmox_sdn_subnet:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -287,7 +287,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Allow SSH from management network
-  sfulmer.proxmox.proxmox_firewall_rule:
+  stevefulme1.proxmox.proxmox_firewall_rule:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -301,7 +301,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Create IP set for trusted hosts
-  sfulmer.proxmox.proxmox_firewall_ipset:
+  stevefulme1.proxmox.proxmox_firewall_ipset:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -318,7 +318,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Add NFS storage
-  sfulmer.proxmox.proxmox_storage:
+  stevefulme1.proxmox.proxmox_storage:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -332,7 +332,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Upload ISO
-  sfulmer.proxmox.proxmox_storage_content:
+  stevefulme1.proxmox.proxmox_storage_content:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -348,7 +348,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Configure VM hardware
-  sfulmer.proxmox.proxmox_vm_config:
+  stevefulme1.proxmox.proxmox_vm_config:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -359,7 +359,7 @@ All modules support two authentication methods:
     name: webserver
 
 - name: Take VM snapshot
-  sfulmer.proxmox.proxmox_vm_snapshot:
+  stevefulme1.proxmox.proxmox_vm_snapshot:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -370,7 +370,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Clone VM
-  sfulmer.proxmox.proxmox_vm_clone:
+  stevefulme1.proxmox.proxmox_vm_clone:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -381,7 +381,7 @@ All modules support two authentication methods:
     full: true
 
 - name: Migrate VM to another node
-  sfulmer.proxmox.proxmox_vm_migrate:
+  stevefulme1.proxmox.proxmox_vm_migrate:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -395,7 +395,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create HA group
-  sfulmer.proxmox.proxmox_ha_group:
+  stevefulme1.proxmox.proxmox_ha_group:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -411,7 +411,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Add VM to HA
-  sfulmer.proxmox.proxmox_ha_resource:
+  stevefulme1.proxmox.proxmox_ha_resource:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -427,7 +427,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create Ceph pool
-  sfulmer.proxmox.proxmox_ceph_pool:
+  stevefulme1.proxmox.proxmox_ceph_pool:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -440,7 +440,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Get Ceph status
-  sfulmer.proxmox.proxmox_ceph_info:
+  stevefulme1.proxmox.proxmox_ceph_info:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -452,7 +452,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create automation user
-  sfulmer.proxmox.proxmox_user:
+  stevefulme1.proxmox.proxmox_user:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -464,7 +464,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Create API token
-  sfulmer.proxmox.proxmox_token:
+  stevefulme1.proxmox.proxmox_token:
     api_host: pve.example.com
     api_user: root@pam
     api_password: "{{ proxmox_password }}"
@@ -479,7 +479,7 @@ All modules support two authentication methods:
 
 ```yaml
 - name: Create PBS datastore
-  sfulmer.proxmox.proxmox_pbs_datastore:
+  stevefulme1.proxmox.proxmox_pbs_datastore:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: "{{ pbs_password }}"
@@ -492,7 +492,7 @@ All modules support two authentication methods:
     state: present
 
 - name: Create sync job
-  sfulmer.proxmox.proxmox_pbs_sync_job:
+  stevefulme1.proxmox.proxmox_pbs_sync_job:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: "{{ pbs_password }}"

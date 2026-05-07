@@ -53,7 +53,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a snapshot
-  sfulmer.proxmox.proxmox_vm_snapshot:
+  stevefulme1.proxmox.proxmox_vm_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -65,7 +65,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Rollback to a snapshot
-  sfulmer.proxmox.proxmox_vm_snapshot:
+  stevefulme1.proxmox.proxmox_vm_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ EXAMPLES = r'''
     state: rollback
 
 - name: Delete a snapshot
-  sfulmer.proxmox.proxmox_vm_snapshot:
+  stevefulme1.proxmox.proxmox_vm_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -102,7 +102,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def get_snapshot(api, node, vmid, snapname):

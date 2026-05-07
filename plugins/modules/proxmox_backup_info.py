@@ -19,12 +19,12 @@ author:
   - sfulmer
 options: {}
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: List all backup jobs
-  sfulmer.proxmox.proxmox_backup_info:
+  stevefulme1.proxmox.proxmox_backup_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -50,7 +50,7 @@ backup_jobs:
       enabled: 1
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

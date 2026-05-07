@@ -49,7 +49,7 @@ author:
 
 EXAMPLES = r'''
 - name: Wake up a node via WoL
-  sfulmer.proxmox.proxmox_node_wake_on_lan:
+  stevefulme1.proxmox.proxmox_node_wake_on_lan:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -68,7 +68,7 @@ mac:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

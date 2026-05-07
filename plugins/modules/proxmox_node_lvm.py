@@ -73,7 +73,7 @@ author:
 
 EXAMPLES = r'''
 - name: Create an LVM volume group
-  sfulmer.proxmox.proxmox_node_lvm:
+  stevefulme1.proxmox.proxmox_node_lvm:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -82,7 +82,7 @@ EXAMPLES = r'''
     device: /dev/sdb
 
 - name: Create an LVM-thin pool
-  sfulmer.proxmox.proxmox_node_lvm:
+  stevefulme1.proxmox.proxmox_node_lvm:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -105,7 +105,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def vg_exists(api, node, name, thin):

@@ -61,12 +61,12 @@ options:
       - The command string to execute for the C(exec) command.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Ping the guest agent
-  sfulmer.proxmox.proxmox_vm_agent:
+  stevefulme1.proxmox.proxmox_vm_agent:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -76,7 +76,7 @@ EXAMPLES = r'''
     command: ping
 
 - name: Get OS information
-  sfulmer.proxmox.proxmox_vm_agent:
+  stevefulme1.proxmox.proxmox_vm_agent:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -87,7 +87,7 @@ EXAMPLES = r'''
   register: osinfo
 
 - name: Read a file from the VM
-  sfulmer.proxmox.proxmox_vm_agent:
+  stevefulme1.proxmox.proxmox_vm_agent:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -98,7 +98,7 @@ EXAMPLES = r'''
     file_path: /etc/hostname
 
 - name: Write a file to the VM
-  sfulmer.proxmox.proxmox_vm_agent:
+  stevefulme1.proxmox.proxmox_vm_agent:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -110,7 +110,7 @@ EXAMPLES = r'''
     file_content: "Hello, World!"
 
 - name: Execute a command in the VM
-  sfulmer.proxmox.proxmox_vm_agent:
+  stevefulme1.proxmox.proxmox_vm_agent:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -135,7 +135,7 @@ msg:
   sample: "Guest agent command 'ping' executed successfully."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

@@ -59,7 +59,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a tape backup job
-  sfulmer.proxmox.proxmox_pbs_tape_backup_job:
+  stevefulme1.proxmox.proxmox_pbs_tape_backup_job:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -73,7 +73,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a tape backup job
-  sfulmer.proxmox.proxmox_pbs_tape_backup_job:
+  stevefulme1.proxmox.proxmox_pbs_tape_backup_job:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -92,7 +92,7 @@ job_id:
   sample: nightly-tape
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -75,7 +75,7 @@ author:
 
 EXAMPLES = r'''
 - name: Get status of a specific task
-  sfulmer.proxmox.proxmox_task_info:
+  stevefulme1.proxmox.proxmox_task_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -84,7 +84,7 @@ EXAMPLES = r'''
   register: task_status
 
 - name: List active tasks
-  sfulmer.proxmox.proxmox_task_info:
+  stevefulme1.proxmox.proxmox_task_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -93,7 +93,7 @@ EXAMPLES = r'''
   register: active_tasks
 
 - name: List recent vzdump tasks for VM 100
-  sfulmer.proxmox.proxmox_task_info:
+  stevefulme1.proxmox.proxmox_task_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -120,7 +120,7 @@ tasks:
   elements: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

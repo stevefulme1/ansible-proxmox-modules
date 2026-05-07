@@ -60,7 +60,7 @@ author:
 
 EXAMPLES = r'''
 - name: Restart pvedaemon
-  sfulmer.proxmox.proxmox_node_service:
+  stevefulme1.proxmox.proxmox_node_service:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -69,7 +69,7 @@ EXAMPLES = r'''
     action: restart
 
 - name: Check pveproxy status
-  sfulmer.proxmox.proxmox_node_service:
+  stevefulme1.proxmox.proxmox_node_service:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -79,7 +79,7 @@ EXAMPLES = r'''
   register: svc_status
 
 - name: Stop ceph service
-  sfulmer.proxmox.proxmox_node_service:
+  stevefulme1.proxmox.proxmox_node_service:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -105,7 +105,7 @@ status:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -100,12 +100,12 @@ options:
       - present
       - absent
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create an LDAP realm
-  sfulmer.proxmox.proxmox_realm:
+  stevefulme1.proxmox.proxmox_realm:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -119,7 +119,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create an OpenID Connect realm
-  sfulmer.proxmox.proxmox_realm:
+  stevefulme1.proxmox.proxmox_realm:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -133,7 +133,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a realm
-  sfulmer.proxmox.proxmox_realm:
+  stevefulme1.proxmox.proxmox_realm:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -155,7 +155,7 @@ msg:
   sample: "Realm 'myldap' created successfully."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

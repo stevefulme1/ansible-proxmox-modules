@@ -59,12 +59,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Configure DHCP range on a subnet
-  sfulmer.proxmox.proxmox_sdn_dhcp:
+  stevefulme1.proxmox.proxmox_sdn_dhcp:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -78,7 +78,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Configure multiple DHCP ranges
-  sfulmer.proxmox.proxmox_sdn_dhcp:
+  stevefulme1.proxmox.proxmox_sdn_dhcp:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -93,7 +93,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove DHCP settings from a subnet
-  sfulmer.proxmox.proxmox_sdn_dhcp:
+  stevefulme1.proxmox.proxmox_sdn_dhcp:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -110,7 +110,7 @@ subnet_info:
   returned: on success
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

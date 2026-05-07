@@ -51,7 +51,7 @@ author:
 
 EXAMPLES = r'''
 - name: List all physical disks on a node
-  sfulmer.proxmox.proxmox_node_disks_info:
+  stevefulme1.proxmox.proxmox_node_disks_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -59,7 +59,7 @@ EXAMPLES = r'''
   register: disk_info
 
 - name: List only SSD disks
-  sfulmer.proxmox.proxmox_node_disks_info:
+  stevefulme1.proxmox.proxmox_node_disks_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -83,7 +83,7 @@ disks:
       health: "PASSED"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

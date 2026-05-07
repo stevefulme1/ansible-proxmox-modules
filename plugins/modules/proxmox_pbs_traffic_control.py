@@ -56,7 +56,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a bandwidth limit rule
-  sfulmer.proxmox.proxmox_pbs_traffic_control:
+  stevefulme1.proxmox.proxmox_pbs_traffic_control:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -70,7 +70,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a time-based traffic control rule
-  sfulmer.proxmox.proxmox_pbs_traffic_control:
+  stevefulme1.proxmox.proxmox_pbs_traffic_control:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -85,7 +85,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a traffic control rule
-  sfulmer.proxmox.proxmox_pbs_traffic_control:
+  stevefulme1.proxmox.proxmox_pbs_traffic_control:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -101,7 +101,7 @@ name:
   sample: office-limit
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

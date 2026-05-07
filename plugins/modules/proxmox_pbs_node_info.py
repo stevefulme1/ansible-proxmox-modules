@@ -24,7 +24,7 @@ author:
 
 EXAMPLES = r'''
 - name: Get PBS node status
-  sfulmer.proxmox.proxmox_pbs_node_info:
+  stevefulme1.proxmox.proxmox_pbs_node_info:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -60,7 +60,7 @@ info:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

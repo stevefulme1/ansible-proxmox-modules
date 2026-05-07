@@ -39,12 +39,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a Ceph MDS daemon
-  sfulmer.proxmox.proxmox_ceph_mds:
+  stevefulme1.proxmox.proxmox_ceph_mds:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -55,7 +55,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a Ceph MDS daemon
-  sfulmer.proxmox.proxmox_ceph_mds:
+  stevefulme1.proxmox.proxmox_ceph_mds:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -72,7 +72,7 @@ mds:
   returned: on success when state is present
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

@@ -1,5 +1,5 @@
 ===========================
-sfulmer.proxmox Release Notes
+stevefulme1.proxmox Release Notes
 ===========================
 
 .. contents:: Topics
@@ -10,7 +10,7 @@ v1.0.0
 Release Summary
 ---------------
 
-Initial release of the ``sfulmer.proxmox`` collection with 106 modules covering
+Initial release of the ``stevefulme1.proxmox`` collection with 106 modules covering
 Proxmox VE and Proxmox Backup Server management.
 
 New Modules

@@ -50,12 +50,12 @@ options:
       - Mapping of source storage to target storage. Format C(source:target) or a single storage name.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Migrate container to another node
-  sfulmer.proxmox.proxmox_lxc_migrate:
+  stevefulme1.proxmox.proxmox_lxc_migrate:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -64,7 +64,7 @@ EXAMPLES = r'''
     target: pve2
 
 - name: Online migration with target storage
-  sfulmer.proxmox.proxmox_lxc_migrate:
+  stevefulme1.proxmox.proxmox_lxc_migrate:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -92,7 +92,7 @@ task_id:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

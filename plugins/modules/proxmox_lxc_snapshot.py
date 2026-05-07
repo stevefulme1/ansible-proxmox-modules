@@ -45,12 +45,12 @@ options:
     choices: ['present', 'absent', 'rollback']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a snapshot
-  sfulmer.proxmox.proxmox_lxc_snapshot:
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -60,7 +60,7 @@ EXAMPLES = r'''
     description: Snapshot before package upgrade
 
 - name: Delete a snapshot
-  sfulmer.proxmox.proxmox_lxc_snapshot:
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -70,7 +70,7 @@ EXAMPLES = r'''
     state: absent
 
 - name: Rollback to a snapshot
-  sfulmer.proxmox.proxmox_lxc_snapshot:
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -97,7 +97,7 @@ task_id:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

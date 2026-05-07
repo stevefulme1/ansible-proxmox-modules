@@ -56,7 +56,7 @@ author:
 
 EXAMPLES = r'''
 - name: Initialize /dev/sdb with GPT
-  sfulmer.proxmox.proxmox_node_disk_init:
+  stevefulme1.proxmox.proxmox_node_disk_init:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -64,7 +64,7 @@ EXAMPLES = r'''
     disk: /dev/sdb
 
 - name: Initialize disk with specific UUID
-  sfulmer.proxmox.proxmox_node_disk_init:
+  stevefulme1.proxmox.proxmox_node_disk_init:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -85,7 +85,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

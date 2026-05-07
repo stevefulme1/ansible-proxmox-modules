@@ -8,7 +8,7 @@
 # =============================================================================
 # SDN — Software-Defined Networking
 # =============================================================================
-sfulmer.proxmox.proxmox_sdn_zone:
+stevefulme1.proxmox.proxmox_sdn_zone:
   query: >-
     .zone | select(. != null) | {
       name: ("sdn_zone:" + (. | tostring)),
@@ -22,7 +22,7 @@ sfulmer.proxmox.proxmox_sdn_zone:
         device_type: "SDN Zone"
       }
     }
-sfulmer.proxmox.proxmox_sdn_vnet:
+stevefulme1.proxmox.proxmox_sdn_vnet:
   query: >-
     .vnet | select(. != null) | {
       name: ("sdn_vnet:" + (. | tostring)),
@@ -36,7 +36,7 @@ sfulmer.proxmox.proxmox_sdn_vnet:
         device_type: "SDN VNet"
       }
     }
-sfulmer.proxmox.proxmox_sdn_subnet:
+stevefulme1.proxmox.proxmox_sdn_subnet:
   query: >-
     .subnet | select(. != null) | {
       name: ("sdn_subnet:" + (. | tostring)),
@@ -50,7 +50,7 @@ sfulmer.proxmox.proxmox_sdn_subnet:
         device_type: "SDN Subnet"
       }
     }
-sfulmer.proxmox.proxmox_sdn_controller:
+stevefulme1.proxmox.proxmox_sdn_controller:
   query: >-
     .controller | select(. != null) | {
       name: ("sdn_controller:" + (. | tostring)),
@@ -64,7 +64,7 @@ sfulmer.proxmox.proxmox_sdn_controller:
         device_type: "SDN Controller"
       }
     }
-sfulmer.proxmox.proxmox_sdn_dns:
+stevefulme1.proxmox.proxmox_sdn_dns:
   query: >-
     .dns | select(. != null) | {
       name: ("sdn_dns:" + (. | tostring)),
@@ -78,7 +78,7 @@ sfulmer.proxmox.proxmox_sdn_dns:
         device_type: "SDN DNS"
       }
     }
-sfulmer.proxmox.proxmox_sdn_ipam:
+stevefulme1.proxmox.proxmox_sdn_ipam:
   query: >-
     .ipam | select(. != null) | {
       name: ("sdn_ipam:" + (. | tostring)),
@@ -92,7 +92,7 @@ sfulmer.proxmox.proxmox_sdn_ipam:
         device_type: "SDN IPAM"
       }
     }
-sfulmer.proxmox.proxmox_sdn_dhcp:
+stevefulme1.proxmox.proxmox_sdn_dhcp:
   query: >-
     .vnet | select(. != null) | {
       name: ("sdn_dhcp:" + (. | tostring)),
@@ -106,7 +106,7 @@ sfulmer.proxmox.proxmox_sdn_dhcp:
         device_type: "SDN DHCP"
       }
     }
-sfulmer.proxmox.proxmox_sdn_info:
+stevefulme1.proxmox.proxmox_sdn_info:
   query: >-
     .sdn | select(. != null) | {
       name: "sdn_info",
@@ -123,7 +123,7 @@ sfulmer.proxmox.proxmox_sdn_info:
 # =============================================================================
 # Firewall
 # =============================================================================
-sfulmer.proxmox.proxmox_firewall_rule:
+stevefulme1.proxmox.proxmox_firewall_rule:
   query: >-
     .pos | select(. != null) | {
       name: ("firewall_rule:" + (. | tostring)),
@@ -137,7 +137,7 @@ sfulmer.proxmox.proxmox_firewall_rule:
         device_type: "Firewall Rule"
       }
     }
-sfulmer.proxmox.proxmox_firewall_ipset:
+stevefulme1.proxmox.proxmox_firewall_ipset:
   query: >-
     .name | select(. != null) | {
       name: ("firewall_ipset:" + (. | tostring)),
@@ -151,7 +151,7 @@ sfulmer.proxmox.proxmox_firewall_ipset:
         device_type: "Firewall IP Set"
       }
     }
-sfulmer.proxmox.proxmox_firewall_alias:
+stevefulme1.proxmox.proxmox_firewall_alias:
   query: >-
     .name | select(. != null) | {
       name: ("firewall_alias:" + (. | tostring)),
@@ -165,7 +165,7 @@ sfulmer.proxmox.proxmox_firewall_alias:
         device_type: "Firewall Alias"
       }
     }
-sfulmer.proxmox.proxmox_firewall_group:
+stevefulme1.proxmox.proxmox_firewall_group:
   query: >-
     .name | select(. != null) | {
       name: ("firewall_group:" + (. | tostring)),
@@ -179,7 +179,7 @@ sfulmer.proxmox.proxmox_firewall_group:
         device_type: "Firewall Security Group"
       }
     }
-sfulmer.proxmox.proxmox_firewall_options:
+stevefulme1.proxmox.proxmox_firewall_options:
   query: >-
     {
       name: "firewall_options",
@@ -192,7 +192,7 @@ sfulmer.proxmox.proxmox_firewall_options:
         device_type: "Firewall Options"
       }
     }
-sfulmer.proxmox.proxmox_firewall_refs_info:
+stevefulme1.proxmox.proxmox_firewall_refs_info:
   query: >-
     .refs[] | {
       name: ("firewall_ref:" + (.name | tostring)),
@@ -206,7 +206,7 @@ sfulmer.proxmox.proxmox_firewall_refs_info:
         device_type: "Firewall Reference"
       }
     }
-sfulmer.proxmox.proxmox_firewall_log_info:
+stevefulme1.proxmox.proxmox_firewall_log_info:
   query: >-
     .logs[] | {
       name: ("firewall_log:" + (.n | tostring)),
@@ -224,7 +224,7 @@ sfulmer.proxmox.proxmox_firewall_log_info:
 # =============================================================================
 # Storage
 # =============================================================================
-sfulmer.proxmox.proxmox_storage:
+stevefulme1.proxmox.proxmox_storage:
   query: >-
     .storage | select(. != null) | {
       name: ("storage:" + (. | tostring)),
@@ -238,7 +238,7 @@ sfulmer.proxmox.proxmox_storage:
         device_type: "Storage Definition"
       }
     }
-sfulmer.proxmox.proxmox_storage_info:
+stevefulme1.proxmox.proxmox_storage_info:
   query: >-
     .storages[] | {
       name: ("storage_info:" + (.storage | tostring)),
@@ -252,7 +252,7 @@ sfulmer.proxmox.proxmox_storage_info:
         device_type: "Storage"
       }
     }
-sfulmer.proxmox.proxmox_storage_content:
+stevefulme1.proxmox.proxmox_storage_content:
   query: >-
     .volid | select(. != null) | {
       name: ("storage_content:" + (. | tostring)),
@@ -266,7 +266,7 @@ sfulmer.proxmox.proxmox_storage_content:
         device_type: "Storage Content"
       }
     }
-sfulmer.proxmox.proxmox_storage_status_info:
+stevefulme1.proxmox.proxmox_storage_status_info:
   query: >-
     .storage | select(. != null) | {
       name: ("storage_status:" + (. | tostring)),
@@ -284,7 +284,7 @@ sfulmer.proxmox.proxmox_storage_status_info:
 # =============================================================================
 # VM Lifecycle
 # =============================================================================
-sfulmer.proxmox.proxmox_vm_config:
+stevefulme1.proxmox.proxmox_vm_config:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_config:" + (. | tostring)),
@@ -298,7 +298,7 @@ sfulmer.proxmox.proxmox_vm_config:
         device_type: "Virtual Machine"
       }
     }
-sfulmer.proxmox.proxmox_vm_snapshot:
+stevefulme1.proxmox.proxmox_vm_snapshot:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_snapshot:" + (. | tostring)),
@@ -312,7 +312,7 @@ sfulmer.proxmox.proxmox_vm_snapshot:
         device_type: "VM Snapshot"
       }
     }
-sfulmer.proxmox.proxmox_vm_clone:
+stevefulme1.proxmox.proxmox_vm_clone:
   query: >-
     .newid | select(. != null) | {
       name: ("vm_clone:" + (. | tostring)),
@@ -326,7 +326,7 @@ sfulmer.proxmox.proxmox_vm_clone:
         device_type: "Virtual Machine"
       }
     }
-sfulmer.proxmox.proxmox_vm_migrate:
+stevefulme1.proxmox.proxmox_vm_migrate:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_migrate:" + (. | tostring)),
@@ -340,7 +340,7 @@ sfulmer.proxmox.proxmox_vm_migrate:
         device_type: "Virtual Machine"
       }
     }
-sfulmer.proxmox.proxmox_vm_template:
+stevefulme1.proxmox.proxmox_vm_template:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_template:" + (. | tostring)),
@@ -354,7 +354,7 @@ sfulmer.proxmox.proxmox_vm_template:
         device_type: "VM Template"
       }
     }
-sfulmer.proxmox.proxmox_vm_info:
+stevefulme1.proxmox.proxmox_vm_info:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_info:" + (. | tostring)),
@@ -368,7 +368,7 @@ sfulmer.proxmox.proxmox_vm_info:
         device_type: "Virtual Machine"
       }
     }
-sfulmer.proxmox.proxmox_vm_pending_info:
+stevefulme1.proxmox.proxmox_vm_pending_info:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_pending:" + (. | tostring)),
@@ -382,7 +382,7 @@ sfulmer.proxmox.proxmox_vm_pending_info:
         device_type: "Virtual Machine"
       }
     }
-sfulmer.proxmox.proxmox_vm_pending_apply:
+stevefulme1.proxmox.proxmox_vm_pending_apply:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_pending_apply:" + (. | tostring)),
@@ -400,7 +400,7 @@ sfulmer.proxmox.proxmox_vm_pending_apply:
 # =============================================================================
 # VM Advanced Features
 # =============================================================================
-sfulmer.proxmox.proxmox_vm_agent:
+stevefulme1.proxmox.proxmox_vm_agent:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_agent:" + (. | tostring)),
@@ -414,7 +414,7 @@ sfulmer.proxmox.proxmox_vm_agent:
         device_type: "VM Guest Agent"
       }
     }
-sfulmer.proxmox.proxmox_vm_firewall:
+stevefulme1.proxmox.proxmox_vm_firewall:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_firewall:" + (. | tostring)),
@@ -428,7 +428,7 @@ sfulmer.proxmox.proxmox_vm_firewall:
         device_type: "VM Firewall"
       }
     }
-sfulmer.proxmox.proxmox_vm_disk:
+stevefulme1.proxmox.proxmox_vm_disk:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_disk:" + (. | tostring)),
@@ -442,7 +442,7 @@ sfulmer.proxmox.proxmox_vm_disk:
         device_type: "VM Disk"
       }
     }
-sfulmer.proxmox.proxmox_vm_cloudinit:
+stevefulme1.proxmox.proxmox_vm_cloudinit:
   query: >-
     .vmid | select(. != null) | {
       name: ("vm_cloudinit:" + (. | tostring)),
@@ -456,7 +456,7 @@ sfulmer.proxmox.proxmox_vm_cloudinit:
         device_type: "VM Cloud-Init"
       }
     }
-sfulmer.proxmox.proxmox_tag:
+stevefulme1.proxmox.proxmox_tag:
   query: >-
     .vmid | select(. != null) | {
       name: ("tag:" + (. | tostring)),
@@ -474,7 +474,7 @@ sfulmer.proxmox.proxmox_tag:
 # =============================================================================
 # Container Lifecycle
 # =============================================================================
-sfulmer.proxmox.proxmox_lxc_config:
+stevefulme1.proxmox.proxmox_lxc_config:
   query: >-
     .vmid | select(. != null) | {
       name: ("lxc_config:" + (. | tostring)),
@@ -488,7 +488,7 @@ sfulmer.proxmox.proxmox_lxc_config:
         device_type: "LXC Container"
       }
     }
-sfulmer.proxmox.proxmox_lxc_snapshot:
+stevefulme1.proxmox.proxmox_lxc_snapshot:
   query: >-
     .vmid | select(. != null) | {
       name: ("lxc_snapshot:" + (. | tostring)),
@@ -502,7 +502,7 @@ sfulmer.proxmox.proxmox_lxc_snapshot:
         device_type: "LXC Snapshot"
       }
     }
-sfulmer.proxmox.proxmox_lxc_clone:
+stevefulme1.proxmox.proxmox_lxc_clone:
   query: >-
     .newid | select(. != null) | {
       name: ("lxc_clone:" + (. | tostring)),
@@ -516,7 +516,7 @@ sfulmer.proxmox.proxmox_lxc_clone:
         device_type: "LXC Container"
       }
     }
-sfulmer.proxmox.proxmox_lxc_migrate:
+stevefulme1.proxmox.proxmox_lxc_migrate:
   query: >-
     .vmid | select(. != null) | {
       name: ("lxc_migrate:" + (. | tostring)),
@@ -534,7 +534,7 @@ sfulmer.proxmox.proxmox_lxc_migrate:
 # =============================================================================
 # Backup & Restore
 # =============================================================================
-sfulmer.proxmox.proxmox_backup_job:
+stevefulme1.proxmox.proxmox_backup_job:
   query: >-
     .job_id | select(. != null) | {
       name: ("backup_job:" + (. | tostring)),
@@ -548,7 +548,7 @@ sfulmer.proxmox.proxmox_backup_job:
         device_type: "Backup Job"
       }
     }
-sfulmer.proxmox.proxmox_backup_info:
+stevefulme1.proxmox.proxmox_backup_info:
   query: >-
     .jobs[] | {
       name: ("backup_info:" + (.id | tostring)),
@@ -562,7 +562,7 @@ sfulmer.proxmox.proxmox_backup_info:
         device_type: "Backup Job"
       }
     }
-sfulmer.proxmox.proxmox_backup_restore:
+stevefulme1.proxmox.proxmox_backup_restore:
   query: >-
     .vmid | select(. != null) | {
       name: ("backup_restore:" + (. | tostring)),
@@ -580,7 +580,7 @@ sfulmer.proxmox.proxmox_backup_restore:
 # =============================================================================
 # Cluster & High Availability
 # =============================================================================
-sfulmer.proxmox.proxmox_cluster_info:
+stevefulme1.proxmox.proxmox_cluster_info:
   query: >-
     .cluster_name | select(. != null) | {
       name: ("cluster:" + (. | tostring)),
@@ -594,7 +594,7 @@ sfulmer.proxmox.proxmox_cluster_info:
         device_type: "Cluster"
       }
     }
-sfulmer.proxmox.proxmox_cluster_options:
+stevefulme1.proxmox.proxmox_cluster_options:
   query: >-
     {
       name: "cluster_options",
@@ -607,7 +607,7 @@ sfulmer.proxmox.proxmox_cluster_options:
         device_type: "Cluster Options"
       }
     }
-sfulmer.proxmox.proxmox_cluster_join_info:
+stevefulme1.proxmox.proxmox_cluster_join_info:
   query: >-
     {
       name: "cluster_join_info",
@@ -620,7 +620,7 @@ sfulmer.proxmox.proxmox_cluster_join_info:
         device_type: "Cluster Join Info"
       }
     }
-sfulmer.proxmox.proxmox_cluster_metrics:
+stevefulme1.proxmox.proxmox_cluster_metrics:
   query: >-
     .name | select(. != null) | {
       name: ("cluster_metrics:" + (. | tostring)),
@@ -634,7 +634,7 @@ sfulmer.proxmox.proxmox_cluster_metrics:
         device_type: "Metrics Server"
       }
     }
-sfulmer.proxmox.proxmox_cluster_log_info:
+stevefulme1.proxmox.proxmox_cluster_log_info:
   query: >-
     .logs[] | {
       name: ("cluster_log:" + (.n | tostring)),
@@ -648,7 +648,7 @@ sfulmer.proxmox.proxmox_cluster_log_info:
         device_type: "Cluster Log Entry"
       }
     }
-sfulmer.proxmox.proxmox_ha_group:
+stevefulme1.proxmox.proxmox_ha_group:
   query: >-
     .group | select(. != null) | {
       name: ("ha_group:" + (. | tostring)),
@@ -662,7 +662,7 @@ sfulmer.proxmox.proxmox_ha_group:
         device_type: "HA Group"
       }
     }
-sfulmer.proxmox.proxmox_ha_resource:
+stevefulme1.proxmox.proxmox_ha_resource:
   query: >-
     .sid | select(. != null) | {
       name: ("ha_resource:" + (. | tostring)),
@@ -680,7 +680,7 @@ sfulmer.proxmox.proxmox_ha_resource:
 # =============================================================================
 # Ceph
 # =============================================================================
-sfulmer.proxmox.proxmox_ceph_mon:
+stevefulme1.proxmox.proxmox_ceph_mon:
   query: >-
     .monid | select(. != null) | {
       name: ("ceph_mon:" + (. | tostring)),
@@ -694,7 +694,7 @@ sfulmer.proxmox.proxmox_ceph_mon:
         device_type: "Ceph Monitor"
       }
     }
-sfulmer.proxmox.proxmox_ceph_osd:
+stevefulme1.proxmox.proxmox_ceph_osd:
   query: >-
     .osdid | select(. != null) | {
       name: ("ceph_osd:" + (. | tostring)),
@@ -708,7 +708,7 @@ sfulmer.proxmox.proxmox_ceph_osd:
         device_type: "Ceph OSD"
       }
     }
-sfulmer.proxmox.proxmox_ceph_pool:
+stevefulme1.proxmox.proxmox_ceph_pool:
   query: >-
     .name | select(. != null) | {
       name: ("ceph_pool:" + (. | tostring)),
@@ -722,7 +722,7 @@ sfulmer.proxmox.proxmox_ceph_pool:
         device_type: "Ceph Pool"
       }
     }
-sfulmer.proxmox.proxmox_ceph_fs:
+stevefulme1.proxmox.proxmox_ceph_fs:
   query: >-
     .name | select(. != null) | {
       name: ("ceph_fs:" + (. | tostring)),
@@ -736,7 +736,7 @@ sfulmer.proxmox.proxmox_ceph_fs:
         device_type: "CephFS"
       }
     }
-sfulmer.proxmox.proxmox_ceph_mds:
+stevefulme1.proxmox.proxmox_ceph_mds:
   query: >-
     .name | select(. != null) | {
       name: ("ceph_mds:" + (. | tostring)),
@@ -750,7 +750,7 @@ sfulmer.proxmox.proxmox_ceph_mds:
         device_type: "Ceph MDS"
       }
     }
-sfulmer.proxmox.proxmox_ceph_mgr:
+stevefulme1.proxmox.proxmox_ceph_mgr:
   query: >-
     .mgr_id | select(. != null) | {
       name: ("ceph_mgr:" + (. | tostring)),
@@ -764,7 +764,7 @@ sfulmer.proxmox.proxmox_ceph_mgr:
         device_type: "Ceph Manager"
       }
     }
-sfulmer.proxmox.proxmox_ceph_info:
+stevefulme1.proxmox.proxmox_ceph_info:
   query: >-
     .ceph_status | select(. != null) | {
       name: "ceph_info",
@@ -781,7 +781,7 @@ sfulmer.proxmox.proxmox_ceph_info:
 # =============================================================================
 # Certificates
 # =============================================================================
-sfulmer.proxmox.proxmox_certificate:
+stevefulme1.proxmox.proxmox_certificate:
   query: >-
     .node | select(. != null) | {
       name: ("certificate:" + (. | tostring)),
@@ -795,7 +795,7 @@ sfulmer.proxmox.proxmox_certificate:
         device_type: "TLS Certificate"
       }
     }
-sfulmer.proxmox.proxmox_acme:
+stevefulme1.proxmox.proxmox_acme:
   query: >-
     .node | select(. != null) | {
       name: ("acme:" + (. | tostring)),
@@ -813,7 +813,7 @@ sfulmer.proxmox.proxmox_acme:
 # =============================================================================
 # User & Identity Management
 # =============================================================================
-sfulmer.proxmox.proxmox_user:
+stevefulme1.proxmox.proxmox_user:
   query: >-
     .userid | select(. != null) | {
       name: ("user:" + (. | tostring)),
@@ -827,7 +827,7 @@ sfulmer.proxmox.proxmox_user:
         device_type: "User"
       }
     }
-sfulmer.proxmox.proxmox_group:
+stevefulme1.proxmox.proxmox_group:
   query: >-
     .groupid | select(. != null) | {
       name: ("group:" + (. | tostring)),
@@ -841,7 +841,7 @@ sfulmer.proxmox.proxmox_group:
         device_type: "Group"
       }
     }
-sfulmer.proxmox.proxmox_role:
+stevefulme1.proxmox.proxmox_role:
   query: >-
     .roleid | select(. != null) | {
       name: ("role:" + (. | tostring)),
@@ -855,7 +855,7 @@ sfulmer.proxmox.proxmox_role:
         device_type: "Role"
       }
     }
-sfulmer.proxmox.proxmox_token:
+stevefulme1.proxmox.proxmox_token:
   query: >-
     .tokenid | select(. != null) | {
       name: ("token:" + (. | tostring)),
@@ -869,7 +869,7 @@ sfulmer.proxmox.proxmox_token:
         device_type: "API Token"
       }
     }
-sfulmer.proxmox.proxmox_realm:
+stevefulme1.proxmox.proxmox_realm:
   query: >-
     .realm | select(. != null) | {
       name: ("realm:" + (. | tostring)),
@@ -883,7 +883,7 @@ sfulmer.proxmox.proxmox_realm:
         device_type: "Auth Realm"
       }
     }
-sfulmer.proxmox.proxmox_acl:
+stevefulme1.proxmox.proxmox_acl:
   query: >-
     .path | select(. != null) | {
       name: ("acl:" + (. | tostring)),
@@ -897,7 +897,7 @@ sfulmer.proxmox.proxmox_acl:
         device_type: "ACL Entry"
       }
     }
-sfulmer.proxmox.proxmox_tfa:
+stevefulme1.proxmox.proxmox_tfa:
   query: >-
     .userid | select(. != null) | {
       name: ("tfa:" + (. | tostring)),
@@ -911,7 +911,7 @@ sfulmer.proxmox.proxmox_tfa:
         device_type: "TFA Configuration"
       }
     }
-sfulmer.proxmox.proxmox_permission_info:
+stevefulme1.proxmox.proxmox_permission_info:
   query: >-
     .permissions | select(. != null) | {
       name: "permission_info",
@@ -928,7 +928,7 @@ sfulmer.proxmox.proxmox_permission_info:
 # =============================================================================
 # Node Management
 # =============================================================================
-sfulmer.proxmox.proxmox_node_network:
+stevefulme1.proxmox.proxmox_node_network:
   query: >-
     .iface | select(. != null) | {
       name: ("node_network:" + (. | tostring)),
@@ -942,7 +942,7 @@ sfulmer.proxmox.proxmox_node_network:
         device_type: "Network Interface"
       }
     }
-sfulmer.proxmox.proxmox_node_network_info:
+stevefulme1.proxmox.proxmox_node_network_info:
   query: >-
     .interfaces[] | {
       name: ("node_network_info:" + (.iface | tostring)),
@@ -956,7 +956,7 @@ sfulmer.proxmox.proxmox_node_network_info:
         device_type: "Network Interface"
       }
     }
-sfulmer.proxmox.proxmox_node_info:
+stevefulme1.proxmox.proxmox_node_info:
   query: >-
     .node | select(. != null) | {
       name: ("node_info:" + (. | tostring)),
@@ -970,7 +970,7 @@ sfulmer.proxmox.proxmox_node_info:
         device_type: "Hypervisor Node"
       }
     }
-sfulmer.proxmox.proxmox_node_dns:
+stevefulme1.proxmox.proxmox_node_dns:
   query: >-
     .node | select(. != null) | {
       name: ("node_dns:" + (. | tostring)),
@@ -984,7 +984,7 @@ sfulmer.proxmox.proxmox_node_dns:
         device_type: "Node DNS"
       }
     }
-sfulmer.proxmox.proxmox_node_hosts:
+stevefulme1.proxmox.proxmox_node_hosts:
   query: >-
     .node | select(. != null) | {
       name: ("node_hosts:" + (. | tostring)),
@@ -998,7 +998,7 @@ sfulmer.proxmox.proxmox_node_hosts:
         device_type: "Node Hosts File"
       }
     }
-sfulmer.proxmox.proxmox_node_time:
+stevefulme1.proxmox.proxmox_node_time:
   query: >-
     .node | select(. != null) | {
       name: ("node_time:" + (. | tostring)),
@@ -1012,7 +1012,7 @@ sfulmer.proxmox.proxmox_node_time:
         device_type: "Node Timezone"
       }
     }
-sfulmer.proxmox.proxmox_node_syslog_info:
+stevefulme1.proxmox.proxmox_node_syslog_info:
   query: >-
     .logs[] | {
       name: ("node_syslog:" + (.n | tostring)),
@@ -1026,7 +1026,7 @@ sfulmer.proxmox.proxmox_node_syslog_info:
         device_type: "Syslog Entry"
       }
     }
-sfulmer.proxmox.proxmox_node_apt:
+stevefulme1.proxmox.proxmox_node_apt:
   query: >-
     .node | select(. != null) | {
       name: ("node_apt:" + (. | tostring)),
@@ -1040,7 +1040,7 @@ sfulmer.proxmox.proxmox_node_apt:
         device_type: "APT Repository"
       }
     }
-sfulmer.proxmox.proxmox_node_service:
+stevefulme1.proxmox.proxmox_node_service:
   query: >-
     .service | select(. != null) | {
       name: ("node_service:" + (. | tostring)),
@@ -1054,7 +1054,7 @@ sfulmer.proxmox.proxmox_node_service:
         device_type: "Node Service"
       }
     }
-sfulmer.proxmox.proxmox_node_disks_info:
+stevefulme1.proxmox.proxmox_node_disks_info:
   query: >-
     .disks[] | {
       name: ("node_disk:" + (.devpath | tostring)),
@@ -1068,7 +1068,7 @@ sfulmer.proxmox.proxmox_node_disks_info:
         device_type: "Physical Disk"
       }
     }
-sfulmer.proxmox.proxmox_node_disk_init:
+stevefulme1.proxmox.proxmox_node_disk_init:
   query: >-
     .disk | select(. != null) | {
       name: ("node_disk_init:" + (. | tostring)),
@@ -1082,7 +1082,7 @@ sfulmer.proxmox.proxmox_node_disk_init:
         device_type: "Disk Init"
       }
     }
-sfulmer.proxmox.proxmox_node_lvm:
+stevefulme1.proxmox.proxmox_node_lvm:
   query: >-
     .name | select(. != null) | {
       name: ("node_lvm:" + (. | tostring)),
@@ -1096,7 +1096,7 @@ sfulmer.proxmox.proxmox_node_lvm:
         device_type: "LVM Volume Group"
       }
     }
-sfulmer.proxmox.proxmox_node_zfs:
+stevefulme1.proxmox.proxmox_node_zfs:
   query: >-
     .name | select(. != null) | {
       name: ("node_zfs:" + (. | tostring)),
@@ -1110,7 +1110,7 @@ sfulmer.proxmox.proxmox_node_zfs:
         device_type: "ZFS Pool"
       }
     }
-sfulmer.proxmox.proxmox_node_certs_info:
+stevefulme1.proxmox.proxmox_node_certs_info:
   query: >-
     .certificates[] | {
       name: ("node_cert:" + (.subject | tostring)),
@@ -1124,7 +1124,7 @@ sfulmer.proxmox.proxmox_node_certs_info:
         device_type: "Node Certificate"
       }
     }
-sfulmer.proxmox.proxmox_node_subscription:
+stevefulme1.proxmox.proxmox_node_subscription:
   query: >-
     .node | select(. != null) | {
       name: ("node_subscription:" + (. | tostring)),
@@ -1138,7 +1138,7 @@ sfulmer.proxmox.proxmox_node_subscription:
         device_type: "Subscription"
       }
     }
-sfulmer.proxmox.proxmox_node_wake_on_lan:
+stevefulme1.proxmox.proxmox_node_wake_on_lan:
   query: >-
     .node | select(. != null) | {
       name: ("node_wol:" + (. | tostring)),
@@ -1156,7 +1156,7 @@ sfulmer.proxmox.proxmox_node_wake_on_lan:
 # =============================================================================
 # Notifications
 # =============================================================================
-sfulmer.proxmox.proxmox_notification_endpoint:
+stevefulme1.proxmox.proxmox_notification_endpoint:
   query: >-
     .name | select(. != null) | {
       name: ("notification_endpoint:" + (. | tostring)),
@@ -1170,7 +1170,7 @@ sfulmer.proxmox.proxmox_notification_endpoint:
         device_type: "Notification Endpoint"
       }
     }
-sfulmer.proxmox.proxmox_notification_matcher:
+stevefulme1.proxmox.proxmox_notification_matcher:
   query: >-
     .name | select(. != null) | {
       name: ("notification_matcher:" + (. | tostring)),
@@ -1188,7 +1188,7 @@ sfulmer.proxmox.proxmox_notification_matcher:
 # =============================================================================
 # Resource Management
 # =============================================================================
-sfulmer.proxmox.proxmox_pool:
+stevefulme1.proxmox.proxmox_pool:
   query: >-
     .poolid | select(. != null) | {
       name: ("pool:" + (. | tostring)),
@@ -1202,7 +1202,7 @@ sfulmer.proxmox.proxmox_pool:
         device_type: "Resource Pool"
       }
     }
-sfulmer.proxmox.proxmox_pool_info:
+stevefulme1.proxmox.proxmox_pool_info:
   query: >-
     .pools[] | {
       name: ("pool_info:" + (.poolid | tostring)),
@@ -1216,7 +1216,7 @@ sfulmer.proxmox.proxmox_pool_info:
         device_type: "Resource Pool"
       }
     }
-sfulmer.proxmox.proxmox_replication:
+stevefulme1.proxmox.proxmox_replication:
   query: >-
     .rep_id | select(. != null) | {
       name: ("replication:" + (. | tostring)),
@@ -1230,7 +1230,7 @@ sfulmer.proxmox.proxmox_replication:
         device_type: "Replication Job"
       }
     }
-sfulmer.proxmox.proxmox_vzdump_defaults:
+stevefulme1.proxmox.proxmox_vzdump_defaults:
   query: >-
     {
       name: "vzdump_defaults",
@@ -1243,7 +1243,7 @@ sfulmer.proxmox.proxmox_vzdump_defaults:
         device_type: "Vzdump Defaults"
       }
     }
-sfulmer.proxmox.proxmox_task_info:
+stevefulme1.proxmox.proxmox_task_info:
   query: >-
     .tasks[] | {
       name: ("task:" + (.upid | tostring)),
@@ -1261,7 +1261,7 @@ sfulmer.proxmox.proxmox_task_info:
 # =============================================================================
 # Device Mappings
 # =============================================================================
-sfulmer.proxmox.proxmox_mapping_pci:
+stevefulme1.proxmox.proxmox_mapping_pci:
   query: >-
     .name | select(. != null) | {
       name: ("mapping_pci:" + (. | tostring)),
@@ -1275,7 +1275,7 @@ sfulmer.proxmox.proxmox_mapping_pci:
         device_type: "PCI Device Mapping"
       }
     }
-sfulmer.proxmox.proxmox_mapping_usb:
+stevefulme1.proxmox.proxmox_mapping_usb:
   query: >-
     .name | select(. != null) | {
       name: ("mapping_usb:" + (. | tostring)),
@@ -1293,7 +1293,7 @@ sfulmer.proxmox.proxmox_mapping_usb:
 # =============================================================================
 # Proxmox Backup Server (PBS)
 # =============================================================================
-sfulmer.proxmox.proxmox_pbs_datastore:
+stevefulme1.proxmox.proxmox_pbs_datastore:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_datastore:" + (. | tostring)),
@@ -1307,7 +1307,7 @@ sfulmer.proxmox.proxmox_pbs_datastore:
         device_type: "PBS Datastore"
       }
     }
-sfulmer.proxmox.proxmox_pbs_datastore_info:
+stevefulme1.proxmox.proxmox_pbs_datastore_info:
   query: >-
     .datastores[] | {
       name: ("pbs_datastore_info:" + (.name | tostring)),
@@ -1321,7 +1321,7 @@ sfulmer.proxmox.proxmox_pbs_datastore_info:
         device_type: "PBS Datastore"
       }
     }
-sfulmer.proxmox.proxmox_pbs_namespace:
+stevefulme1.proxmox.proxmox_pbs_namespace:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_namespace:" + (. | tostring)),
@@ -1335,7 +1335,7 @@ sfulmer.proxmox.proxmox_pbs_namespace:
         device_type: "PBS Namespace"
       }
     }
-sfulmer.proxmox.proxmox_pbs_gc:
+stevefulme1.proxmox.proxmox_pbs_gc:
   query: >-
     .store | select(. != null) | {
       name: ("pbs_gc:" + (. | tostring)),
@@ -1349,7 +1349,7 @@ sfulmer.proxmox.proxmox_pbs_gc:
         device_type: "PBS Garbage Collection"
       }
     }
-sfulmer.proxmox.proxmox_pbs_prune_job:
+stevefulme1.proxmox.proxmox_pbs_prune_job:
   query: >-
     .job_id | select(. != null) | {
       name: ("pbs_prune_job:" + (. | tostring)),
@@ -1363,7 +1363,7 @@ sfulmer.proxmox.proxmox_pbs_prune_job:
         device_type: "PBS Prune Job"
       }
     }
-sfulmer.proxmox.proxmox_pbs_sync_job:
+stevefulme1.proxmox.proxmox_pbs_sync_job:
   query: >-
     .job_id | select(. != null) | {
       name: ("pbs_sync_job:" + (. | tostring)),
@@ -1377,7 +1377,7 @@ sfulmer.proxmox.proxmox_pbs_sync_job:
         device_type: "PBS Sync Job"
       }
     }
-sfulmer.proxmox.proxmox_pbs_verify_job:
+stevefulme1.proxmox.proxmox_pbs_verify_job:
   query: >-
     .job_id | select(. != null) | {
       name: ("pbs_verify_job:" + (. | tostring)),
@@ -1391,7 +1391,7 @@ sfulmer.proxmox.proxmox_pbs_verify_job:
         device_type: "PBS Verify Job"
       }
     }
-sfulmer.proxmox.proxmox_pbs_tape_drive:
+stevefulme1.proxmox.proxmox_pbs_tape_drive:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_tape_drive:" + (. | tostring)),
@@ -1405,7 +1405,7 @@ sfulmer.proxmox.proxmox_pbs_tape_drive:
         device_type: "PBS Tape Drive"
       }
     }
-sfulmer.proxmox.proxmox_pbs_tape_media_pool:
+stevefulme1.proxmox.proxmox_pbs_tape_media_pool:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_tape_media_pool:" + (. | tostring)),
@@ -1419,7 +1419,7 @@ sfulmer.proxmox.proxmox_pbs_tape_media_pool:
         device_type: "PBS Tape Media Pool"
       }
     }
-sfulmer.proxmox.proxmox_pbs_tape_backup_job:
+stevefulme1.proxmox.proxmox_pbs_tape_backup_job:
   query: >-
     .job_id | select(. != null) | {
       name: ("pbs_tape_backup_job:" + (. | tostring)),
@@ -1433,7 +1433,7 @@ sfulmer.proxmox.proxmox_pbs_tape_backup_job:
         device_type: "PBS Tape Backup Job"
       }
     }
-sfulmer.proxmox.proxmox_pbs_user:
+stevefulme1.proxmox.proxmox_pbs_user:
   query: >-
     .userid | select(. != null) | {
       name: ("pbs_user:" + (. | tostring)),
@@ -1447,7 +1447,7 @@ sfulmer.proxmox.proxmox_pbs_user:
         device_type: "PBS User"
       }
     }
-sfulmer.proxmox.proxmox_pbs_token:
+stevefulme1.proxmox.proxmox_pbs_token:
   query: >-
     .tokenid | select(. != null) | {
       name: ("pbs_token:" + (. | tostring)),
@@ -1461,7 +1461,7 @@ sfulmer.proxmox.proxmox_pbs_token:
         device_type: "PBS API Token"
       }
     }
-sfulmer.proxmox.proxmox_pbs_acl:
+stevefulme1.proxmox.proxmox_pbs_acl:
   query: >-
     .path | select(. != null) | {
       name: ("pbs_acl:" + (. | tostring)),
@@ -1475,7 +1475,7 @@ sfulmer.proxmox.proxmox_pbs_acl:
         device_type: "PBS ACL"
       }
     }
-sfulmer.proxmox.proxmox_pbs_realm:
+stevefulme1.proxmox.proxmox_pbs_realm:
   query: >-
     .realm | select(. != null) | {
       name: ("pbs_realm:" + (. | tostring)),
@@ -1489,7 +1489,7 @@ sfulmer.proxmox.proxmox_pbs_realm:
         device_type: "PBS Auth Realm"
       }
     }
-sfulmer.proxmox.proxmox_pbs_remote:
+stevefulme1.proxmox.proxmox_pbs_remote:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_remote:" + (. | tostring)),
@@ -1503,7 +1503,7 @@ sfulmer.proxmox.proxmox_pbs_remote:
         device_type: "PBS Remote"
       }
     }
-sfulmer.proxmox.proxmox_pbs_traffic_control:
+stevefulme1.proxmox.proxmox_pbs_traffic_control:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_traffic_control:" + (. | tostring)),
@@ -1517,7 +1517,7 @@ sfulmer.proxmox.proxmox_pbs_traffic_control:
         device_type: "PBS Traffic Control"
       }
     }
-sfulmer.proxmox.proxmox_pbs_node_info:
+stevefulme1.proxmox.proxmox_pbs_node_info:
   query: >-
     .node_status | select(. != null) | {
       name: "pbs_node_info",
@@ -1530,7 +1530,7 @@ sfulmer.proxmox.proxmox_pbs_node_info:
         device_type: "PBS Node"
       }
     }
-sfulmer.proxmox.proxmox_pbs_metrics:
+stevefulme1.proxmox.proxmox_pbs_metrics:
   query: >-
     .name | select(. != null) | {
       name: ("pbs_metrics:" + (. | tostring)),

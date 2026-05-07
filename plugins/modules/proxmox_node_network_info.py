@@ -53,7 +53,7 @@ author:
 
 EXAMPLES = r'''
 - name: List all network interfaces on a node
-  sfulmer.proxmox.proxmox_node_network_info:
+  stevefulme1.proxmox.proxmox_node_network_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -61,7 +61,7 @@ EXAMPLES = r'''
   register: net_info
 
 - name: List only bridge interfaces
-  sfulmer.proxmox.proxmox_node_network_info:
+  stevefulme1.proxmox.proxmox_node_network_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -91,7 +91,7 @@ interfaces:
       autostart: 1
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

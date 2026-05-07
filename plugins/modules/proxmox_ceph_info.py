@@ -25,12 +25,12 @@ options:
     type: str
     required: true
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get Ceph cluster status
-  sfulmer.proxmox.proxmox_ceph_info:
+  stevefulme1.proxmox.proxmox_ceph_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -63,7 +63,7 @@ ceph_info:
       type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

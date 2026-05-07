@@ -57,12 +57,12 @@ options:
       - present
       - absent
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Add a TOTP entry for a user
-  sfulmer.proxmox.proxmox_tfa:
+  stevefulme1.proxmox.proxmox_tfa:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -75,7 +75,7 @@ EXAMPLES = r'''
   register: tfa_result
 
 - name: Add recovery keys for a user
-  sfulmer.proxmox.proxmox_tfa:
+  stevefulme1.proxmox.proxmox_tfa:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -87,7 +87,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a specific TFA entry
-  sfulmer.proxmox.proxmox_tfa:
+  stevefulme1.proxmox.proxmox_tfa:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -113,7 +113,7 @@ msg:
   sample: "TFA entry created for user 'admin@pve'."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

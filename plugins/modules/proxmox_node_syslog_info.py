@@ -48,12 +48,12 @@ options:
       - Filter log entries by service name.
     type: str
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get last 50 syslog entries
-  sfulmer.proxmox.proxmox_node_syslog_info:
+  stevefulme1.proxmox.proxmox_node_syslog_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -62,7 +62,7 @@ EXAMPLES = r'''
   register: syslog
 
 - name: Get syslog entries for a specific service
-  sfulmer.proxmox.proxmox_node_syslog_info:
+  stevefulme1.proxmox.proxmox_node_syslog_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -71,7 +71,7 @@ EXAMPLES = r'''
     limit: 100
 
 - name: Get syslog entries within a time range
-  sfulmer.proxmox.proxmox_node_syslog_info:
+  stevefulme1.proxmox.proxmox_node_syslog_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -93,7 +93,7 @@ syslog:
       t: "Jan  1 00:00:00 pve1 systemd[1]: Started foo.service."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

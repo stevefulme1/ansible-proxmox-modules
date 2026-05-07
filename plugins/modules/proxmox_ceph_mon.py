@@ -40,12 +40,12 @@ options:
     choices: ['present', 'absent']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a Ceph monitor on pve1
-  sfulmer.proxmox.proxmox_ceph_mon:
+  stevefulme1.proxmox.proxmox_ceph_mon:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -53,7 +53,7 @@ EXAMPLES = r'''
     node: pve1
 
 - name: Create a Ceph monitor with a custom ID and address
-  sfulmer.proxmox.proxmox_ceph_mon:
+  stevefulme1.proxmox.proxmox_ceph_mon:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -62,7 +62,7 @@ EXAMPLES = r'''
     mon_address: 10.0.0.10
 
 - name: Remove a Ceph monitor
-  sfulmer.proxmox.proxmox_ceph_mon:
+  stevefulme1.proxmox.proxmox_ceph_mon:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -84,7 +84,7 @@ monitors:
   returned: success
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

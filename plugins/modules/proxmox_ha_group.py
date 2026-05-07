@@ -56,7 +56,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create an HA group
-  sfulmer.proxmox.proxmox_ha_group:
+  stevefulme1.proxmox.proxmox_ha_group:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -73,7 +73,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove an HA group
-  sfulmer.proxmox.proxmox_ha_group:
+  stevefulme1.proxmox.proxmox_ha_group:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -89,7 +89,7 @@ group:
   sample: ha_prod
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def _format_nodes(nodes_list):

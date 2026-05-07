@@ -80,12 +80,12 @@ options:
     choices: ['present', 'absent']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a daily backup job
-  sfulmer.proxmox.proxmox_backup_job:
+  stevefulme1.proxmox.proxmox_backup_job:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -103,7 +103,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a backup job
-  sfulmer.proxmox.proxmox_backup_job:
+  stevefulme1.proxmox.proxmox_backup_job:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -123,7 +123,7 @@ job:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

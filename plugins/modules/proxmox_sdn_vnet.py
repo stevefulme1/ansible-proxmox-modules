@@ -42,7 +42,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a VNet
-  sfulmer.proxmox.proxmox_sdn_vnet:
+  stevefulme1.proxmox.proxmox_sdn_vnet:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -52,7 +52,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a VNet
-  sfulmer.proxmox.proxmox_sdn_vnet:
+  stevefulme1.proxmox.proxmox_sdn_vnet:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -68,7 +68,7 @@ vnet:
   sample: myvnet
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -51,12 +51,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a Proxmox VE native IPAM backend
-  sfulmer.proxmox.proxmox_sdn_ipam:
+  stevefulme1.proxmox.proxmox_sdn_ipam:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -66,7 +66,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a NetBox IPAM backend
-  sfulmer.proxmox.proxmox_sdn_ipam:
+  stevefulme1.proxmox.proxmox_sdn_ipam:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -78,7 +78,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a phpIPAM backend
-  sfulmer.proxmox.proxmox_sdn_ipam:
+  stevefulme1.proxmox.proxmox_sdn_ipam:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -91,7 +91,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove an IPAM backend
-  sfulmer.proxmox.proxmox_sdn_ipam:
+  stevefulme1.proxmox.proxmox_sdn_ipam:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -107,7 +107,7 @@ ipam_info:
   returned: on success when state is present
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

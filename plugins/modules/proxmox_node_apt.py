@@ -73,7 +73,7 @@ author:
 
 EXAMPLES = r'''
 - name: Add the no-subscription repository
-  sfulmer.proxmox.proxmox_node_apt:
+  stevefulme1.proxmox.proxmox_node_apt:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -82,7 +82,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Disable enterprise repository at index 0
-  sfulmer.proxmox.proxmox_node_apt:
+  stevefulme1.proxmox.proxmox_node_apt:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -92,7 +92,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Enable repository at index 1
-  sfulmer.proxmox.proxmox_node_apt:
+  stevefulme1.proxmox.proxmox_node_apt:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -114,7 +114,7 @@ digest:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -34,7 +34,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a firewall security group
-  sfulmer.proxmox.proxmox_firewall_group:
+  stevefulme1.proxmox.proxmox_firewall_group:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -43,7 +43,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a firewall security group
-  sfulmer.proxmox.proxmox_firewall_group:
+  stevefulme1.proxmox.proxmox_firewall_group:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -59,7 +59,7 @@ group:
   sample: webservers
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -134,12 +134,12 @@ options:
     choices:
       - present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Configure cloud-init with static IP
-  sfulmer.proxmox.proxmox_vm_cloudinit:
+  stevefulme1.proxmox.proxmox_vm_cloudinit:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -154,7 +154,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Configure cloud-init with DHCP and SSH keys
-  sfulmer.proxmox.proxmox_vm_cloudinit:
+  stevefulme1.proxmox.proxmox_vm_cloudinit:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -180,7 +180,7 @@ msg:
   sample: "Cloud-init configuration updated for VM 100."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

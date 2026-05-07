@@ -61,12 +61,12 @@ options:
       - present
       - absent
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a replication job
-  sfulmer.proxmox.proxmox_replication:
+  stevefulme1.proxmox.proxmox_replication:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -79,7 +79,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Disable a replication job
-  sfulmer.proxmox.proxmox_replication:
+  stevefulme1.proxmox.proxmox_replication:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -90,7 +90,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a replication job
-  sfulmer.proxmox.proxmox_replication:
+  stevefulme1.proxmox.proxmox_replication:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -113,7 +113,7 @@ msg:
   sample: "Replication job '100-0' created successfully."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

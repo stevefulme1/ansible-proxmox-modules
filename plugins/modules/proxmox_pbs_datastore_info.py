@@ -28,14 +28,14 @@ options:
 
 EXAMPLES = r'''
 - name: Get all PBS datastore information
-  sfulmer.proxmox.proxmox_pbs_datastore_info:
+  stevefulme1.proxmox.proxmox_pbs_datastore_info:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
   register: ds_info
 
 - name: Get a specific datastore with status
-  sfulmer.proxmox.proxmox_pbs_datastore_info:
+  stevefulme1.proxmox.proxmox_pbs_datastore_info:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -59,7 +59,7 @@ status:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

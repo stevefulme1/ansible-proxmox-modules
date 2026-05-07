@@ -30,12 +30,12 @@ options:
     type: int
     required: true
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get pending changes for a VM
-  sfulmer.proxmox.proxmox_vm_pending_info:
+  stevefulme1.proxmox.proxmox_vm_pending_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -66,7 +66,7 @@ pending_changes:
       pending: 4
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

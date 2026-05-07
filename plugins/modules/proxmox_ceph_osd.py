@@ -57,12 +57,12 @@ options:
     choices: ['present', 'absent']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a Ceph OSD on /dev/sdb
-  sfulmer.proxmox.proxmox_ceph_osd:
+  stevefulme1.proxmox.proxmox_ceph_osd:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -71,7 +71,7 @@ EXAMPLES = r'''
     dev: /dev/sdb
 
 - name: Create an encrypted OSD with separate DB and WAL devices
-  sfulmer.proxmox.proxmox_ceph_osd:
+  stevefulme1.proxmox.proxmox_ceph_osd:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -83,7 +83,7 @@ EXAMPLES = r'''
     crush_device_class: ssd
 
 - name: Remove OSD 3
-  sfulmer.proxmox.proxmox_ceph_osd:
+  stevefulme1.proxmox.proxmox_ceph_osd:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -105,7 +105,7 @@ osds:
   returned: success
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

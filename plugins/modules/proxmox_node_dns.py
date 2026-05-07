@@ -46,12 +46,12 @@ options:
     choices: ['present']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Set DNS search domain and nameservers
-  sfulmer.proxmox.proxmox_node_dns:
+  stevefulme1.proxmox.proxmox_node_dns:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -62,7 +62,7 @@ EXAMPLES = r'''
     dns2: 8.8.4.4
 
 - name: Set only the search domain
-  sfulmer.proxmox.proxmox_node_dns:
+  stevefulme1.proxmox.proxmox_node_dns:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -85,7 +85,7 @@ diff:
   returned: changed
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

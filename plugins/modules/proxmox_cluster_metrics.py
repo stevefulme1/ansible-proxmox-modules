@@ -66,12 +66,12 @@ options:
     choices: ['present', 'absent']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Configure InfluxDB metrics server
-  sfulmer.proxmox.proxmox_cluster_metrics:
+  stevefulme1.proxmox.proxmox_cluster_metrics:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -83,7 +83,7 @@ EXAMPLES = r'''
     path: proxmox
 
 - name: Configure Graphite metrics server
-  sfulmer.proxmox.proxmox_cluster_metrics:
+  stevefulme1.proxmox.proxmox_cluster_metrics:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -93,7 +93,7 @@ EXAMPLES = r'''
     port: 2003
 
 - name: Remove a metrics server configuration
-  sfulmer.proxmox.proxmox_cluster_metrics:
+  stevefulme1.proxmox.proxmox_cluster_metrics:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -113,7 +113,7 @@ name:
   returned: always
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -27,12 +27,12 @@ options:
     type: str
     choices: [ zones, vnets, subnets, controllers ]
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get all SDN information
-  sfulmer.proxmox.proxmox_sdn_info:
+  stevefulme1.proxmox.proxmox_sdn_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -40,7 +40,7 @@ EXAMPLES = r'''
   register: sdn_info
 
 - name: Get only SDN zones
-  sfulmer.proxmox.proxmox_sdn_info:
+  stevefulme1.proxmox.proxmox_sdn_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -49,7 +49,7 @@ EXAMPLES = r'''
   register: sdn_zones
 
 - name: Get SDN controllers with pending changes
-  sfulmer.proxmox.proxmox_sdn_info:
+  stevefulme1.proxmox.proxmox_sdn_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -72,7 +72,7 @@ sdn:
   returned: always
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

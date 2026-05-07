@@ -83,12 +83,12 @@ options:
     choices: ['present']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Set container hostname and memory
-  sfulmer.proxmox.proxmox_lxc_config:
+  stevefulme1.proxmox.proxmox_lxc_config:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -98,7 +98,7 @@ EXAMPLES = r'''
     memory: 2048
 
 - name: Enable onboot and set cores
-  sfulmer.proxmox.proxmox_lxc_config:
+  stevefulme1.proxmox.proxmox_lxc_config:
     api_host: proxmox.example.com
     api_token_id: root@pam!mytoken
     api_token_secret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -120,7 +120,7 @@ config:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

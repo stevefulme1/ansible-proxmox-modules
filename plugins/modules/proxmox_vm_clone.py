@@ -67,7 +67,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a full clone
-  sfulmer.proxmox.proxmox_vm_clone:
+  stevefulme1.proxmox.proxmox_vm_clone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -79,7 +79,7 @@ EXAMPLES = r'''
     storage: local-lvm
 
 - name: Create a linked clone
-  sfulmer.proxmox.proxmox_vm_clone:
+  stevefulme1.proxmox.proxmox_vm_clone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -90,7 +90,7 @@ EXAMPLES = r'''
     full: false
 
 - name: Clone to a different node
-  sfulmer.proxmox.proxmox_vm_clone:
+  stevefulme1.proxmox.proxmox_vm_clone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -118,7 +118,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

@@ -76,7 +76,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create an NFS storage
-  sfulmer.proxmox.proxmox_storage:
+  stevefulme1.proxmox.proxmox_storage:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -90,7 +90,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a directory storage
-  sfulmer.proxmox.proxmox_storage:
+  stevefulme1.proxmox.proxmox_storage:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -103,7 +103,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a storage definition
-  sfulmer.proxmox.proxmox_storage:
+  stevefulme1.proxmox.proxmox_storage:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -119,7 +119,7 @@ storage:
   sample: "nfs-backup"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def get_storage(api, storage_id):

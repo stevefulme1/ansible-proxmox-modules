@@ -67,12 +67,12 @@ options:
     choices: [ present, absent ]
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create an EVPN SDN controller
-  sfulmer.proxmox.proxmox_sdn_controller:
+  stevefulme1.proxmox.proxmox_sdn_controller:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -84,7 +84,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a BGP SDN controller
-  sfulmer.proxmox.proxmox_sdn_controller:
+  stevefulme1.proxmox.proxmox_sdn_controller:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -98,7 +98,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove an SDN controller
-  sfulmer.proxmox.proxmox_sdn_controller:
+  stevefulme1.proxmox.proxmox_sdn_controller:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -114,7 +114,7 @@ controller_info:
   returned: on success when state is present
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

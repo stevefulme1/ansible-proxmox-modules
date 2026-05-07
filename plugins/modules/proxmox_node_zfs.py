@@ -82,7 +82,7 @@ author:
 
 EXAMPLES = r'''
 - name: Create a ZFS mirror pool
-  sfulmer.proxmox.proxmox_node_zfs:
+  stevefulme1.proxmox.proxmox_node_zfs:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -95,7 +95,7 @@ EXAMPLES = r'''
     compression: lz4
 
 - name: Create a single-disk ZFS pool
-  sfulmer.proxmox.proxmox_node_zfs:
+  stevefulme1.proxmox.proxmox_node_zfs:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -107,7 +107,7 @@ EXAMPLES = r'''
     ashift: 12
 
 - name: Destroy a ZFS pool
-  sfulmer.proxmox.proxmox_node_zfs:
+  stevefulme1.proxmox.proxmox_node_zfs:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -128,7 +128,7 @@ upid:
   type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def pool_exists(api, node, name):

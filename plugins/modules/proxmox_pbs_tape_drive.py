@@ -42,7 +42,7 @@ options:
 
 EXAMPLES = r'''
 - name: Configure a tape drive
-  sfulmer.proxmox.proxmox_pbs_tape_drive:
+  stevefulme1.proxmox.proxmox_pbs_tape_drive:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -53,7 +53,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a tape drive configuration
-  sfulmer.proxmox.proxmox_pbs_tape_drive:
+  stevefulme1.proxmox.proxmox_pbs_tape_drive:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -69,7 +69,7 @@ name:
   sample: drive0
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

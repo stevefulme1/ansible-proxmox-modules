@@ -57,7 +57,7 @@ options:
 
 EXAMPLES = r'''
 - name: Create a simple SDN zone
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -66,7 +66,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create a VLAN zone with tag
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -78,7 +78,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove an SDN zone
-  sfulmer.proxmox.proxmox_sdn_zone:
+  stevefulme1.proxmox.proxmox_sdn_zone:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -94,7 +94,7 @@ zone:
   sample: myzone
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

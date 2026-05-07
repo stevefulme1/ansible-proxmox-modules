@@ -38,7 +38,7 @@ options:
 
 EXAMPLES = r'''
 - name: Convert VM to template
-  sfulmer.proxmox.proxmox_vm_template:
+  stevefulme1.proxmox.proxmox_vm_template:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -46,7 +46,7 @@ EXAMPLES = r'''
     vmid: 9000
 
 - name: Convert VM to template using specific disk
-  sfulmer.proxmox.proxmox_vm_template:
+  stevefulme1.proxmox.proxmox_vm_template:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -63,7 +63,7 @@ vmid:
   sample: 9000
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

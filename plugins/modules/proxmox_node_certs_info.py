@@ -47,7 +47,7 @@ author:
 
 EXAMPLES = r'''
 - name: Get certificate information
-  sfulmer.proxmox.proxmox_node_certs_info:
+  stevefulme1.proxmox.proxmox_node_certs_info:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ certificates:
       fingerprint: "AA:BB:CC:DD:..."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

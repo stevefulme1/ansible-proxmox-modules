@@ -42,12 +42,12 @@ options:
     choices: ['present', 'absent']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Create a resource pool
-  sfulmer.proxmox.proxmox_pool:
+  stevefulme1.proxmox.proxmox_pool:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -56,7 +56,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Create pool with members
-  sfulmer.proxmox.proxmox_pool:
+  stevefulme1.proxmox.proxmox_pool:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -71,7 +71,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Delete a resource pool
-  sfulmer.proxmox.proxmox_pool:
+  stevefulme1.proxmox.proxmox_pool:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -91,7 +91,7 @@ pool:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

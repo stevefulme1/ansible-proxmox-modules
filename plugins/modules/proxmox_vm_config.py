@@ -80,7 +80,7 @@ options:
 
 EXAMPLES = r'''
 - name: Set VM CPU and memory
-  sfulmer.proxmox.proxmox_vm_config:
+  stevefulme1.proxmox.proxmox_vm_config:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -91,7 +91,7 @@ EXAMPLES = r'''
     memory: 8192
 
 - name: Update VM name and description
-  sfulmer.proxmox.proxmox_vm_config:
+  stevefulme1.proxmox.proxmox_vm_config:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -101,7 +101,7 @@ EXAMPLES = r'''
     description: "Production web server"
 
 - name: Set CPU type to host passthrough
-  sfulmer.proxmox.proxmox_vm_config:
+  stevefulme1.proxmox.proxmox_vm_config:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -122,7 +122,7 @@ config:
   type: dict
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

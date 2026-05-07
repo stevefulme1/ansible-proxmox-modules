@@ -65,7 +65,7 @@ author:
 
 EXAMPLES = r'''
 - name: Create a USB device mapping
-  sfulmer.proxmox.proxmox_mapping_usb:
+  stevefulme1.proxmox.proxmox_mapping_usb:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ EXAMPLES = r'''
       - "id=1050:0407,node=pve1,path=1-2"
 
 - name: Update a USB mapping with multiple nodes
-  sfulmer.proxmox.proxmox_mapping_usb:
+  stevefulme1.proxmox.proxmox_mapping_usb:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -85,7 +85,7 @@ EXAMPLES = r'''
       - "id=04b8:0142,node=pve2,path=1-3"
 
 - name: Remove a USB mapping
-  sfulmer.proxmox.proxmox_mapping_usb:
+  stevefulme1.proxmox.proxmox_mapping_usb:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -101,7 +101,7 @@ name:
   sample: "yubikey"
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def get_mapping(api, name):

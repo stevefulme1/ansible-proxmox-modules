@@ -54,12 +54,12 @@ options:
       - present
       - absent
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Add tags to a VM
-  sfulmer.proxmox.proxmox_tag:
+  stevefulme1.proxmox.proxmox_tag:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -72,7 +72,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a tag from an LXC container
-  sfulmer.proxmox.proxmox_tag:
+  stevefulme1.proxmox.proxmox_tag:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -85,7 +85,7 @@ EXAMPLES = r'''
     state: absent
 
 - name: Set tags on a VM (existing tags are preserved)
-  sfulmer.proxmox.proxmox_tag:
+  stevefulme1.proxmox.proxmox_tag:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -119,7 +119,7 @@ msg:
   sample: "Tags updated for VM 100."
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

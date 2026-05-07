@@ -41,12 +41,12 @@ options:
       - Only return log entries since this Unix timestamp.
     type: int
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Get cluster-level firewall logs
-  sfulmer.proxmox.proxmox_firewall_log_info:
+  stevefulme1.proxmox.proxmox_firewall_log_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -55,7 +55,7 @@ EXAMPLES = r'''
   register: cluster_logs
 
 - name: Get node-level firewall logs
-  sfulmer.proxmox.proxmox_firewall_log_info:
+  stevefulme1.proxmox.proxmox_firewall_log_info:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: ansible
@@ -85,7 +85,7 @@ firewall_logs:
       type: str
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import (
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import (
     ProxmoxModule,
 )
 

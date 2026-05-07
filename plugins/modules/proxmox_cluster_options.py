@@ -69,12 +69,12 @@ options:
     choices: ['present']
     default: present
 extends_documentation_fragment:
-  - sfulmer.proxmox.proxmox
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
 - name: Set cluster console and migration options
-  sfulmer.proxmox.proxmox_cluster_options:
+  stevefulme1.proxmox.proxmox_cluster_options:
     api_host: proxmox.example.com
     api_user: root@pam
     api_token_id: mytoken
@@ -84,7 +84,7 @@ EXAMPLES = r'''
     migration_network: 10.0.0.0/24
 
 - name: Set email and HA settings
-  sfulmer.proxmox.proxmox_cluster_options:
+  stevefulme1.proxmox.proxmox_cluster_options:
     api_host: proxmox.example.com
     api_user: root@pam
     api_password: secret
@@ -105,7 +105,7 @@ diff:
   returned: changed
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def _format_ha(ha_dict):

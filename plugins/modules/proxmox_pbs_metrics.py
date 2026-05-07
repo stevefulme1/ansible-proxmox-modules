@@ -52,7 +52,7 @@ options:
 
 EXAMPLES = r'''
 - name: Configure InfluxDB HTTP metrics export
-  sfulmer.proxmox.proxmox_pbs_metrics:
+  stevefulme1.proxmox.proxmox_pbs_metrics:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -64,7 +64,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Configure InfluxDB UDP metrics export
-  sfulmer.proxmox.proxmox_pbs_metrics:
+  stevefulme1.proxmox.proxmox_pbs_metrics:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -75,7 +75,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Disable a metrics export
-  sfulmer.proxmox.proxmox_pbs_metrics:
+  stevefulme1.proxmox.proxmox_pbs_metrics:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -86,7 +86,7 @@ EXAMPLES = r'''
     state: present
 
 - name: Remove a metrics configuration
-  sfulmer.proxmox.proxmox_pbs_metrics:
+  stevefulme1.proxmox.proxmox_pbs_metrics:
     api_host: pbs.example.com
     api_user: root@pam
     api_password: secret
@@ -102,7 +102,7 @@ name:
   sample: influx-prod
 '''
 
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():

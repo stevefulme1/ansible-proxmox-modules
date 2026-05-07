@@ -58,7 +58,7 @@ author:
 
 EXAMPLES = r'''
 - name: Apply pending VM config changes
-  sfulmer.proxmox.proxmox_vm_pending_apply:
+  stevefulme1.proxmox.proxmox_vm_pending_apply:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -66,7 +66,7 @@ EXAMPLES = r'''
     vmid: 100
 
 - name: Apply pending changes and wait up to 120 seconds
-  sfulmer.proxmox.proxmox_vm_pending_apply:
+  stevefulme1.proxmox.proxmox_vm_pending_apply:
     api_host: pve1.example.com
     api_user: root@pam
     api_password: secret
@@ -93,7 +93,7 @@ upid:
 '''
 
 import time
-from ansible_collections.sfulmer.proxmox.plugins.module_utils.proxmox import ProxmoxModule
+from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
 def main():
