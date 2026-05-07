@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: ansible_collections/sfulmer/proxmox
+          path: ansible_collections/stevefulme1/proxmox
 
       - uses: actions/setup-python@v5
         with:
@@ -54,7 +54,7 @@ jobs:
         run: pip install ansible-core>=2.16
 
       - name: Run ansible-test sanity
-        working-directory: ansible_collections/sfulmer/proxmox
+        working-directory: ansible_collections/stevefulme1/proxmox
         run: >-
           ansible-test sanity
           --python 3.12
@@ -71,7 +71,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: ansible_collections/sfulmer/proxmox
+          path: ansible_collections/stevefulme1/proxmox
 
       - uses: actions/setup-python@v5
         with:
@@ -83,10 +83,10 @@ jobs:
           pip install git+https://github.com/ansible/ansible-hub-ui.git@main#egg=galaxy-importer || pip install galaxy-importer
 
       - name: Build collection tarball
-        working-directory: ansible_collections/sfulmer/proxmox
+        working-directory: ansible_collections/stevefulme1/proxmox
         run: ansible-galaxy collection build --force
 
       - name: Run galaxy-importer certification check
-        working-directory: ansible_collections/sfulmer/proxmox
+        working-directory: ansible_collections/stevefulme1/proxmox
         run: |
-          python -m galaxy_importer.main sfulmer-proxmox-*.tar.gz
+          python -m galaxy_importer.main stevefulme1-proxmox-*.tar.gz
