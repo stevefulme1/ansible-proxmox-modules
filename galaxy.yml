@@ -1,6 +1,6 @@
 namespace: stevefulme1
 name: proxmox
-version: 1.0.2
+version: 1.0.3
 readme: README.md
 authors:
   - sfulmer

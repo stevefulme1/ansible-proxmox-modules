@@ -5,6 +5,20 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: proxmox
+short_description: Proxmox VE API connection and module base class
+description:
+  - Provides ProxmoxModule, a base class that wraps AnsibleModule with Proxmox
+    API connection handling via the proxmoxer library. Supports both password
+    and API token authentication.
+  - Exports PROXMOX_COMMON_ARGS, the shared argument spec for host, user, and
+    credential parameters used by all Proxmox modules.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 from ansible.module_utils.basic import AnsibleModule
 
 try:

@@ -5,6 +5,21 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
+DOCUMENTATION = r"""
+---
+module_utils: _resource_paths
+short_description: Proxmox API resource path mapping and resolution utilities
+description:
+  - Maps user-friendly resource type names (vm, lxc, container, storage, pool,
+    sdn_zone, sdn_vnet) to their corresponding Proxmox API paths and identifier
+    fields via the RESOURCE_TYPE_MAP dictionary.
+  - Provides helpers for building and parsing Proxmox API resource paths, and
+    for resolving VMs and containers by name or VMID using the cluster resources
+    API.
+author:
+  - Steve Fulmer (@stevefulme1)
+"""
+
 
 # Map user-friendly resource type names to Proxmox API paths and identifier fields.
 RESOURCE_TYPE_MAP = {
