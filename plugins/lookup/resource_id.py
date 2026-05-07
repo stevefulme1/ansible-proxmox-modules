@@ -18,7 +18,7 @@ description:
     enabling indirect referencing of resources in playbooks.
   - Supports VMs, containers, nodes, storage, pools, SDN zones, and SDN VNets.
 extends_documentation_fragment:
-  - stevefulme1.proxmox.base_options
+  - stevefulme1.proxmox.proxmox
   - stevefulme1.proxmox.lookup_base_options
 options:
   _terms:
