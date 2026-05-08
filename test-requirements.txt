@@ -1,0 +1,4 @@
+pytest>=7.4
+pytest-cov>=4.1
+proxmoxer>=2.0
+ansible-core>=2.16

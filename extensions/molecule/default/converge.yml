@@ -1,0 +1,75 @@
+---
+- name: Converge -- Proxmox module CRUD tests
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    proxmox_api_host: "{{ lookup('env', 'PROXMOX_API_HOST') | default('pve1.local', true) }}"
+    proxmox_api_user: "{{ lookup('env', 'PROXMOX_API_USER') | default('root@pam', true) }}"
+    proxmox_api_password: "{{ lookup('env', 'PROXMOX_API_PASSWORD') | default(omit, true) }}"
+    proxmox_api_token_id: "{{ lookup('env', 'PROXMOX_API_TOKEN_ID') | default(omit, true) }}"
+    proxmox_api_token_secret: "{{ lookup('env', 'PROXMOX_API_TOKEN_SECRET') | default(omit, true) }}"
+    proxmox_validate_certs: false
+
+  tasks:
+    # --- Firewall rule CRUD ---
+    - name: Create a test firewall rule
+      stevefulme1.proxmox.proxmox_firewall_rule:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        scope: cluster
+        action: ACCEPT
+        type: in
+        proto: tcp
+        dport: "29999"
+        comment: "molecule test"
+        state: present
+      register: fw_create
+
+    - name: Remove the test firewall rule
+      stevefulme1.proxmox.proxmox_firewall_rule:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        scope: cluster
+        action: ACCEPT
+        type: in
+        proto: tcp
+        dport: "29999"
+        state: absent
+
+    # --- Storage CRUD ---
+    - name: Create a test directory storage
+      stevefulme1.proxmox.proxmox_storage:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        storage: molecule-test
+        type: dir
+        path: /tmp/molecule-test
+        content:
+          - images
+        state: present
+      register: stor_create
+
+    - name: Remove the test storage
+      stevefulme1.proxmox.proxmox_storage:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        storage: molecule-test
+        state: absent

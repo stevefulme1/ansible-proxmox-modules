@@ -1,0 +1,28 @@
+---
+# Integration tests for proxmox_node_info (read-only, always safe)
+
+- name: Get node status information
+  stevefulme1.proxmox.proxmox_node_info:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    node: "{{ proxmox_test_node }}"
+  register: node_result
+
+- name: Verify node info was returned
+  ansible.builtin.assert:
+    that:
+      - not node_result.changed
+      - node_result.node_info is defined
+      - node_result.node_info.uptime is defined
+      - node_result.node_info.uptime | int >= 0
+    fail_msg: "Node info should contain uptime"
+
+- name: Verify CPU info is present
+  ansible.builtin.assert:
+    that:
+      - node_result.node_info.cpuinfo is defined or node_result.node_info.cpu is defined
+    fail_msg: "Node info should contain CPU information"

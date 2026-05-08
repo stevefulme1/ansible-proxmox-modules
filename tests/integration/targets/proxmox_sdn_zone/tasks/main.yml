@@ -1,0 +1,56 @@
+---
+# Integration tests for proxmox_sdn_zone
+
+- name: Create a simple SDN zone
+  stevefulme1.proxmox.proxmox_sdn_zone:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    zone: "{{ proxmox_test_zone }}"
+    type: simple
+    state: present
+  register: create_result
+
+- name: Verify zone was created
+  ansible.builtin.assert:
+    that:
+      - create_result.changed
+    fail_msg: "SDN zone creation should report changed=true"
+
+- name: Create same zone again (idempotency)
+  stevefulme1.proxmox.proxmox_sdn_zone:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    zone: "{{ proxmox_test_zone }}"
+    type: simple
+    state: present
+  register: idempotent_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - not idempotent_result.changed
+
+- name: Delete the SDN zone
+  stevefulme1.proxmox.proxmox_sdn_zone:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    zone: "{{ proxmox_test_zone }}"
+    state: absent
+  register: delete_result
+
+- name: Verify zone was deleted
+  ansible.builtin.assert:
+    that:
+      - delete_result.changed
