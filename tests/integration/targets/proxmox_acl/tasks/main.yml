@@ -1,0 +1,66 @@
+---
+# Integration tests for proxmox_acl
+
+- name: Add an ACL entry
+  stevefulme1.proxmox.proxmox_acl:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    path: "{{ proxmox_test_acl_path }}"
+    roles:
+      - "{{ proxmox_test_acl_role }}"
+    users:
+      - "{{ proxmox_test_acl_user }}"
+    state: present
+  register: create_result
+
+- name: Verify ACL was created
+  ansible.builtin.assert:
+    that:
+      - create_result.changed
+    fail_msg: "ACL creation should report changed=true"
+
+- name: Add same ACL again (idempotency)
+  stevefulme1.proxmox.proxmox_acl:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    path: "{{ proxmox_test_acl_path }}"
+    roles:
+      - "{{ proxmox_test_acl_role }}"
+    users:
+      - "{{ proxmox_test_acl_user }}"
+    state: present
+  register: idempotent_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - not idempotent_result.changed
+
+- name: Remove the ACL entry
+  stevefulme1.proxmox.proxmox_acl:
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_validate_certs }}"
+    path: "{{ proxmox_test_acl_path }}"
+    roles:
+      - "{{ proxmox_test_acl_role }}"
+    users:
+      - "{{ proxmox_test_acl_user }}"
+    state: absent
+  register: delete_result
+
+- name: Verify ACL was removed
+  ansible.builtin.assert:
+    that:
+      - delete_result.changed

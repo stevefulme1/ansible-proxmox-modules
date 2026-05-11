@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+  options:
+    managed: false
+    ansible_connection_options:
+      ansible_connection: local
+platforms:
+  - name: proxmox-api
+    groups:
+      - proxmox
+provisioner:
+  name: ansible
+  env:
+    PROXMOX_API_HOST: "${PROXMOX_API_HOST:-pve1.local}"
+    PROXMOX_API_USER: "${PROXMOX_API_USER:-root@pam}"
+    PROXMOX_API_PASSWORD: "${PROXMOX_API_PASSWORD:-}"
+    PROXMOX_API_TOKEN_ID: "${PROXMOX_API_TOKEN_ID:-}"
+    PROXMOX_API_TOKEN_SECRET: "${PROXMOX_API_TOKEN_SECRET:-}"
+    PROXMOX_TEST_NODE: "${PROXMOX_TEST_NODE:-pve1}"
+  inventory:
+    hosts:
+      all:
+        hosts:
+          localhost:
+            ansible_connection: local
+verifier:
+  name: ansible

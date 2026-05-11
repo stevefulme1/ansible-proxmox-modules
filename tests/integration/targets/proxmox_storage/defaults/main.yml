@@ -1,0 +1,9 @@
+---
+proxmox_api_host: "{{ lookup('env', 'PROXMOX_API_HOST') | default('pve1.local', true) }}"
+proxmox_api_user: "{{ lookup('env', 'PROXMOX_API_USER') | default('root@pam', true) }}"
+proxmox_api_password: "{{ lookup('env', 'PROXMOX_API_PASSWORD') | default(omit, true) }}"
+proxmox_api_token_id: "{{ lookup('env', 'PROXMOX_API_TOKEN_ID') | default(omit, true) }}"
+proxmox_api_token_secret: "{{ lookup('env', 'PROXMOX_API_TOKEN_SECRET') | default(omit, true) }}"
+proxmox_validate_certs: false
+proxmox_test_storage: "citest-dir"
+proxmox_test_storage_path: "/tmp/citest-storage"

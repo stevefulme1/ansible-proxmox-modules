@@ -6,13 +6,22 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      run_cloud_integration:
+        description: "Run cloud integration tests against a live Proxmox host"
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  lint:
+  # ------------------------------------------------------------------
+  # Lint
+  # ------------------------------------------------------------------
+  ansible-lint:
     name: Ansible Lint & pycodestyle
     runs-on: ubuntu-latest
     steps:
@@ -38,9 +47,22 @@ jobs:
           --profile production
           plugins/modules/*.py
 
+  # ------------------------------------------------------------------
+  # Sanity (matrix)
+  # ------------------------------------------------------------------
   sanity:
-    name: Ansible Sanity
+    name: "Sanity (ansible ${{ matrix.ansible }} / py${{ matrix.python }})"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - ansible: "2.16"
+            python: "3.12"
+          - ansible: "2.17"
+            python: "3.12"
+          - ansible: "2.18"
+            python: "3.13"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,16 +70,16 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "${{ matrix.python }}"
 
       - name: Install ansible-core
-        run: pip install ansible-core>=2.16
+        run: pip install "ansible-core~=${{ matrix.ansible }}.0"
 
       - name: Run ansible-test sanity
         working-directory: ansible_collections/stevefulme1/proxmox
         run: >-
           ansible-test sanity
-          --python 3.12
+          --python "${{ matrix.python }}"
           --skip-test import
           --skip-test pylint
           --skip-test validate-modules
@@ -65,9 +87,48 @@ jobs:
         env:
           ANSIBLE_COLLECTIONS_PATH: ${{ github.workspace }}
 
-  certification:
-    name: Partner Certification Checker
+  # ------------------------------------------------------------------
+  # Unit tests
+  # ------------------------------------------------------------------
+  unit:
+    name: "Unit tests (py${{ matrix.python }})"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python }}"
+
+      - name: Install test dependencies
+        run: pip install -r test-requirements.txt
+
+      - name: Run pytest
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: >-
+          pytest tests/unit/
+          -v
+          --tb=short
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results-py${{ matrix.python }}
+          path: test-results.xml
+
+  # ------------------------------------------------------------------
+  # Integration (mocked -- no live API)
+  # ------------------------------------------------------------------
+  integration-mock:
+    name: Integration (mock)
+    runs-on: ubuntu-latest
+    needs: [ansible-lint, sanity, unit]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -77,16 +138,60 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install ansible-core and certification tools
-        run: |
-          pip install ansible-core>=2.16
-          pip install git+https://github.com/ansible/ansible-hub-ui.git@main#egg=galaxy-importer || pip install galaxy-importer
+      - name: Install dependencies
+        run: pip install ansible-core>=2.16 proxmoxer
 
-      - name: Build collection tarball
+      - name: Run integration tests (check mode)
         working-directory: ansible_collections/stevefulme1/proxmox
-        run: ansible-galaxy collection build --force
+        run: >-
+          ansible-test integration
+          --python 3.12
+          --allow-unsupported
+          --check
+          proxmox_firewall_rule
+          proxmox_sdn_zone
+          proxmox_storage
+          proxmox_acl
+        env:
+          ANSIBLE_COLLECTIONS_PATH: ${{ github.workspace }}
+        continue-on-error: true
 
-      - name: Run galaxy-importer certification check
+  # ------------------------------------------------------------------
+  # Integration (live Proxmox -- manual trigger only)
+  # ------------------------------------------------------------------
+  integration-cloud:
+    name: Integration (cloud)
+    runs-on: ubuntu-latest
+    needs: [ansible-lint, sanity, unit]
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.event.inputs.run_cloud_integration == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ansible_collections/stevefulme1/proxmox
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install ansible-core>=2.16 proxmoxer
+
+      - name: Run integration tests against live Proxmox
         working-directory: ansible_collections/stevefulme1/proxmox
-        run: |
-          python -m galaxy_importer.main stevefulme1-proxmox-*.tar.gz
+        run: >-
+          ansible-test integration
+          --python 3.12
+          --allow-unsupported
+          proxmox_node_info
+          proxmox_firewall_rule
+          proxmox_sdn_zone
+          proxmox_storage
+          proxmox_acl
+        env:
+          ANSIBLE_COLLECTIONS_PATH: ${{ github.workspace }}
+          PROXMOX_API_HOST: ${{ secrets.PROXMOX_API_HOST }}
+          PROXMOX_API_USER: ${{ secrets.PROXMOX_API_USER }}
+          PROXMOX_API_PASSWORD: ${{ secrets.PROXMOX_API_PASSWORD }}
+          PROXMOX_TEST_NODE: ${{ secrets.PROXMOX_TEST_NODE || 'pve1' }}
