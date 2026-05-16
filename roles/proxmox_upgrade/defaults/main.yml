@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_upgrade
+
+# Target host
+proxmox_upgrade_host: ""
+
+# Authentication
+proxmox_upgrade_username: ""
+proxmox_upgrade_password: ""
+proxmox_upgrade_api_key: ""
+
+# Behavior
+proxmox_upgrade_validate_certs: true
+proxmox_upgrade_state: present

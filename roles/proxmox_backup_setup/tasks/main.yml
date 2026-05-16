@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_backup_setup
+# Configure scheduled VM backups
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_backup_setup_host is defined
+    fail_msg: "proxmox_backup_setup_host must be defined"
+    quiet: true
+
+- name: Execute proxmox backup setup
+  ansible.builtin.debug:
+    msg: >-
+      Configure scheduled VM backups.
+      Target: {{ proxmox_backup_setup_host }}

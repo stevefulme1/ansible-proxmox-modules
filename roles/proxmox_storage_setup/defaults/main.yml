@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_storage_setup
+
+# Target host
+proxmox_storage_setup_host: ""
+
+# Authentication
+proxmox_storage_setup_username: ""
+proxmox_storage_setup_password: ""
+proxmox_storage_setup_api_key: ""
+
+# Behavior
+proxmox_storage_setup_validate_certs: true
+proxmox_storage_setup_state: present

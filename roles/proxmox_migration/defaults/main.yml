@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_migration
+
+# Target host
+proxmox_migration_host: ""
+
+# Authentication
+proxmox_migration_username: ""
+proxmox_migration_password: ""
+proxmox_migration_api_key: ""
+
+# Behavior
+proxmox_migration_validate_certs: true
+proxmox_migration_state: present

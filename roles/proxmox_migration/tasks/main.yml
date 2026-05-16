@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_migration
+# Live migrate VMs between nodes
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_migration_host is defined
+    fail_msg: "proxmox_migration_host must be defined"
+    quiet: true
+
+- name: Execute proxmox migration
+  ansible.builtin.debug:
+    msg: >-
+      Live migrate VMs between nodes.
+      Target: {{ proxmox_migration_host }}

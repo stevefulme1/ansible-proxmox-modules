@@ -1,0 +1,27 @@
+---
+argument_specs:
+  main:
+    short_description: "Live migrate VMs between nodes"
+    options:
+      proxmox_migration_host:
+        description: Target host address
+        type: str
+        required: true
+      proxmox_migration_username:
+        description: Authentication username
+        type: str
+      proxmox_migration_password:
+        description: Authentication password
+        type: str
+      proxmox_migration_api_key:
+        description: API key for authentication
+        type: str
+      proxmox_migration_validate_certs:
+        description: Validate SSL certificates
+        type: bool
+        default: true
+      proxmox_migration_state:
+        description: Desired state
+        type: str
+        default: present
+        choices: [present, absent]

@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_cluster_setup
+
+# Target host
+proxmox_cluster_setup_host: ""
+
+# Authentication
+proxmox_cluster_setup_username: ""
+proxmox_cluster_setup_password: ""
+proxmox_cluster_setup_api_key: ""
+
+# Behavior
+proxmox_cluster_setup_validate_certs: true
+proxmox_cluster_setup_state: present

@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_template_management
+
+# Target host
+proxmox_template_management_host: ""
+
+# Authentication
+proxmox_template_management_username: ""
+proxmox_template_management_password: ""
+proxmox_template_management_api_key: ""
+
+# Behavior
+proxmox_template_management_validate_certs: true
+proxmox_template_management_state: present

@@ -1,0 +1,27 @@
+---
+argument_specs:
+  main:
+    short_description: "Set up alerts and metrics collection"
+    options:
+      proxmox_monitoring_host:
+        description: Target host address
+        type: str
+        required: true
+      proxmox_monitoring_username:
+        description: Authentication username
+        type: str
+      proxmox_monitoring_password:
+        description: Authentication password
+        type: str
+      proxmox_monitoring_api_key:
+        description: API key for authentication
+        type: str
+      proxmox_monitoring_validate_certs:
+        description: Validate SSL certificates
+        type: bool
+        default: true
+      proxmox_monitoring_state:
+        description: Desired state
+        type: str
+        default: present
+        choices: [present, absent]

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_security_hardening
+# Apply security policies and firewall
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_security_hardening_host is defined
+    fail_msg: "proxmox_security_hardening_host must be defined"
+    quiet: true
+
+- name: Execute proxmox security hardening
+  ansible.builtin.debug:
+    msg: >-
+      Apply security policies and firewall.
+      Target: {{ proxmox_security_hardening_host }}

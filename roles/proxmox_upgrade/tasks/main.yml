@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_upgrade
+# Rolling upgrade of Proxmox cluster
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_upgrade_host is defined
+    fail_msg: "proxmox_upgrade_host must be defined"
+    quiet: true
+
+- name: Execute proxmox upgrade
+  ansible.builtin.debug:
+    msg: >-
+      Rolling upgrade of Proxmox cluster.
+      Target: {{ proxmox_upgrade_host }}

@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_vm_provision
+
+# Target host
+proxmox_vm_provision_host: ""
+
+# Authentication
+proxmox_vm_provision_username: ""
+proxmox_vm_provision_password: ""
+proxmox_vm_provision_api_key: ""
+
+# Behavior
+proxmox_vm_provision_validate_certs: true
+proxmox_vm_provision_state: present

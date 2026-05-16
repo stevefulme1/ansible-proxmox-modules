@@ -1,0 +1,27 @@
+---
+argument_specs:
+  main:
+    short_description: "Configure HA cluster with corosync"
+    options:
+      proxmox_cluster_setup_host:
+        description: Target host address
+        type: str
+        required: true
+      proxmox_cluster_setup_username:
+        description: Authentication username
+        type: str
+      proxmox_cluster_setup_password:
+        description: Authentication password
+        type: str
+      proxmox_cluster_setup_api_key:
+        description: API key for authentication
+        type: str
+      proxmox_cluster_setup_validate_certs:
+        description: Validate SSL certificates
+        type: bool
+        default: true
+      proxmox_cluster_setup_state:
+        description: Desired state
+        type: str
+        default: present
+        choices: [present, absent]

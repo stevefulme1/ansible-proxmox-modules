@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_vm_provision
+# Deploy VMs from templates with cloud-init
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_vm_provision_host is defined
+    fail_msg: "proxmox_vm_provision_host must be defined"
+    quiet: true
+
+- name: Execute proxmox vm provision
+  ansible.builtin.debug:
+    msg: >-
+      Deploy VMs from templates with cloud-init.
+      Target: {{ proxmox_vm_provision_host }}

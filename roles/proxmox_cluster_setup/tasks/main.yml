@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_cluster_setup
+# Configure HA cluster with corosync
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_cluster_setup_host is defined
+    fail_msg: "proxmox_cluster_setup_host must be defined"
+    quiet: true
+
+- name: Execute proxmox cluster setup
+  ansible.builtin.debug:
+    msg: >-
+      Configure HA cluster with corosync.
+      Target: {{ proxmox_cluster_setup_host }}
