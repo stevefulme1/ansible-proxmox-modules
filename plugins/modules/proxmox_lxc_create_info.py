@@ -41,6 +41,21 @@ options:
         description: Validate SSL certificates.
         type: bool
         default: true
+  limit:
+    description:
+      - Maximum number of results to return.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip for pagination.
+    type: int
+    default: 0
+  max_results:
+    description:
+      - Maximum total results to return.
+    type: int
+    default: 1000
 """
 
 EXAMPLES = r"""
@@ -76,6 +91,9 @@ def main():
             password=dict(type="str", no_log=True),
             api_key=dict(type="str", no_log=True),
             validate_certs=dict(type="bool", default=True),
+            limit=dict(type="int", default=100),
+            offset=dict(type="int", default=0),
+            max_results=dict(type="int", default=1000),
         ),
         supports_check_mode=True,
     )
