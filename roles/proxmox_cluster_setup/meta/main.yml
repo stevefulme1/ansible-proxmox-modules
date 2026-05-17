@@ -1,8 +1,9 @@
 ---
 galaxy_info:
   author: Steve Fulmer
-  description: "Configure HA cluster with corosync"
-  license: Apache-2.0
+  description: >-
+    Join Proxmox nodes to cluster, configure HA groups and resources
+  license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
     - name: GenericLinux
@@ -10,4 +11,6 @@ galaxy_info:
         - all
   galaxy_tags:
     - proxmox
+    - cluster
+    - ha
 dependencies: []

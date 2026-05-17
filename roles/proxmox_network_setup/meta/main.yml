@@ -1,8 +1,9 @@
 ---
 galaxy_info:
   author: Steve Fulmer
-  description: "Configure bridges, VLANs, and bonds"
-  license: Apache-2.0
+  description: >-
+    Configure Proxmox VLANs, bridges, and SDN zones/vnets/subnets
+  license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
     - name: GenericLinux
@@ -10,4 +11,7 @@ galaxy_info:
         - all
   galaxy_tags:
     - proxmox
+    - network
+    - sdn
+    - vlan
 dependencies: []

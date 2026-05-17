@@ -1,8 +1,9 @@
 ---
 galaxy_info:
   author: Steve Fulmer
-  description: "Deploy VMs from templates with cloud-init"
-  license: Apache-2.0
+  description: >-
+    Provision Proxmox VMs with clone/create, cloud-init, disk, and network configuration
+  license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
     - name: GenericLinux
@@ -10,4 +11,7 @@ galaxy_info:
         - all
   galaxy_tags:
     - proxmox
+    - virtualization
+    - vm
+    - cloudinit
 dependencies: []

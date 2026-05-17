@@ -1,14 +1,60 @@
 ---
 # defaults/main.yml for proxmox_vm_provision
 
-# Target host
+# Connection settings
 proxmox_vm_provision_host: ""
-
-# Authentication
-proxmox_vm_provision_username: ""
+proxmox_vm_provision_username: "root@pam"
 proxmox_vm_provision_password: ""
-proxmox_vm_provision_api_key: ""
-
-# Behavior
+proxmox_vm_provision_api_token_id: ""
+proxmox_vm_provision_api_token_secret: ""
 proxmox_vm_provision_validate_certs: true
+
+# VM identity
+proxmox_vm_provision_vmid: null
+proxmox_vm_provision_name: ""
+proxmox_vm_provision_node: ""
 proxmox_vm_provision_state: present
+
+# Template / clone source
+proxmox_vm_provision_clone_vmid: null
+proxmox_vm_provision_clone_name: ""
+proxmox_vm_provision_full_clone: true
+
+# Hardware resources
+proxmox_vm_provision_cores: 2
+proxmox_vm_provision_sockets: 1
+proxmox_vm_provision_memory_mb: 2048
+proxmox_vm_provision_balloon: 0
+proxmox_vm_provision_cpu_type: "host"
+proxmox_vm_provision_bios: "ovmf"
+proxmox_vm_provision_machine: "q35"
+
+# Storage / disks
+proxmox_vm_provision_storage: "local-lvm"
+proxmox_vm_provision_disk_size: "32G"
+proxmox_vm_provision_additional_disks: []
+# - storage: local-lvm
+#   size: 64G
+#   format: raw
+
+# Network
+proxmox_vm_provision_network_bridge: "vmbr0"
+proxmox_vm_provision_network_model: "virtio"
+proxmox_vm_provision_network_vlan: null
+proxmox_vm_provision_network_firewall: true
+proxmox_vm_provision_additional_nics: []
+
+# Cloud-init
+proxmox_vm_provision_cloudinit_enabled: true
+proxmox_vm_provision_cloudinit_user: ""
+proxmox_vm_provision_cloudinit_password: ""
+proxmox_vm_provision_cloudinit_sshkeys: ""
+proxmox_vm_provision_cloudinit_ipconfig: "ip=dhcp"
+proxmox_vm_provision_cloudinit_nameserver: ""
+proxmox_vm_provision_cloudinit_searchdomain: ""
+
+# Power state after provision
+proxmox_vm_provision_start_after_create: true
+
+# Tags
+proxmox_vm_provision_tags: []

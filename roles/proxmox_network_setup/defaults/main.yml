@@ -1,14 +1,70 @@
 ---
 # defaults/main.yml for proxmox_network_setup
 
-# Target host
+# Connection
 proxmox_network_setup_host: ""
-
-# Authentication
-proxmox_network_setup_username: ""
+proxmox_network_setup_username: "root@pam"
 proxmox_network_setup_password: ""
-proxmox_network_setup_api_key: ""
-
-# Behavior
+proxmox_network_setup_api_token_id: ""
+proxmox_network_setup_api_token_secret: ""
 proxmox_network_setup_validate_certs: true
-proxmox_network_setup_state: present
+
+# Target node
+proxmox_network_setup_node: ""
+
+# Linux bridges
+proxmox_network_setup_bridges:
+  []
+  # - name: vmbr1
+  #   address: "10.0.1.1"
+  #   netmask: "255.255.255.0"
+  #   bridge_ports: "eno2"
+  #   bridge_vlan_aware: true
+  #   comments: "VM production network"
+
+# VLAN interfaces
+proxmox_network_setup_vlans:
+  []
+  # - name: "eno1.100"
+  #   vlan_id: 100
+  #   interface: "eno1"
+  #   address: "10.100.0.1"
+  #   netmask: "255.255.255.0"
+
+# SDN zones
+proxmox_network_setup_sdn_zones:
+  []
+  # - zone: "production"
+  #   type: "vlan"
+  #   bridge: "vmbr0"
+  #   dns: ""
+  #   reversedns: ""
+
+# SDN VNets
+proxmox_network_setup_sdn_vnets:
+  []
+  # - vnet: "vnet-prod-100"
+  #   zone: "production"
+  #   tag: 100
+  #   alias: "Production VLAN 100"
+
+# SDN subnets
+proxmox_network_setup_sdn_subnets:
+  []
+  # - subnet: "10.100.0.0/24"
+  #   vnet: "vnet-prod-100"
+  #   gateway: "10.100.0.1"
+  #   snat: false
+  #   dhcp_range_start: "10.100.0.100"
+  #   dhcp_range_end: "10.100.0.200"
+
+# SDN controllers (for EVPN/BGP)
+proxmox_network_setup_sdn_controllers:
+  []
+  # - controller: "bgp-main"
+  #   type: "evpn"
+  #   asn: 65000
+  #   peers: "10.0.0.1,10.0.0.2"
+
+# Apply SDN changes after configuration
+proxmox_network_setup_sdn_apply: true
