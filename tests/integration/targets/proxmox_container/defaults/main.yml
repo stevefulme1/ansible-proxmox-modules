@@ -1,0 +1,2 @@
+---
+proxmox_test_hostname: "test-ct-{{ tiny_prefix }}"
