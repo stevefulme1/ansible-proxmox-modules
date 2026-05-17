@@ -24,6 +24,21 @@ options:
       - Name of a specific datastore to query.
       - If not specified, all datastores are returned.
     type: str
+  limit:
+    description:
+      - Maximum number of results to return.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip for pagination.
+    type: int
+    default: 0
+  max_results:
+    description:
+      - Maximum total results to return.
+    type: int
+    default: 1000
 '''
 
 EXAMPLES = r'''
@@ -64,6 +79,9 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 
 def main():
     module_args = dict(
+        limit=dict(type='int', default=100),
+        offset=dict(type='int', default=0),
+        max_results=dict(type='int', default=1000),
         name=dict(type='str'),
     )
 

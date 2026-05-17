@@ -40,6 +40,24 @@ options:
     description:
       - Only return log entries since this Unix timestamp.
     type: int
+  limit:
+    description:
+      - Maximum number of results to return.
+      - Applied client-side to truncate results.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip before returning.
+      - Applied client-side for pagination.
+    type: int
+    default: 0
+  max_results:
+    description:
+      - Maximum total number of results to return.
+      - Set to 0 for no limit.
+    type: int
+    default: 1000
 extends_documentation_fragment:
   - stevefulme1.proxmox.proxmox
 '''
@@ -93,6 +111,9 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 def main():
     module = ProxmoxModule(
         argument_spec=dict(
+            limit=dict(type='int', default=100),
+            offset=dict(type='int', default=0),
+            max_results=dict(type='int', default=1000),
             node=dict(type='str'),
             start=dict(type='int'),
             limit=dict(type='int', default=50),
