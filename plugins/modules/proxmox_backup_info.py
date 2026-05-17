@@ -17,7 +17,7 @@ description:
   - This is an info module and does not make any changes.
 author:
   - sfulmer
-options: {}
+options:
   limit:
     description:
       - Maximum number of results to return.

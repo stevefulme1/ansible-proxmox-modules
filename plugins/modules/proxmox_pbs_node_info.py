@@ -19,23 +19,7 @@ description:
   - Requires the proxmoxer Python library.
 version_added: "1.0.0"
 author:
-  - sfulmer
-  limit:
-    description:
-      - Maximum number of results to return.
-    type: int
-    default: 100
-  offset:
-    description:
-      - Number of results to skip for pagination.
-    type: int
-    default: 0
-  max_results:
-    description:
-      - Maximum total results to return.
-    type: int
-    default: 1000
-'''
+  - sfulmer'''
 
 EXAMPLES = r'''
 - name: Get PBS node status

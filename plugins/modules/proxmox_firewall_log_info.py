@@ -40,12 +40,6 @@ options:
     description:
       - Only return log entries since this Unix timestamp.
     type: int
-  limit:
-    description:
-      - Maximum number of results to return.
-      - Applied client-side to truncate results.
-    type: int
-    default: 100
   offset:
     description:
       - Number of results to skip before returning.
@@ -116,8 +110,7 @@ def main():
             max_results=dict(type='int', default=1000),
             node=dict(type='str'),
             start=dict(type='int'),
-            limit=dict(type='int', default=50),
-            since=dict(type='int'),
+                        since=dict(type='int'),
         ),
         supports_check_mode=True,
     )

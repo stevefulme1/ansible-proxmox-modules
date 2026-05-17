@@ -41,8 +41,6 @@ options:
     description: Target Proxmox VE node name.
     type: str
     required: true
-author:
-  - sfulmer
   limit:
     description:
       - Maximum number of results to return.
@@ -55,10 +53,12 @@ author:
     default: 0
   max_results:
     description:
-      - Maximum total results to return.
+      - Maximum total number of results to return.
+      - Set to 0 for no limit.
     type: int
     default: 1000
-'''
+author:
+  - sfulmer'''
 
 EXAMPLES = r'''
 - name: Get certificate information

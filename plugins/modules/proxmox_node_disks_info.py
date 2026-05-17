@@ -45,8 +45,6 @@ options:
     description:
       - Filter disks by type (e.g. C(ssd), C(hdd), C(nvme)).
     type: str
-author:
-  - sfulmer
   limit:
     description:
       - Maximum number of results to return.
@@ -59,10 +57,12 @@ author:
     default: 0
   max_results:
     description:
-      - Maximum total results to return.
+      - Maximum total number of results to return.
+      - Set to 0 for no limit.
     type: int
     default: 1000
-'''
+author:
+  - sfulmer'''
 
 EXAMPLES = r'''
 - name: List all physical disks on a node
