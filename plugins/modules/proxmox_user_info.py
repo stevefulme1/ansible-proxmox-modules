@@ -24,6 +24,24 @@ options:
       - A specific user ID to query (e.g. C(admin@pve)).
       - When omitted, all users are returned.
     type: str
+  limit:
+    description:
+      - Maximum number of results to return.
+      - Applied client-side to truncate results.
+    type: int
+    default: 100
+  offset:
+    description:
+      - Number of results to skip before returning.
+      - Applied client-side for pagination.
+    type: int
+    default: 0
+  max_results:
+    description:
+      - Maximum total number of results to return.
+      - Set to 0 for no limit.
+    type: int
+    default: 1000
 extends_documentation_fragment:
   - stevefulme1.proxmox.proxmox
 '''
@@ -71,6 +89,9 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 def main():
     module = ProxmoxModule(
         argument_spec=dict(
+            limit=dict(type='int', default=100),
+            offset=dict(type='int', default=0),
+            max_results=dict(type='int', default=1000),
             userid=dict(type='str'),
         ),
         supports_check_mode=True,
@@ -91,6 +112,11 @@ def main():
             msg="Failed to list users: {0}".format(str(e))
         )
 
+    # Apply client-side pagination
+    _offset = module.params.get("offset") or 0
+    _limit = module.params.get("limit") or 100
+    if isinstance(resources, list):
+        resources = resources[_offset:_offset + _limit]
     module.exit_json(changed=False, resources=resources)
 
 
