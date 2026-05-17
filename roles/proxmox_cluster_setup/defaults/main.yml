@@ -1,14 +1,42 @@
 ---
 # defaults/main.yml for proxmox_cluster_setup
 
-# Target host
+# Connection
 proxmox_cluster_setup_host: ""
-
-# Authentication
-proxmox_cluster_setup_username: ""
+proxmox_cluster_setup_username: "root@pam"
 proxmox_cluster_setup_password: ""
-proxmox_cluster_setup_api_key: ""
-
-# Behavior
+proxmox_cluster_setup_api_token_id: ""
+proxmox_cluster_setup_api_token_secret: ""
 proxmox_cluster_setup_validate_certs: true
-proxmox_cluster_setup_state: present
+
+# Cluster creation (run on first node)
+proxmox_cluster_setup_name: ""
+proxmox_cluster_setup_create: false
+
+# Cluster join (run on additional nodes)
+proxmox_cluster_setup_join: false
+proxmox_cluster_setup_join_address: ""
+proxmox_cluster_setup_join_fingerprint: ""
+proxmox_cluster_setup_join_password: ""
+
+# HA configuration
+proxmox_cluster_setup_ha_enabled: false
+proxmox_cluster_setup_ha_groups:
+  []
+  # - name: "ha-group-1"
+  #   nodes: "node1,node2,node3"
+  #   restricted: false
+  #   nofailback: false
+
+proxmox_cluster_setup_ha_resources:
+  []
+  # - vmid: 100
+  #   group: "ha-group-1"
+  #   max_restart: 3
+  #   max_relocate: 2
+
+# Cluster options
+proxmox_cluster_setup_migration_type: "secure"
+proxmox_cluster_setup_migration_network: ""
+proxmox_cluster_setup_email_from: ""
+proxmox_cluster_setup_notification_targets: []

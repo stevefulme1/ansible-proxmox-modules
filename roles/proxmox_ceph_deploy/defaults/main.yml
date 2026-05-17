@@ -1,0 +1,61 @@
+---
+# defaults/main.yml for proxmox_ceph_deploy
+
+# Connection
+proxmox_ceph_deploy_host: ""
+proxmox_ceph_deploy_username: "root@pam"
+proxmox_ceph_deploy_password: ""
+proxmox_ceph_deploy_api_token_id: ""
+proxmox_ceph_deploy_api_token_secret: ""
+proxmox_ceph_deploy_validate_certs: true
+
+# Target node
+proxmox_ceph_deploy_node: ""
+
+# Ceph monitors
+proxmox_ceph_deploy_monitors:
+  []
+  # - node: pve1
+  # - node: pve2
+  # - node: pve3
+
+# Ceph managers
+proxmox_ceph_deploy_managers:
+  []
+  # - node: pve1
+  # - node: pve2
+
+# Ceph OSDs
+proxmox_ceph_deploy_osds:
+  []
+  # - node: pve1
+  #   device: /dev/sdb
+  #   db_device: /dev/nvme0n1p1
+  # - node: pve2
+  #   device: /dev/sdb
+
+# Ceph pools
+proxmox_ceph_deploy_pools:
+  []
+  # - name: "vm-pool"
+  #   size: 3
+  #   min_size: 2
+  #   pg_num: 128
+  #   application: rbd
+
+# CephFS filesystems
+proxmox_ceph_deploy_filesystems:
+  []
+  # - name: "cephfs-data"
+  #   data_pool: "cephfs-data-pool"
+  #   metadata_pool: "cephfs-metadata-pool"
+
+# MDS services (required for CephFS)
+proxmox_ceph_deploy_mds:
+  []
+  # - node: pve1
+  # - node: pve2
+
+# Register as PVE storage
+proxmox_ceph_deploy_register_storage: true
+proxmox_ceph_deploy_storage_name: "ceph-pool"

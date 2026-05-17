@@ -2,7 +2,7 @@
 galaxy_info:
   author: Steve Fulmer
   description: >-
-    Configure Proxmox Backup Server datastores and PVE backup jobs with prune/verify schedules
+    Deploy Ceph storage on Proxmox cluster with monitors, OSDs, pools, and CephFS
   license: GPL-3.0-or-later
   min_ansible_version: "2.16"
   platforms:
@@ -11,6 +11,6 @@ galaxy_info:
         - all
   galaxy_tags:
     - proxmox
-    - backup
-    - pbs
+    - ceph
+    - storage
 dependencies: []

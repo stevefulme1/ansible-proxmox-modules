@@ -1,16 +1,151 @@
 ---
 # tasks/main.yml for proxmox_network_setup
-# Configure bridges, VLANs, and bonds
+# Configure VLANs, bridges, and SDN zones
 
 - name: Validate required variables
   ansible.builtin.assert:
     that:
-      - proxmox_network_setup_host is defined
-    fail_msg: "proxmox_network_setup_host must be defined"
+      - proxmox_network_setup_host | length > 0
+      - proxmox_network_setup_node | length > 0
+    fail_msg: >-
+      proxmox_network_setup_host and proxmox_network_setup_node must be defined.
     quiet: true
 
-- name: Execute proxmox network setup
-  ansible.builtin.debug:
-    msg: >-
-      Configure bridges, VLANs, and bonds.
-      Target: {{ proxmox_network_setup_host }}
+- name: Build authentication parameters
+  ansible.builtin.set_fact:
+    _pve_auth:
+      api_host: "{{ proxmox_network_setup_host }}"
+      api_user: "{{ proxmox_network_setup_username }}"
+      api_password: "{{ proxmox_network_setup_password | default(omit, true) }}"
+      api_token_id: "{{ proxmox_network_setup_api_token_id | default(omit, true) }}"
+      api_token_secret: "{{ proxmox_network_setup_api_token_secret | default(omit, true) }}"
+      validate_certs: "{{ proxmox_network_setup_validate_certs }}"
+  no_log: true
+
+- name: Configure network stack
+  block:
+    - name: Create Linux bridges
+      stevefulme1.proxmox.proxmox_node_network:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_network_setup_node }}"
+        iface: "{{ item.name }}"
+        type: bridge
+        address: "{{ item.address | default(omit) }}"
+        netmask: "{{ item.netmask | default(omit) }}"
+        bridge_ports: "{{ item.bridge_ports | default(omit) }}"
+        bridge_vlan_aware: "{{ item.bridge_vlan_aware | default(false) }}"
+        comments: "{{ item.comments | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_bridges }}"
+      when: proxmox_network_setup_bridges | length > 0
+
+    - name: Create VLAN interfaces
+      stevefulme1.proxmox.proxmox_node_network:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_network_setup_node }}"
+        iface: "{{ item.name }}"
+        type: vlan
+        vlan_id: "{{ item.vlan_id }}"
+        vlan_raw_device: "{{ item.interface }}"
+        address: "{{ item.address | default(omit) }}"
+        netmask: "{{ item.netmask | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_vlans }}"
+      when: proxmox_network_setup_vlans | length > 0
+
+    - name: Configure SDN controllers
+      stevefulme1.proxmox.proxmox_sdn_controller:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        controller: "{{ item.controller }}"
+        type: "{{ item.type }}"
+        asn: "{{ item.asn | default(omit) }}"
+        peers: "{{ item.peers | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_sdn_controllers }}"
+      when: proxmox_network_setup_sdn_controllers | length > 0
+
+    - name: Create SDN zones
+      stevefulme1.proxmox.proxmox_sdn_zone:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        zone: "{{ item.zone }}"
+        type: "{{ item.type }}"
+        bridge: "{{ item.bridge | default(omit) }}"
+        dns: "{{ item.dns | default(omit) }}"
+        reversedns: "{{ item.reversedns | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_sdn_zones }}"
+      when: proxmox_network_setup_sdn_zones | length > 0
+
+    - name: Create SDN VNets
+      stevefulme1.proxmox.proxmox_sdn_vnet:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        vnet: "{{ item.vnet }}"
+        zone: "{{ item.zone }}"
+        tag: "{{ item.tag | default(omit) }}"
+        alias: "{{ item.alias | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_sdn_vnets }}"
+      when: proxmox_network_setup_sdn_vnets | length > 0
+
+    - name: Create SDN subnets
+      stevefulme1.proxmox.proxmox_sdn_subnet:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        subnet: "{{ item.subnet }}"
+        vnet: "{{ item.vnet }}"
+        gateway: "{{ item.gateway | default(omit) }}"
+        snat: "{{ item.snat | default(false) }}"
+        state: present
+      loop: "{{ proxmox_network_setup_sdn_subnets }}"
+      when: proxmox_network_setup_sdn_subnets | length > 0
+
+    - name: Apply SDN configuration
+      stevefulme1.proxmox.proxmox_sdn_zone:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        apply: true
+        state: present
+      when:
+        - proxmox_network_setup_sdn_apply
+        - (proxmox_network_setup_sdn_zones | length > 0) or
+          (proxmox_network_setup_sdn_vnets | length > 0)
+
+  rescue:
+    - name: Network setup failed
+      ansible.builtin.fail:
+        msg: >-
+          Network configuration failed on node '{{ proxmox_network_setup_node }}':
+          {{ ansible_failed_result.msg | default('unknown error') }}

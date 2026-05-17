@@ -1,16 +1,176 @@
 ---
 # tasks/main.yml for proxmox_vm_provision
-# Deploy VMs from templates with cloud-init
+# Create a VM from template/clone with network, storage, and cloud-init
 
 - name: Validate required variables
   ansible.builtin.assert:
     that:
-      - proxmox_vm_provision_host is defined
-    fail_msg: "proxmox_vm_provision_host must be defined"
+      - proxmox_vm_provision_host | length > 0
+      - proxmox_vm_provision_name | length > 0
+      - proxmox_vm_provision_node | length > 0
+    fail_msg: >-
+      Required variables: proxmox_vm_provision_host, proxmox_vm_provision_name,
+      proxmox_vm_provision_node must be defined and non-empty.
     quiet: true
 
-- name: Execute proxmox vm provision
-  ansible.builtin.debug:
-    msg: >-
-      Deploy VMs from templates with cloud-init.
-      Target: {{ proxmox_vm_provision_host }}
+- name: Build authentication parameters
+  ansible.builtin.set_fact:
+    _pve_auth:
+      api_host: "{{ proxmox_vm_provision_host }}"
+      api_user: "{{ proxmox_vm_provision_username }}"
+      api_password: "{{ proxmox_vm_provision_password | default(omit, true) }}"
+      api_token_id: "{{ proxmox_vm_provision_api_token_id | default(omit, true) }}"
+      api_token_secret: "{{ proxmox_vm_provision_api_token_secret | default(omit, true) }}"
+      validate_certs: "{{ proxmox_vm_provision_validate_certs }}"
+  no_log: true
+
+- name: Clone VM from template
+  block:
+    - name: Create VM via clone
+      stevefulme1.proxmox.proxmox_vm_clone:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ proxmox_vm_provision_clone_vmid | default(omit) }}"
+        name: "{{ proxmox_vm_provision_clone_name | default(omit) }}"
+        newid: "{{ proxmox_vm_provision_vmid | default(omit) }}"
+        target_name: "{{ proxmox_vm_provision_name }}"
+        full: "{{ proxmox_vm_provision_full_clone }}"
+        storage: "{{ proxmox_vm_provision_storage }}"
+        state: present
+      register: _vm_clone_result
+      when: proxmox_vm_provision_clone_vmid is not none or proxmox_vm_provision_clone_name | length > 0
+
+    - name: Create VM from scratch (no clone)
+      stevefulme1.proxmox.proxmox_vm_create:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ proxmox_vm_provision_vmid | default(omit) }}"
+        name: "{{ proxmox_vm_provision_name }}"
+        cores: "{{ proxmox_vm_provision_cores }}"
+        sockets: "{{ proxmox_vm_provision_sockets }}"
+        memory: "{{ proxmox_vm_provision_memory_mb }}"
+        cpu: "{{ proxmox_vm_provision_cpu_type }}"
+        bios: "{{ proxmox_vm_provision_bios }}"
+        machine: "{{ proxmox_vm_provision_machine }}"
+        state: present
+      register: _vm_create_result
+      when: proxmox_vm_provision_clone_vmid is none and proxmox_vm_provision_clone_name | length == 0
+
+    - name: Determine VM ID for subsequent tasks
+      ansible.builtin.set_fact:
+        _pve_vmid: >-
+          {{ proxmox_vm_provision_vmid | default(
+             _vm_clone_result.vmid | default(
+             _vm_create_result.vmid | default(''))) }}
+
+    - name: Configure VM hardware
+      stevefulme1.proxmox.proxmox_vm_config:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ _pve_vmid }}"
+        cores: "{{ proxmox_vm_provision_cores }}"
+        sockets: "{{ proxmox_vm_provision_sockets }}"
+        memory: "{{ proxmox_vm_provision_memory_mb }}"
+        balloon: "{{ proxmox_vm_provision_balloon }}"
+        state: present
+
+    - name: Resize primary disk
+      stevefulme1.proxmox.proxmox_vm_resize:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ _pve_vmid }}"
+        disk: scsi0
+        size: "{{ proxmox_vm_provision_disk_size }}"
+        state: present
+
+    - name: Add additional disks
+      stevefulme1.proxmox.proxmox_vm_disk:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ _pve_vmid }}"
+        disk: "scsi{{ ansible_loop.index }}"
+        storage: "{{ item.storage | default(proxmox_vm_provision_storage) }}"
+        size: "{{ item.size }}"
+        format: "{{ item.format | default('raw') }}"
+        state: present
+      loop: "{{ proxmox_vm_provision_additional_disks }}"
+      loop_control:
+        extended: true
+      when: proxmox_vm_provision_additional_disks | length > 0
+
+    - name: Configure cloud-init settings
+      stevefulme1.proxmox.proxmox_vm_cloudinit:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ _pve_vmid }}"
+        ciuser: "{{ proxmox_vm_provision_cloudinit_user | default(omit) }}"
+        cipassword: "{{ proxmox_vm_provision_cloudinit_password | default(omit) }}"
+        sshkeys: "{{ proxmox_vm_provision_cloudinit_sshkeys | default(omit) }}"
+        ipconfig0: "{{ proxmox_vm_provision_cloudinit_ipconfig }}"
+        nameserver: "{{ proxmox_vm_provision_cloudinit_nameserver | default(omit) }}"
+        searchdomain: "{{ proxmox_vm_provision_cloudinit_searchdomain | default(omit) }}"
+        state: present
+      when: proxmox_vm_provision_cloudinit_enabled
+
+    - name: Apply tags to VM
+      stevefulme1.proxmox.proxmox_tag:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        vmid: "{{ _pve_vmid }}"
+        tags: "{{ proxmox_vm_provision_tags }}"
+        state: present
+      when: proxmox_vm_provision_tags | length > 0
+
+    - name: Start VM after provisioning
+      stevefulme1.proxmox.proxmox_vm_power:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_vm_provision_node }}"
+        vmid: "{{ _pve_vmid }}"
+        state: started
+      when: proxmox_vm_provision_start_after_create
+
+  rescue:
+    - name: VM provision failed
+      ansible.builtin.fail:
+        msg: >-
+          VM provisioning failed for '{{ proxmox_vm_provision_name }}' on node
+          '{{ proxmox_vm_provision_node }}': {{ ansible_failed_result.msg | default('unknown error') }}

@@ -1,14 +1,60 @@
 ---
 # defaults/main.yml for proxmox_backup_setup
 
-# Target host
+# Connection
 proxmox_backup_setup_host: ""
-
-# Authentication
-proxmox_backup_setup_username: ""
+proxmox_backup_setup_username: "root@pam"
 proxmox_backup_setup_password: ""
-proxmox_backup_setup_api_key: ""
-
-# Behavior
+proxmox_backup_setup_api_token_id: ""
+proxmox_backup_setup_api_token_secret: ""
 proxmox_backup_setup_validate_certs: true
-proxmox_backup_setup_state: present
+
+# PBS datastore setup
+proxmox_backup_setup_pbs_host: ""
+proxmox_backup_setup_pbs_datastores:
+  []
+  # - name: backups
+  #   path: /mnt/datastore/backups
+  #   gc_schedule: "sat 03:00"
+  #   prune_keep_daily: 7
+  #   prune_keep_weekly: 4
+  #   prune_keep_monthly: 6
+
+# Backup jobs on PVE
+proxmox_backup_setup_jobs:
+  []
+  # - id: "daily-vms"
+  #   schedule: "0 2 * * *"
+  #   vmid: "100,101,102"
+  #   storage: "pbs-store"
+  #   node: "pve1"
+  #   mode: snapshot
+  #   compress: zstd
+  #   mailnotification: always
+  #   mailto: "admin@example.com"
+  #   maxfiles: 7
+  #   enabled: true
+
+# VZDump defaults
+proxmox_backup_setup_vzdump_storage: ""
+proxmox_backup_setup_vzdump_mode: "snapshot"
+proxmox_backup_setup_vzdump_compress: "zstd"
+proxmox_backup_setup_vzdump_mailto: ""
+proxmox_backup_setup_vzdump_maxfiles: 7
+
+# Prune jobs on PBS
+proxmox_backup_setup_prune_jobs:
+  []
+  # - id: "weekly-prune"
+  #   datastore: "backups"
+  #   schedule: "sun 04:00"
+  #   keep_daily: 7
+  #   keep_weekly: 4
+  #   keep_monthly: 6
+
+# Verify jobs on PBS
+proxmox_backup_setup_verify_jobs:
+  []
+  # - id: "weekly-verify"
+  #   datastore: "backups"
+  #   schedule: "sun 06:00"
