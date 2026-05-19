@@ -13,9 +13,11 @@ argument_specs:
       proxmox_migration_password:
         description: Authentication password
         type: str
+        no_log: true
       proxmox_migration_api_key:
         description: API key for authentication
         type: str
+        no_log: true
       proxmox_migration_validate_certs:
         description: Validate SSL certificates
         type: bool

@@ -13,9 +13,11 @@ argument_specs:
       proxmox_vm_provision_password:
         description: Authentication password
         type: str
+        no_log: true
       proxmox_vm_provision_api_key:
         description: API key for authentication
         type: str
+        no_log: true
       proxmox_vm_provision_validate_certs:
         description: Validate SSL certificates
         type: bool

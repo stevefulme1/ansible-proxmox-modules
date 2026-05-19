@@ -45,6 +45,7 @@ options:
     description:
       - The password for API authentication.
     type: str
+    secret: true
     env:
       - name: PROXMOX_PASSWORD
   api_token_id:
@@ -57,6 +58,7 @@ options:
     description:
       - The API token secret for token-based authentication.
     type: str
+    secret: true
     env:
       - name: PROXMOX_TOKEN_SECRET
   validate_certs:
