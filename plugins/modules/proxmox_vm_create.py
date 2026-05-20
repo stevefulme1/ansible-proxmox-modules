@@ -17,7 +17,7 @@ description:
   - If I(vmid) is not provided, Proxmox will auto-assign the next available ID.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

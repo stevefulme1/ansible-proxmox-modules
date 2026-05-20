@@ -16,7 +16,9 @@ description:
   - This module always reports C(changed=True) unless running in check mode.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   node:
     description:

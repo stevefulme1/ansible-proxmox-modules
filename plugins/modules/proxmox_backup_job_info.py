@@ -17,7 +17,7 @@ description:
   - Returns id, schedule, storage, mailnotification, enabled, vmid, and node for each job.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   limit:
     description:

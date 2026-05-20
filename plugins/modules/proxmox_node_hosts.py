@@ -17,7 +17,7 @@ description:
   - The digest is used for idempotency to detect if changes are needed.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

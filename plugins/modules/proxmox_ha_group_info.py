@@ -17,7 +17,7 @@ description:
   - Returns group, nodes, restricted, nofailback, and type for each group.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   limit:
     description:

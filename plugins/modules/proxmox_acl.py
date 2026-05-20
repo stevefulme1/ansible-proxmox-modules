@@ -16,7 +16,7 @@ description:
   - Assigns roles to users, groups, or API tokens on specific paths.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   path:
     description:
@@ -160,7 +160,7 @@ def main():
             roles=dict(type='list', elements='str', required=True),
             users=dict(type='list', elements='str'),
             groups=dict(type='list', elements='str'),
-            tokens=dict(type='list', elements='str'),
+            tokens=dict(type='list', elements='str', no_log=False),
             propagate=dict(type='bool', default=True),
             state=dict(
                 type='str', default='present',

@@ -17,7 +17,7 @@ description:
   - Compares existing pool configuration to desired state for idempotency.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

@@ -18,7 +18,9 @@ description:
   - Requires the proxmoxer Python library.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   userid:
     description:
@@ -105,7 +107,7 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 def main():
     module_args = dict(
         userid=dict(type='str', required=True),
-        tokenid=dict(type='str', required=True),
+        tokenid=dict(type='str', no_log=False, required=True),
         comment=dict(type='str'),
         enable=dict(type='bool'),
         expire=dict(type='int'),

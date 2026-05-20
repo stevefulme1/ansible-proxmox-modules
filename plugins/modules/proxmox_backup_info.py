@@ -16,7 +16,7 @@ description:
   - Retrieve information about scheduled backup jobs configured on a Proxmox VE cluster.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   limit:
     description:

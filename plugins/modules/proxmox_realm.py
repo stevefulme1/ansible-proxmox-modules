@@ -16,7 +16,7 @@ description:
   - Supports PAM, PVE, LDAP, Active Directory, and OpenID Connect realm types.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   realm:
     description:
@@ -86,7 +86,6 @@ options:
     description:
       - OpenID Connect client secret key.
     type: str
-    no_log: true
   autocreate:
     description:
       - Automatically create users on login if they do not exist.

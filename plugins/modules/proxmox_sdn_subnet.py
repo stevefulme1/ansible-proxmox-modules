@@ -15,7 +15,9 @@ description:
   - Requires the proxmoxer Python library.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   subnet:
     description: The subnet in CIDR notation (e.g. 10.0.0.0/24).

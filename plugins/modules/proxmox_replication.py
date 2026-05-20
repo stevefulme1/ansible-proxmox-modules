@@ -15,7 +15,7 @@ description:
   - Create, update, and delete storage replication jobs in a Proxmox VE cluster.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   rep_id:
     description:

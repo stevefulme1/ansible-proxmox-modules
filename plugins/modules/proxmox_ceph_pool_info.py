@@ -17,7 +17,7 @@ description:
   - Returns name, size, min_size, pg_num, bytes_used, and percent_used for each pool.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

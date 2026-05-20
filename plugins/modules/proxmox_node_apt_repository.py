@@ -15,7 +15,7 @@ description:
   - Idempotent — checks current repository state before making changes.
 version_added: "1.1.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

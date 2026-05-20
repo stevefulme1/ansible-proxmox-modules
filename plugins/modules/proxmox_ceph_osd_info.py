@@ -17,7 +17,7 @@ description:
   - Returns osd_id, name, status, crush_weight, and device_class for each OSD.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

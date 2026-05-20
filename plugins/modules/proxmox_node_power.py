@@ -16,7 +16,7 @@ description:
   - This is a destructive operation and does not support check mode.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

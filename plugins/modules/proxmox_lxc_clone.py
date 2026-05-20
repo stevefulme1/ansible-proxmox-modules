@@ -16,7 +16,7 @@ description:
   - Clone an existing LXC container to a new container on Proxmox VE.
   - If the target container ID already exists, the module will not attempt to clone again (idempotent).
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

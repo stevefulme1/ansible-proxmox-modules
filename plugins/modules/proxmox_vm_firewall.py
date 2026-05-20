@@ -16,7 +16,7 @@ description:
   - Compares current settings and only applies changes when needed.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

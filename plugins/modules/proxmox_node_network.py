@@ -15,27 +15,6 @@ description:
   - After making changes, the network configuration must be applied (reloaded) on the
     node for changes to take effect. This module modifies the pending configuration only.
 options:
-  api_host:
-    description: Proxmox VE API host (hostname or IP).
-    type: str
-    required: true
-  api_user:
-    description: Proxmox VE API user (e.g. C(root@pam)).
-    type: str
-    required: true
-  api_password:
-    description: Password for API user.
-    type: str
-  api_token_id:
-    description: API token ID.
-    type: str
-  api_token_secret:
-    description: API token secret.
-    type: str
-  validate_certs:
-    description: Whether to validate SSL certificates.
-    type: bool
-    default: true
   node:
     description: Target Proxmox VE node name.
     type: str
@@ -121,6 +100,8 @@ notes:
   - Deleting the last bridge interface may make the node unreachable.
 author:
   - "Proxmox Community (@proxmox-community)"
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''

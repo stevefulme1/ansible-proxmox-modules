@@ -5,6 +5,28 @@ All notable changes to **stevefulme1.proxmox** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.2] - 2026-05-20
+
+### Removed
+- Deleted 76 fabricated stub modules that returned empty data without calling the Proxmox API.
+  These modules used generic host/username/password args instead of proxmoxer and did not
+  implement any real functionality. Collection now contains 127 verified modules.
+
+### Fixed
+- Fixed author format across all modules to include GitHub handle.
+- Fixed 61 modules with invalid `env:` keys in documentation fragment.
+- Added `extends_documentation_fragment` to 72 modules missing it.
+- Added pagination parameter documentation (offset, limit, max_results) to info modules.
+- Fixed `no_log` false positives on tokenid, tokens, and sshkeys parameters.
+- Fixed FQCN references in proxmox_group module.
+- Fixed role variable naming to use proper role prefixes per ansible-lint.
+- Fixed duplicate YAML keys in inventory plugin examples.
+- Added required galaxy tags (infrastructure, cloud, linux).
+- Added YAML document-start markers to galaxy.yml, runtime.yml, .pre-commit-config.yaml.
+
+### Added
+- Added MAINTAINERS.md scaffolding file.
+
 ## [3.1.1] - 2026-05-18
 
 ### Security

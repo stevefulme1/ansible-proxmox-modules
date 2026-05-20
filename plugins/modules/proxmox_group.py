@@ -11,29 +11,8 @@ short_description: Manage access groups in Proxmox VE
 version_added: "0.1.0"
 description:
   - Create, update, or remove access groups in Proxmox VE via the C(/access/groups) API endpoint.
-  - Group membership is managed through the M(proxmox_user) module's C(groups) parameter.
+  - Group membership is managed through the M(stevefulme1.proxmox.proxmox_user) module's C(groups) parameter.
 options:
-  api_host:
-    description: Proxmox VE API host (hostname or IP).
-    type: str
-    required: true
-  api_user:
-    description: Proxmox VE API user (e.g. C(root@pam)).
-    type: str
-    required: true
-  api_password:
-    description: Password for API user.
-    type: str
-  api_token_id:
-    description: API token ID.
-    type: str
-  api_token_secret:
-    description: API token secret.
-    type: str
-  validate_certs:
-    description: Whether to validate SSL certificates.
-    type: bool
-    default: true
   groupid:
     description: The group name/ID.
     type: str
@@ -47,9 +26,11 @@ options:
     choices: ['present', 'absent']
     default: present
 notes:
-  - Group members are managed through the M(proxmox_user) module's C(groups) parameter.
+  - Group members are managed through the M(stevefulme1.proxmox.proxmox_user) module's C(groups) parameter.
 author:
   - "Proxmox Community (@proxmox-community)"
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''

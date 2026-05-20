@@ -16,7 +16,9 @@ description:
   - For uploads, the source file must exist on the Ansible controller and will be transferred via multipart form upload.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   node:
     description:

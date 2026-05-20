@@ -16,7 +16,7 @@ description:
   - Uses the Proxmox VE API at C(/cluster/sdn/ipams).
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   ipam:
     description:
@@ -38,7 +38,6 @@ options:
       - API token for authenticating with the IPAM backend.
       - Required for netbox and phpipam types.
     type: str
-    no_log: true
   section:
     description:
       - Section ID for phpIPAM.

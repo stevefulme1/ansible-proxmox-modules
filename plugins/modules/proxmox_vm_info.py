@@ -16,7 +16,9 @@ description:
   - Uses C(/nodes/{node}/qemu/{vmid}/status/current) and C(/nodes/{node}/qemu/{vmid}/config) API endpoints.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   node:
     description:

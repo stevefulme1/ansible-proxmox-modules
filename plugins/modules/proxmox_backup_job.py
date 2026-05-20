@@ -17,7 +17,7 @@ description:
   - Uses the C(/cluster/backup) API endpoint.
   - Matches existing jobs by C(job_id) for idempotent operations.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   job_id:
     description:

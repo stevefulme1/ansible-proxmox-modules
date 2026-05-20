@@ -16,7 +16,7 @@ description:
   - Modify configuration options for an existing LXC container on Proxmox VE.
   - Uses the Proxmox VE API to read current configuration and apply changes idempotently.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

@@ -4,6 +4,18 @@ stevefulme1.proxmox Release Notes
 
 .. contents:: Topics
 
+v3.1.2
+======
+
+Bugfixes
+--------
+
+- Deleted 76 fabricated stub modules that did not use proxmoxer.
+- Fixed author format, documentation fragments, pagination docs, and lint issues across all modules.
+- Added MAINTAINERS.md scaffolding.
+
+
+
 v1.0.0
 ======
 

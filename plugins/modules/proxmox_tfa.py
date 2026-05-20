@@ -17,7 +17,7 @@ description:
   - Creating a TOTP entry returns the secret and provisioning URL.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   userid:
     description:
@@ -43,7 +43,6 @@ options:
     description:
       - The user's current password, required for verification.
     type: str
-    no_log: true
   tfa_id:
     description:
       - The TFA entry ID. Required when deleting a specific TFA entry.

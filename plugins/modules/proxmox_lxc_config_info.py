@@ -17,7 +17,7 @@ description:
   - Returns all config keys such as hostname, memory, rootfs, net, and more.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

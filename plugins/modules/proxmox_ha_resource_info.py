@@ -17,7 +17,7 @@ description:
   - Returns sid, state, group, max_relocate, and max_restart for each resource.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   limit:
     description:

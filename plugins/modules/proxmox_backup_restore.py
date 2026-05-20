@@ -17,7 +17,7 @@ description:
   - This is an action module that always reports C(changed=True) unless in check mode.
   - Uses C(POST /nodes/{node}/qemu) for VM restores and C(POST /nodes/{node}/lxc) for container restores.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

@@ -1,2 +1,4 @@
 *.tar.gz
 __pycache__/
+.ansible/
+.DS_Store

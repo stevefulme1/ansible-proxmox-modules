@@ -16,7 +16,7 @@ description:
   - The disk must already exist on the VM.
 version_added: "1.1.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

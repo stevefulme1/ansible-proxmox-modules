@@ -17,7 +17,9 @@ description:
   - Requires the proxmoxer Python library.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   name:
     description: Unique name for the remote PBS connection.
@@ -40,7 +42,6 @@ options:
     description:
       - Password or API token secret for authenticating to the remote PBS server.
     type: str
-    no_log: true
   fingerprint:
     description: TLS certificate fingerprint of the remote PBS server for verification.
     type: str

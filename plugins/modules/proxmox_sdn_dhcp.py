@@ -17,7 +17,7 @@ description:
     C(/cluster/sdn/vnets/{vnet}/subnets/{subnet}).
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   vnet:
     description:

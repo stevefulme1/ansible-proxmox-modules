@@ -16,7 +16,7 @@ description:
   - Migrate an LXC container from one Proxmox VE node to another.
   - Idempotent; if the container already resides on the target node, no action is taken.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

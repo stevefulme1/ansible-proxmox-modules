@@ -18,7 +18,7 @@ description:
   - This is an info module and does not make any changes.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

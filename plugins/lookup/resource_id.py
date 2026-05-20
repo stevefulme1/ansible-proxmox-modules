@@ -8,7 +8,7 @@ __metaclass__ = type
 DOCUMENTATION = r'''
 ---
 name: resource_id
-author: sfulmer
+author: Steve Fulmer (@stevefulme1)
 version_added: "1.0.0"
 short_description: Look up Proxmox resource IDs by name or path
 description:

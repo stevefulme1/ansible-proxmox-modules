@@ -15,7 +15,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _pve_auth:
+    proxmox_backup_setup_pve_auth:
       api_host: "{{ proxmox_backup_setup_host }}"
       api_user: "{{ proxmox_backup_setup_username }}"
       api_password: "{{ proxmox_backup_setup_password | default(omit, true) }}"
@@ -28,12 +28,12 @@
   block:
     - name: Configure VZDump defaults
       stevefulme1.proxmox.proxmox_vzdump_defaults:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         storage: "{{ proxmox_backup_setup_vzdump_storage }}"
         mode: "{{ proxmox_backup_setup_vzdump_mode }}"
         compress: "{{ proxmox_backup_setup_vzdump_compress }}"
@@ -44,12 +44,12 @@
 
     - name: Create PBS datastores
       stevefulme1.proxmox.proxmox_pbs_datastore:
-        api_host: "{{ proxmox_backup_setup_pbs_host | default(_pve_auth.api_host) }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pbs_host | default(proxmox_backup_setup_pve_auth.api_host) }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         name: "{{ item.name }}"
         path: "{{ item.path }}"
         gc_schedule: "{{ item.gc_schedule | default(omit) }}"
@@ -59,12 +59,12 @@
 
     - name: Create backup jobs
       stevefulme1.proxmox.proxmox_backup_job:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         id: "{{ item.id }}"
         schedule: "{{ item.schedule }}"
         vmid: "{{ item.vmid }}"
@@ -82,12 +82,12 @@
 
     - name: Create PBS prune jobs
       stevefulme1.proxmox.proxmox_pbs_prune_job:
-        api_host: "{{ proxmox_backup_setup_pbs_host | default(_pve_auth.api_host) }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pbs_host | default(proxmox_backup_setup_pve_auth.api_host) }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         id: "{{ item.id }}"
         datastore: "{{ item.datastore }}"
         schedule: "{{ item.schedule }}"
@@ -100,12 +100,12 @@
 
     - name: Create PBS verify jobs
       stevefulme1.proxmox.proxmox_pbs_verify_job:
-        api_host: "{{ proxmox_backup_setup_pbs_host | default(_pve_auth.api_host) }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pbs_host | default(proxmox_backup_setup_pve_auth.api_host) }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         id: "{{ item.id }}"
         datastore: "{{ item.datastore }}"
         schedule: "{{ item.schedule }}"
@@ -115,12 +115,12 @@
 
     - name: Configure PBS garbage collection
       stevefulme1.proxmox.proxmox_pbs_gc:
-        api_host: "{{ proxmox_backup_setup_pbs_host | default(_pve_auth.api_host) }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_backup_setup_pbs_host | default(proxmox_backup_setup_pve_auth.api_host) }}"
+        api_user: "{{ proxmox_backup_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_backup_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_backup_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_backup_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_backup_setup_pve_auth.validate_certs }}"
         datastore: "{{ item.name }}"
         schedule: "{{ item.gc_schedule }}"
         state: present

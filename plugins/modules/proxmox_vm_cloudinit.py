@@ -16,7 +16,7 @@ description:
   - Compares current cloud-init settings and only applies changes when needed.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:
@@ -36,7 +36,6 @@ options:
     description:
       - Cloud-init user password.
     type: str
-    no_log: true
   sshkeys:
     description:
       - URL-encoded SSH public keys for cloud-init.
@@ -221,7 +220,7 @@ def main():
         vmid=dict(type='int', required=True),
         ciuser=dict(type='str'),
         cipassword=dict(type='str', no_log=True),
-        sshkeys=dict(type='str'),
+        sshkeys=dict(type='str', no_log=False),
         nameserver=dict(type='str'),
         searchdomain=dict(type='str'),
         citype=dict(

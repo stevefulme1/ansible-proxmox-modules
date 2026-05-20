@@ -19,27 +19,6 @@ description:
     subscription status against the server.
   - Use C(state=absent) to remove the subscription key.
 options:
-  api_host:
-    description: Proxmox VE API host (hostname or IP).
-    type: str
-    required: true
-  api_user:
-    description: Proxmox VE API user (e.g. C(root@pam)).
-    type: str
-    required: true
-  api_password:
-    description: Password for API user.
-    type: str
-  api_token_id:
-    description: API token ID.
-    type: str
-  api_token_secret:
-    description: API token secret.
-    type: str
-  validate_certs:
-    description: Whether to validate SSL certificates.
-    type: bool
-    default: true
   node:
     description: Target Proxmox VE node name.
     type: str
@@ -61,7 +40,9 @@ options:
     choices: ['present', 'absent']
     default: present
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''

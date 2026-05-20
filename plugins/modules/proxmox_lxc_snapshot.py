@@ -15,7 +15,7 @@ version_added: "1.0.0"
 description:
   - Create, delete, or rollback snapshots of LXC containers on Proxmox VE.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

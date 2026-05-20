@@ -17,7 +17,7 @@ description:
   - Returns vmid, hostname, status, memory, CPUs, node, and tags for each container.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

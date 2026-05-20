@@ -16,7 +16,7 @@ description:
   - Uses the C(/cluster/options) API endpoint to read and update settings.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   migration:
     description:

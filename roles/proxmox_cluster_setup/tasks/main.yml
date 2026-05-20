@@ -14,7 +14,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _pve_auth:
+    proxmox_cluster_setup_pve_auth:
       api_host: "{{ proxmox_cluster_setup_host }}"
       api_user: "{{ proxmox_cluster_setup_username }}"
       api_password: "{{ proxmox_cluster_setup_password | default(omit, true) }}"
@@ -25,25 +25,25 @@
 
 - name: Gather current cluster info
   stevefulme1.proxmox.proxmox_cluster_info:
-    api_host: "{{ _pve_auth.api_host }}"
-    api_user: "{{ _pve_auth.api_user }}"
-    api_password: "{{ _pve_auth.api_password | default(omit) }}"
-    api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-    api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-    validate_certs: "{{ _pve_auth.validate_certs }}"
-  register: _cluster_info
+    api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+    api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+    api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+    api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+    api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+    validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
+  register: proxmox_cluster_setup_cluster_info
   ignore_errors: true
 
 - name: Configure cluster
   block:
     - name: Join node to existing cluster
       stevefulme1.proxmox.proxmox_cluster_join:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
         hostname: "{{ proxmox_cluster_setup_join_address }}"
         fingerprint: "{{ proxmox_cluster_setup_join_fingerprint }}"
         password: "{{ proxmox_cluster_setup_join_password }}"
@@ -52,12 +52,12 @@
 
     - name: Set cluster options
       stevefulme1.proxmox.proxmox_cluster_options:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
         migration: "{{ proxmox_cluster_setup_migration_type }}"
         migration_network: "{{ proxmox_cluster_setup_migration_network | default(omit) }}"
         email_from: "{{ proxmox_cluster_setup_email_from | default(omit) }}"
@@ -66,12 +66,12 @@
 
     - name: Create HA groups
       stevefulme1.proxmox.proxmox_ha_group:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
         name: "{{ item.name }}"
         nodes: "{{ item.nodes }}"
         restricted: "{{ item.restricted | default(false) }}"
@@ -82,12 +82,12 @@
 
     - name: Configure HA resources
       stevefulme1.proxmox.proxmox_ha_resource:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
         vmid: "{{ item.vmid }}"
         group: "{{ item.group }}"
         max_restart: "{{ item.max_restart | default(3) }}"
@@ -98,12 +98,12 @@
 
     - name: Configure notification endpoints
       stevefulme1.proxmox.proxmox_notification_endpoint:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_cluster_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_cluster_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_cluster_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_cluster_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_cluster_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_cluster_setup_pve_auth.validate_certs }}"
         name: "{{ item.name }}"
         type: "{{ item.type }}"
         server: "{{ item.server | default(omit) }}"

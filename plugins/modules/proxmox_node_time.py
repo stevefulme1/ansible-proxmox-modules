@@ -16,7 +16,7 @@ description:
   - Uses the C(/nodes/{node}/time) API endpoint to read and update timezone settings.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

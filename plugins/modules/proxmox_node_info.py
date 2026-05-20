@@ -17,7 +17,7 @@ description:
   - Returns CPU usage, memory usage, uptime, kernel version, PVE version, and more.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

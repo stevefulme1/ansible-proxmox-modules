@@ -16,7 +16,7 @@ description:
   - Uses the Proxmox VE API at C(/cluster/sdn/dns).
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   dns:
     description:
@@ -36,7 +36,6 @@ options:
     description:
       - API key for authenticating with the DNS server.
     type: str
-    no_log: true
   reversedns:
     description:
       - Reverse DNS zone for IPv4.

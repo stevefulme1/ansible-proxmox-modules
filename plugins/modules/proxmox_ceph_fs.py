@@ -16,7 +16,7 @@ description:
   - Uses the Proxmox VE API at C(/nodes/{node}/ceph/fs).
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

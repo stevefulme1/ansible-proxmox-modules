@@ -16,7 +16,7 @@ description:
   - Check mode is not supported because this operation is destructive and irreversible.
 version_added: "1.1.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   hostname:
     description:

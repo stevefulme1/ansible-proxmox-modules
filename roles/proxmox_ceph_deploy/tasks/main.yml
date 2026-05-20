@@ -16,7 +16,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _pve_auth:
+    proxmox_ceph_deploy_pve_auth:
       api_host: "{{ proxmox_ceph_deploy_host }}"
       api_user: "{{ proxmox_ceph_deploy_username }}"
       api_password: "{{ proxmox_ceph_deploy_password | default(omit, true) }}"
@@ -29,36 +29,36 @@
   block:
     - name: Gather current Ceph status
       stevefulme1.proxmox.proxmox_ceph_info:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ proxmox_ceph_deploy_node }}"
-      register: _ceph_info
+      register: proxmox_ceph_deploy_ceph_info
       ignore_errors: true
 
     - name: Deploy Ceph monitors
       stevefulme1.proxmox.proxmox_ceph_mon:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ item.node }}"
         state: present
       loop: "{{ proxmox_ceph_deploy_monitors }}"
 
     - name: Deploy Ceph managers
       stevefulme1.proxmox.proxmox_ceph_mgr:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ item.node }}"
         state: present
       loop: "{{ proxmox_ceph_deploy_managers }}"
@@ -66,12 +66,12 @@
 
     - name: Create Ceph OSDs
       stevefulme1.proxmox.proxmox_ceph_osd:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ item.node }}"
         device: "{{ item.device }}"
         db_device: "{{ item.db_device | default(omit) }}"
@@ -80,12 +80,12 @@
 
     - name: Create Ceph pools
       stevefulme1.proxmox.proxmox_ceph_pool:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ proxmox_ceph_deploy_node }}"
         name: "{{ item.name }}"
         size: "{{ item.size | default(3) }}"
@@ -98,12 +98,12 @@
 
     - name: Deploy MDS services for CephFS
       stevefulme1.proxmox.proxmox_ceph_mds:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ item.node }}"
         state: present
       loop: "{{ proxmox_ceph_deploy_mds }}"
@@ -111,12 +111,12 @@
 
     - name: Create CephFS filesystems
       stevefulme1.proxmox.proxmox_ceph_fs:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         node: "{{ proxmox_ceph_deploy_node }}"
         name: "{{ item.name }}"
         data_pool: "{{ item.data_pool }}"
@@ -127,12 +127,12 @@
 
     - name: Register Ceph pool as PVE storage
       stevefulme1.proxmox.proxmox_storage:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_ceph_deploy_pve_auth.api_host }}"
+        api_user: "{{ proxmox_ceph_deploy_pve_auth.api_user }}"
+        api_password: "{{ proxmox_ceph_deploy_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_ceph_deploy_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_ceph_deploy_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_ceph_deploy_pve_auth.validate_certs }}"
         storage: "{{ proxmox_ceph_deploy_storage_name }}"
         type: rbd
         pool: "{{ (proxmox_ceph_deploy_pools | first).name }}"

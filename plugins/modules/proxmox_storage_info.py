@@ -16,7 +16,9 @@ description:
   - Uses the C(/storage) API endpoint.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   type:
     description:

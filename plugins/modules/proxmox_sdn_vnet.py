@@ -15,7 +15,9 @@ description:
   - Requires the proxmoxer Python library.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   vnet:
     description: The name of the VNet.

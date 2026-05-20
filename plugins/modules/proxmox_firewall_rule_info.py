@@ -16,7 +16,7 @@ description:
   - Retrieve firewall rules at the cluster, node, or VM level.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   scope:
     description:

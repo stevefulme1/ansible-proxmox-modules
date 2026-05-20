@@ -17,7 +17,7 @@ description:
   - Returns userid, email, firstname, lastname, enable, groups, and tokens.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   userid:
     description:

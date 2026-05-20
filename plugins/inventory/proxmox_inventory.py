@@ -9,7 +9,6 @@ __metaclass__ = type
 DOCUMENTATION = r'''
 ---
 name: proxmox_inventory
-plugin_type: inventory
 short_description: Dynamic inventory plugin for Proxmox VE
 description:
   - Discovers QEMU/KVM VMs and LXC containers across all Proxmox VE nodes.
@@ -18,7 +17,7 @@ description:
   - IP addresses are retrieved from the QEMU guest agent when available.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   plugin:
     description:
@@ -82,6 +81,7 @@ api_user: root@pam
 api_token_id: mytoken
 api_token_secret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
+---
 # proxmox.yml - with environment variables and no agent queries
 plugin: stevefulme1.proxmox.proxmox_inventory
 api_host: proxmox.example.com

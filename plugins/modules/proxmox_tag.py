@@ -17,7 +17,7 @@ description:
   - Compares current tags and only updates when changes are needed.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

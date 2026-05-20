@@ -17,7 +17,7 @@ description:
   - Returns path, roleid, type, ugid, and propagate for each ACL entry.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   limit:
     description:

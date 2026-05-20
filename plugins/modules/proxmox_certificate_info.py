@@ -17,7 +17,7 @@ description:
   - Returns fingerprint, issuer, subject, notafter, and notbefore for each certificate.
   - This is an info module and does not make any changes.
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

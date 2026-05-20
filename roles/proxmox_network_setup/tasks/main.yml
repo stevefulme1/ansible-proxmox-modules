@@ -13,7 +13,7 @@
 
 - name: Build authentication parameters
   ansible.builtin.set_fact:
-    _pve_auth:
+    proxmox_network_setup_pve_auth:
       api_host: "{{ proxmox_network_setup_host }}"
       api_user: "{{ proxmox_network_setup_username }}"
       api_password: "{{ proxmox_network_setup_password | default(omit, true) }}"
@@ -26,12 +26,12 @@
   block:
     - name: Create Linux bridges
       stevefulme1.proxmox.proxmox_node_network:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         node: "{{ proxmox_network_setup_node }}"
         iface: "{{ item.name }}"
         type: bridge
@@ -46,12 +46,12 @@
 
     - name: Create VLAN interfaces
       stevefulme1.proxmox.proxmox_node_network:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         node: "{{ proxmox_network_setup_node }}"
         iface: "{{ item.name }}"
         type: vlan
@@ -65,12 +65,12 @@
 
     - name: Configure SDN controllers
       stevefulme1.proxmox.proxmox_sdn_controller:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         controller: "{{ item.controller }}"
         type: "{{ item.type }}"
         asn: "{{ item.asn | default(omit) }}"
@@ -81,12 +81,12 @@
 
     - name: Create SDN zones
       stevefulme1.proxmox.proxmox_sdn_zone:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         zone: "{{ item.zone }}"
         type: "{{ item.type }}"
         bridge: "{{ item.bridge | default(omit) }}"
@@ -98,12 +98,12 @@
 
     - name: Create SDN VNets
       stevefulme1.proxmox.proxmox_sdn_vnet:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         vnet: "{{ item.vnet }}"
         zone: "{{ item.zone }}"
         tag: "{{ item.tag | default(omit) }}"
@@ -114,12 +114,12 @@
 
     - name: Create SDN subnets
       stevefulme1.proxmox.proxmox_sdn_subnet:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         subnet: "{{ item.subnet }}"
         vnet: "{{ item.vnet }}"
         gateway: "{{ item.gateway | default(omit) }}"
@@ -130,12 +130,12 @@
 
     - name: Apply SDN configuration
       stevefulme1.proxmox.proxmox_sdn_zone:
-        api_host: "{{ _pve_auth.api_host }}"
-        api_user: "{{ _pve_auth.api_user }}"
-        api_password: "{{ _pve_auth.api_password | default(omit) }}"
-        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
-        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
-        validate_certs: "{{ _pve_auth.validate_certs }}"
+        api_host: "{{ proxmox_network_setup_pve_auth.api_host }}"
+        api_user: "{{ proxmox_network_setup_pve_auth.api_user }}"
+        api_password: "{{ proxmox_network_setup_pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_network_setup_pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_network_setup_pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_network_setup_pve_auth.validate_certs }}"
         apply: true
         state: present
       when:

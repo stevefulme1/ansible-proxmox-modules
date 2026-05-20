@@ -15,27 +15,6 @@ description:
   - When a token is first created, the token secret is returned. This secret
     is only available at creation time and cannot be retrieved later.
 options:
-  api_host:
-    description: Proxmox VE API host (hostname or IP).
-    type: str
-    required: true
-  api_user:
-    description: Proxmox VE API user (e.g. C(root@pam)).
-    type: str
-    required: true
-  api_password:
-    description: Password for API user.
-    type: str
-  api_token_id:
-    description: API token ID for authentication.
-    type: str
-  api_token_secret:
-    description: API token secret for authentication.
-    type: str
-  validate_certs:
-    description: Whether to validate SSL certificates.
-    type: bool
-    default: true
   userid:
     description:
       - The user ID that owns the token, in the format C(user@realm).
@@ -67,6 +46,8 @@ options:
     default: present
 author:
   - "Proxmox Community (@proxmox-community)"
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
@@ -148,7 +129,7 @@ def main():
         api_token_secret=dict(type='str', no_log=True),
         validate_certs=dict(type='bool', default=True),
         userid=dict(type='str', required=True),
-        tokenid=dict(type='str', required=True),
+        tokenid=dict(type='str', no_log=False, required=True),
         privsep=dict(type='bool', default=True),
         expire=dict(type='int'),
         comment=dict(type='str'),

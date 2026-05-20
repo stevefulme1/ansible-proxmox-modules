@@ -16,7 +16,9 @@ description:
   - Checks current configuration before applying changes for idempotency.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   node:
     description:

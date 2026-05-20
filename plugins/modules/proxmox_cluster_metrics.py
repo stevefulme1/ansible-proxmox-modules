@@ -18,7 +18,7 @@ description:
   - Supports Graphite and InfluxDB backends.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   name:
     description:

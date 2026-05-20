@@ -17,7 +17,7 @@ description:
   - This is an info module and does not make any changes.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:
@@ -32,7 +32,7 @@ options:
     description:
       - Maximum number of log entries to return.
     type: int
-    default: 50
+    default: 100
   since:
     description:
       - Display log entries since this date-time string.

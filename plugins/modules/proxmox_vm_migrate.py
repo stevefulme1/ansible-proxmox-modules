@@ -16,7 +16,9 @@ description:
   - Checks current node location for idempotency. If the VM is already on the target node, no action is taken.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 options:
   node:
     description:

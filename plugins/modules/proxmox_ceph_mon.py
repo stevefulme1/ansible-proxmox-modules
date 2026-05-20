@@ -17,7 +17,7 @@ description:
   - Checks existing monitors before making changes to ensure idempotency.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

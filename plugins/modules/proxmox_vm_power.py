@@ -16,7 +16,7 @@ description:
   - Idempotent — will not attempt to start an already running VM, stop an already stopped VM, etc.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

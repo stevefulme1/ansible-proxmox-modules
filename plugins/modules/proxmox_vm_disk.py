@@ -16,7 +16,7 @@ description:
   - This is an action module; idempotency depends on the specific action.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:

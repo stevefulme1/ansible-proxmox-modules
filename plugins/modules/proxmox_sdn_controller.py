@@ -16,7 +16,7 @@ description:
   - Uses the Proxmox VE API at C(/cluster/sdn/controllers).
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   controller:
     description:

@@ -17,7 +17,7 @@ description:
   - If I(vmid) is not provided, Proxmox will auto-assign the next available ID.
 version_added: "1.0.0"
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   node:
     description:
@@ -64,7 +64,6 @@ options:
     description:
       - Root password for the container.
     type: str
-    no_log: true
   ssh_public_keys:
     description:
       - SSH public keys to add to the container, one per line.

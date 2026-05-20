@@ -16,7 +16,7 @@ description:
   - Create, update, or delete resource pools on Proxmox VE.
   - Supports managing pool membership (VMs, containers, and storage).
 author:
-  - sfulmer
+  - Steve Fulmer (@stevefulme1)
 options:
   poolid:
     description:

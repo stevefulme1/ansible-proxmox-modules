@@ -12,27 +12,6 @@ version_added: "0.1.0"
 description:
   - Create, update, or remove users in Proxmox VE via the C(/access/users) API endpoint.
 options:
-  api_host:
-    description: Proxmox VE API host (hostname or IP).
-    type: str
-    required: true
-  api_user:
-    description: Proxmox VE API user (e.g. C(root@pam)).
-    type: str
-    required: true
-  api_password:
-    description: Password for API user.
-    type: str
-  api_token_id:
-    description: API token ID.
-    type: str
-  api_token_secret:
-    description: API token secret.
-    type: str
-  validate_certs:
-    description: Whether to validate SSL certificates.
-    type: bool
-    default: true
   userid:
     description:
       - The user ID in the format C(user@realm), e.g. C(admin@pve).
@@ -75,6 +54,8 @@ options:
     default: present
 author:
   - "Proxmox Community (@proxmox-community)"
+extends_documentation_fragment:
+  - stevefulme1.proxmox.proxmox
 '''
 
 EXAMPLES = r'''
