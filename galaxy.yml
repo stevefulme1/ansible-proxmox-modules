@@ -1,10 +1,10 @@
 namespace: stevefulme1
 name: proxmox
-version: 3.1.1
+version: 0.1.0
 readme: README.md
 authors:
   - sfulmer
-description: Ansible modules for Proxmox VE and PBS management (SDN, Firewall, HA, Cluster, Storage, VM/LXC, Ceph, Backup, Identity, and more)
+description: Ansible modules for Proxmox VE and PBS management (SDN, Firewall, HA, Cluster, Storage, VM/LXC, Ceph, Backup, Identity, and more) Status: Pre-release. Under active development.
 license:
   - GPL-3.0-or-later
 repository: https://github.com/stevefulme1/ansible-proxmox-modules
