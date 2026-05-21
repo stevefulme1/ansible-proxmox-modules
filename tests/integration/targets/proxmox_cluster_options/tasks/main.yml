@@ -1,0 +1,49 @@
+---
+# Integration tests for stevefulme1.proxmox.proxmox_cluster_options
+# Requires: PROXMOX_HOST, PROXMOX_USER, PROXMOX_PASSWORD
+
+- name: Create proxmox_cluster_options
+  stevefulme1.proxmox.proxmox_cluster_options:
+    keyboard: en-us
+    language: en
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create proxmox_cluster_options again (idempotency)
+  stevefulme1.proxmox.proxmox_cluster_options:
+    keyboard: en-us
+    language: en
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Update proxmox_cluster_options
+  stevefulme1.proxmox.proxmox_cluster_options:
+    keyboard: en-us
+    language: en
+    description: "Test cluster"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: update_result
+
+- name: Verify update
+  ansible.builtin.assert:
+    that:
+      - update_result is changed

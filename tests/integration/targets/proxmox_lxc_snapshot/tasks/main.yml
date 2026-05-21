@@ -1,0 +1,71 @@
+---
+# Integration tests for stevefulme1.proxmox.proxmox_lxc_snapshot
+# Requires: PROXMOX_HOST, PROXMOX_USER, PROXMOX_PASSWORD
+
+- name: Create proxmox_lxc_snapshot
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
+    vmid: 200
+    node: "{{ proxmox_node }}"
+    snapname: "ansible_test_snap"
+    description: "Test LXC snapshot"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create proxmox_lxc_snapshot again (idempotency)
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
+    vmid: 200
+    node: "{{ proxmox_node }}"
+    snapname: "ansible_test_snap"
+    description: "Test LXC snapshot"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Delete proxmox_lxc_snapshot
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
+    vmid: 200
+    node: "{{ proxmox_node }}"
+    snapname: "ansible_test_snap"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_result
+
+- name: Verify deletion
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete proxmox_lxc_snapshot again (idempotency)
+  stevefulme1.proxmox.proxmox_lxc_snapshot:
+    vmid: 200
+    node: "{{ proxmox_node }}"
+    snapname: "ansible_test_snap"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_idem
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem is not changed

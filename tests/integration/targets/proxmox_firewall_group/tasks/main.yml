@@ -1,0 +1,78 @@
+---
+# Integration tests for stevefulme1.proxmox.proxmox_firewall_group
+# Requires: PROXMOX_HOST, PROXMOX_USER, PROXMOX_PASSWORD
+
+- name: Create proxmox_firewall_group
+  stevefulme1.proxmox.proxmox_firewall_group:
+    name: "ansible-test-fwgroup"
+    comment: "Test FW group"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create proxmox_firewall_group again (idempotency)
+  stevefulme1.proxmox.proxmox_firewall_group:
+    name: "ansible-test-fwgroup"
+    comment: "Test FW group"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Update proxmox_firewall_group
+  stevefulme1.proxmox.proxmox_firewall_group:
+    name: "ansible-test-fwgroup"
+    comment: "Updated FW group"
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: update_result
+
+- name: Verify update
+  ansible.builtin.assert:
+    that:
+      - update_result is changed
+
+- name: Delete proxmox_firewall_group
+  stevefulme1.proxmox.proxmox_firewall_group:
+    name: "ansible-test-fwgroup"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_result
+
+- name: Verify deletion
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete proxmox_firewall_group again (idempotency)
+  stevefulme1.proxmox.proxmox_firewall_group:
+    name: "ansible-test-fwgroup"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_idem
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem is not changed

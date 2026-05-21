@@ -1,0 +1,84 @@
+---
+# Integration tests for stevefulme1.proxmox.proxmox_backup_job
+# Requires: PROXMOX_HOST, PROXMOX_USER, PROXMOX_PASSWORD
+
+- name: Create proxmox_backup_job
+  stevefulme1.proxmox.proxmox_backup_job:
+    jobid: "ansible-test-backup"
+    storage: local
+    schedule: "sun 02:00"
+    mode: snapshot
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: create_result
+
+- name: Verify creation
+  ansible.builtin.assert:
+    that:
+      - create_result is changed
+
+- name: Create proxmox_backup_job again (idempotency)
+  stevefulme1.proxmox.proxmox_backup_job:
+    jobid: "ansible-test-backup"
+    storage: local
+    schedule: "sun 02:00"
+    mode: snapshot
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: idem_result
+
+- name: Verify idempotency
+  ansible.builtin.assert:
+    that:
+      - idem_result is not changed
+
+- name: Update proxmox_backup_job
+  stevefulme1.proxmox.proxmox_backup_job:
+    jobid: "ansible-test-backup"
+    storage: local
+    schedule: "sat 03:00"
+    mode: snapshot
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: update_result
+
+- name: Verify update
+  ansible.builtin.assert:
+    that:
+      - update_result is changed
+
+- name: Delete proxmox_backup_job
+  stevefulme1.proxmox.proxmox_backup_job:
+    jobid: "ansible-test-backup"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_result
+
+- name: Verify deletion
+  ansible.builtin.assert:
+    that:
+      - delete_result is changed
+
+- name: Delete proxmox_backup_job again (idempotency)
+  stevefulme1.proxmox.proxmox_backup_job:
+    jobid: "ansible-test-backup"
+    state: absent
+    api_host: "{{ proxmox_api_host }}"
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    validate_certs: false
+  register: delete_idem
+
+- name: Verify delete idempotency
+  ansible.builtin.assert:
+    that:
+      - delete_idem is not changed
