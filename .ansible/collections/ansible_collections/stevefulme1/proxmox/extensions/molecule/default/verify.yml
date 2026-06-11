@@ -1,0 +1,71 @@
+---
+- name: Verify -- Proxmox module post-converge checks
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    proxmox_api_host: "{{ lookup('env', 'PROXMOX_API_HOST') | default('pve1.local', true) }}"
+    proxmox_api_user: "{{ lookup('env', 'PROXMOX_API_USER') | default('root@pam', true) }}"
+    proxmox_api_password: "{{ lookup('env', 'PROXMOX_API_PASSWORD') | default(omit, true) }}"
+    proxmox_api_token_id: "{{ lookup('env', 'PROXMOX_API_TOKEN_ID') | default(omit, true) }}"
+    proxmox_api_token_secret: "{{ lookup('env', 'PROXMOX_API_TOKEN_SECRET') | default(omit, true) }}"
+    proxmox_validate_certs: false
+    proxmox_test_node: "{{ lookup('env', 'PROXMOX_TEST_NODE') | default('pve1', true) }}"
+
+  tasks:
+    - name: Verify firewall rule was cleaned up
+      stevefulme1.proxmox.proxmox_firewall_rule:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        scope: cluster
+        action: ACCEPT
+        type: in
+        proto: tcp
+        dport: "29999"
+        state: absent
+      register: fw_verify
+
+    - name: Assert firewall rule absent
+      ansible.builtin.assert:
+        that:
+          - not fw_verify.changed
+        fail_msg: "Test firewall rule should already be absent after converge"
+
+    - name: Verify storage was cleaned up
+      stevefulme1.proxmox.proxmox_storage:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        storage: molecule-test
+        state: absent
+      register: stor_verify
+
+    - name: Assert storage absent
+      ansible.builtin.assert:
+        that:
+          - not stor_verify.changed
+        fail_msg: "Test storage should already be absent after converge"
+
+    - name: Verify node info works (read-only sanity check)
+      stevefulme1.proxmox.proxmox_node_info:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_password: "{{ proxmox_api_password | default(omit) }}"
+        api_token_id: "{{ proxmox_api_token_id | default(omit) }}"
+        api_token_secret: "{{ proxmox_api_token_secret | default(omit) }}"
+        validate_certs: "{{ proxmox_validate_certs }}"
+        node: "{{ proxmox_test_node }}"
+      register: node_verify
+
+    - name: Assert node info returned data
+      ansible.builtin.assert:
+        that:
+          - node_verify.node_info is defined

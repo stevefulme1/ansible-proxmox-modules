@@ -1,0 +1,150 @@
+---
+# tasks/main.yml for proxmox_ceph_deploy
+# Deploy Ceph storage cluster on Proxmox nodes
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_ceph_deploy_host | length > 0
+      - proxmox_ceph_deploy_node | length > 0
+      - proxmox_ceph_deploy_monitors | length > 0
+      - proxmox_ceph_deploy_osds | length > 0
+    fail_msg: >-
+      proxmox_ceph_deploy_host, proxmox_ceph_deploy_node,
+      proxmox_ceph_deploy_monitors, and proxmox_ceph_deploy_osds must be defined.
+    quiet: true
+
+- name: Build authentication parameters
+  ansible.builtin.set_fact:
+    _pve_auth:
+      api_host: "{{ proxmox_ceph_deploy_host }}"
+      api_user: "{{ proxmox_ceph_deploy_username }}"
+      api_password: "{{ proxmox_ceph_deploy_password | default(omit, true) }}"
+      api_token_id: "{{ proxmox_ceph_deploy_api_token_id | default(omit, true) }}"
+      api_token_secret: "{{ proxmox_ceph_deploy_api_token_secret | default(omit, true) }}"
+      validate_certs: "{{ proxmox_ceph_deploy_validate_certs }}"
+  no_log: true
+
+- name: Deploy Ceph cluster
+  block:
+    - name: Gather current Ceph status
+      stevefulme1.proxmox.proxmox_ceph_info:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_ceph_deploy_node }}"
+      register: _ceph_info
+      ignore_errors: true
+
+    - name: Deploy Ceph monitors
+      stevefulme1.proxmox.proxmox_ceph_mon:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ item.node }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_monitors }}"
+
+    - name: Deploy Ceph managers
+      stevefulme1.proxmox.proxmox_ceph_mgr:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ item.node }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_managers }}"
+      when: proxmox_ceph_deploy_managers | length > 0
+
+    - name: Create Ceph OSDs
+      stevefulme1.proxmox.proxmox_ceph_osd:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ item.node }}"
+        device: "{{ item.device }}"
+        db_device: "{{ item.db_device | default(omit) }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_osds }}"
+
+    - name: Create Ceph pools
+      stevefulme1.proxmox.proxmox_ceph_pool:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_ceph_deploy_node }}"
+        name: "{{ item.name }}"
+        size: "{{ item.size | default(3) }}"
+        min_size: "{{ item.min_size | default(2) }}"
+        pg_num: "{{ item.pg_num | default(128) }}"
+        application: "{{ item.application | default('rbd') }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_pools }}"
+      when: proxmox_ceph_deploy_pools | length > 0
+
+    - name: Deploy MDS services for CephFS
+      stevefulme1.proxmox.proxmox_ceph_mds:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ item.node }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_mds }}"
+      when: proxmox_ceph_deploy_mds | length > 0
+
+    - name: Create CephFS filesystems
+      stevefulme1.proxmox.proxmox_ceph_fs:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        node: "{{ proxmox_ceph_deploy_node }}"
+        name: "{{ item.name }}"
+        data_pool: "{{ item.data_pool }}"
+        metadata_pool: "{{ item.metadata_pool }}"
+        state: present
+      loop: "{{ proxmox_ceph_deploy_filesystems }}"
+      when: proxmox_ceph_deploy_filesystems | length > 0
+
+    - name: Register Ceph pool as PVE storage
+      stevefulme1.proxmox.proxmox_storage:
+        api_host: "{{ _pve_auth.api_host }}"
+        api_user: "{{ _pve_auth.api_user }}"
+        api_password: "{{ _pve_auth.api_password | default(omit) }}"
+        api_token_id: "{{ _pve_auth.api_token_id | default(omit) }}"
+        api_token_secret: "{{ _pve_auth.api_token_secret | default(omit) }}"
+        validate_certs: "{{ _pve_auth.validate_certs }}"
+        storage: "{{ proxmox_ceph_deploy_storage_name }}"
+        type: rbd
+        pool: "{{ (proxmox_ceph_deploy_pools | first).name }}"
+        content: "images,rootdir"
+        state: present
+      when:
+        - proxmox_ceph_deploy_register_storage
+        - proxmox_ceph_deploy_pools | length > 0
+
+  rescue:
+    - name: Ceph deployment failed
+      ansible.builtin.fail:
+        msg: >-
+          Ceph deployment failed on '{{ proxmox_ceph_deploy_node }}':
+          {{ ansible_failed_result.msg | default('unknown error') }}

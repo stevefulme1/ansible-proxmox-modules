@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_security_hardening
+
+# Target host
+proxmox_security_hardening_host: ""
+
+# Authentication
+proxmox_security_hardening_username: ""
+proxmox_security_hardening_password: ""
+proxmox_security_hardening_api_key: ""
+
+# Behavior
+proxmox_security_hardening_validate_certs: true
+proxmox_security_hardening_state: present

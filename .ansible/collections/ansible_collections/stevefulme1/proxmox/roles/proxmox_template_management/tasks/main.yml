@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_template_management
+# Create and manage VM/CT templates
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_template_management_host is defined
+    fail_msg: "proxmox_template_management_host must be defined"
+    quiet: true
+
+- name: Execute proxmox template management
+  ansible.builtin.debug:
+    msg: >-
+      Create and manage VM/CT templates.
+      Target: {{ proxmox_template_management_host }}
