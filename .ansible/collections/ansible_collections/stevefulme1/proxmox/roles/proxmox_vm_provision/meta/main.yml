@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Steve Fulmer
+  description: >-
+    Provision Proxmox VMs with clone/create, cloud-init, disk, and network configuration
+  license: GPL-3.0-or-later
+  min_ansible_version: "2.16"
+  platforms:
+    - name: GenericLinux
+      versions:
+        - all
+  galaxy_tags:
+    - proxmox
+    - virtualization
+    - vm
+    - cloudinit
+dependencies: []

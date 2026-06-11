@@ -1,0 +1,12 @@
+# Proxmox VE integration test configuration
+# Copy this file to cloud-config-proxmox.ini and fill in your values.
+# These variables are consumed by the integration test targets via env lookups.
+
+[proxmox]
+PROXMOX_API_HOST=pve1.example.com
+PROXMOX_API_USER=root@pam
+PROXMOX_API_PASSWORD=changeme
+# Alternatively use API tokens:
+# PROXMOX_API_TOKEN_ID=mytoken
+# PROXMOX_API_TOKEN_SECRET=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PROXMOX_TEST_NODE=pve1

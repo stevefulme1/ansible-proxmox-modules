@@ -1,0 +1,15 @@
+---
+- name: "Proxmox Alert Remediation"
+  hosts: all
+  sources:
+    - stevefulme1.proxmox.proxmox_webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Critical alert
+      condition: event.proxmox is defined
+      action:
+        run_playbook:
+          name: remediate.yml
+          extra_vars:
+            alert: "{{ event.proxmox }}"
