@@ -58,7 +58,7 @@ All modules support two authentication methods:
     state: present
 ```
 
-## Modules (106)
+## Modules (129)
 
 ### SDN — Software-Defined Networking (7)
 
