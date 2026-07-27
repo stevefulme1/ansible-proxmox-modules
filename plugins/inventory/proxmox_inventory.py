@@ -81,7 +81,6 @@ api_user: root@pam
 api_token_id: mytoken
 api_token_secret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
----
 # proxmox.yml - with environment variables and no agent queries
 plugin: stevefulme1.proxmox.proxmox_inventory
 api_host: proxmox.example.com
