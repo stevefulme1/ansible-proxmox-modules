@@ -7,7 +7,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 DOCUMENTATION = r'''
----
+# Advanced example - with environment variables and no agent queries
 name: proxmox_inventory
 short_description: Dynamic inventory plugin for Proxmox VE
 description:
@@ -81,7 +81,6 @@ api_user: root@pam
 api_token_id: mytoken
 api_token_secret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
----
 # proxmox.yml - with environment variables and no agent queries
 plugin: stevefulme1.proxmox.proxmox_inventory
 api_host: proxmox.example.com
