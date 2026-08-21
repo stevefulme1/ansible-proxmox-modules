@@ -1,0 +1,2 @@
+---
+proxmox_test_name: "test-vm-{{ tiny_prefix }}"

@@ -1,0 +1,3113 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "CODE_OF_CONDUCT.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e1a7422596fd5bce51a4a66e3c42c35c9ccded73d9319775d80430ad8a72bd1d",
+   "format": 1
+  },
+  {
+   "name": "codecov.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b266c1f3c1fce7dd51054d58d6b0b2b336366e315a7a92aeece7437a30944767",
+   "format": 1
+  },
+  {
+   "name": ".DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c3999977bfed5b68d8b814ac73deb6af7a1c51196475c40f9f1cd18eecc181b5",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/CACHEDIR.TAG",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/.gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache/nodeids",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "33dd9488fd84b711261e6b304a38a359755ca3b7a6b9602a98c787f16f5c3f82",
+   "format": 1
+  },
+  {
+   "name": ".pytest_cache/v/cache/lastfailed",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a7821b0f505d24e247b744ed4f787299a38e561b9beaf5365c342c7646106a99",
+   "format": 1
+  },
+  {
+   "name": ".pre-commit-config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1eea72521977149d6e9178f4d008cb994993d83eb4b10f5cd516cace9fe670c8",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "072406cf311d814af32f09a55d4df7e7ae9db45e4a7cfeb6baec08ebf1605c5d",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/lookup_base_options.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6ccbbb83672d8f7ed2e8eefddf4a3807af28394ffb3bd31e578b0bf4e7248c3f",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/proxmox.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "30ad92ae53516969b54a5d5961ba4198500409fb653dcf8b1c2a2b222d23ce75",
+   "format": 1
+  },
+  {
+   "name": "plugins/lookup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/lookup/resource_id.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "93a36397bc20f7cf30c4a186d8fc947867e0acb6be37ab4e7f5efa67f2f82a20",
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory/proxmox_inventory.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6b8afe5806e7e6762e7a8450b12899b4c3c371d6ad46acdc2664041d6ca1f641",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/proxmox.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ce9df96dc8f19918ea17cf11644cd408b9c253260aaa6ef39b8e6ed7fbb94bd4",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/_resource_paths.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0f6bdcb3fac1f6d0aa9f1916da63d81b54459a05edf2962791a43ed2da11b0c8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_storage_content.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e90e936b8f4b20c742a63b6ff6621249207b19e0147db74ee7f4f6b2cf986570",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_acme_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e4532d603db2a4502f8a4178cbd67fee03c0c71920b42b3894cce537435cdf83",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_ipset_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d07f5f0fc26e20bc1eb8f282b2a717f0195aea6bd976c1da35e8d83558a9fe34",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_clone.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9e59a9fceb3ef6591ee9db78d368530df021b93417ad8eea5cd33621ea36b210",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_create_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "34fefb30fbdeb1cce7ee6c50139056a9520c61c2bfeaa8495d2504e514600db7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fc53f3ce27dcb8da1e6eb4f8550ed5b2110897290709f1af4d87850f13420f67",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_zone_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c8d07ec09112436ad4a0ed9885649682f38b13c58e1590cc571a717c459e742b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_fs_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "98f8de40f93c4e9f23ecf7924ad42f861e30422bf0a3de6d01eabe71dcdd01b5",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_role.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6d190c2132a8963523430d411de4f0eebc2ed47f422ed46f5fa8990aab0e7e55",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_log_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a0cfee6b555bd69105ab5b65ac104e78fe0bdcb6146293fa6dd7e86bd35c9dd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ha_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dde1d6a41ad66fb9f7f47fd6f8e205b5f052dc1106622509c8a5224da87b790d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_osd.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4586d9a5d75d332ccb2f23acff2b373f92633c4091f4741ec962778093dfd076",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_node_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc71d10fe9b041f0d0bee7d2d235f211edb28c8a43a815284175ab01a1c8b010",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_acl_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6c142c38af8fc6c96e2e440db930e903b3757bc966639a89eeabaf77c3a91fe2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_dns_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9f9d9791e5450a7c1f0776087b42519e2a1e4bde85b5502aaff1b51d7cc6145f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_acl.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6aaef91276bc76f102dbd066a9505a80298f2249c4936b270f0df9e3eef19d9e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_power.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "52d16797c1b88e2136a828ab31d84686b4ec508b1062ec2658c211390c91344a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_schedule.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0473d4227c9694f11f51193fba1aa99841ffb4f4cf02dfef66d7eb5799b3182f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_snapshot_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "99ff02cb0e7504a2f11cd9b74ef8a783dc548c7d3573742be878df7514067987",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_tag_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4006d70be5cf2f9a9da0d5dec8d38e290221b05fdf675bbedb1feb119cf0e55d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_clone_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b5b22543008fc1bd7f401845e21c2eba6c09c3fe058545b37ada1e13b5c04c40",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_tfa.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1b2063017734cc25bcf3de80625048ff67f475e1a9e6d63119c9ee2bd61eb72b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_dhcp_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7db5f682d3cbdd96f4219e011b5c10fdb322935bc3bb5d08b0667139e6c5390c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_storage_content_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "de1aa2a781ad786f7731f1bb89bfb8f6ee4b254c555f264226665d19e4bd5c47",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_subscription.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "de5f43b65a572eb4a9d93c4197089a48f64976e8dfe25f5e64de130302e8bd6e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_remote.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fb2c4e69aa95721708384636069c8f5d8191afba25be9609a46cc32ef6bf19bd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_mapping_pci_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3d684f2b9bef495586ccabe6c6197fd447f32c087afd93c73266067a052ac36c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_sync_job_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2993a246e691d6c4550cf73b57d2e56fd91f3e7f68189ac9b8bfd888abb9c360",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "82083457ab1c59f9753645c5d6154f1391fda4fe9562b5db5969be3735084993",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_gc_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f3c022ba3dca0f61f246f8225c96444840d6fefc1c2bb98d21a0020b33de3dca",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_permission_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a8df1be940f1381a70416112ba69232e32c33b2466423e8fec14f2901777e97e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_vnet_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2b929326f0dd5668a68fe0c16deb30ed2735c871c1af0d5be8a76d92370f565b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_token_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "07633b3a66180fbd47408d26b4851221d2c905c2fd9d54386ce0fe2af94aae05",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_zfs_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2435de34a80c9d550f89c1ede93e4158c8c1b7fe06dbb9c4d289291846f1b92c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_disk_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8d99bafc330b84026e2deacd4e6c4d9c76f61b22ad36aed135f6ea6787970b2c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_subnet.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "57e67d2a37317d0aafa8d352279965bd7ffbebbb82bca9f4ea529e63008aa51e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_pending_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc81d223722aca125e613299a2426685b3adbf9619a19f2f28b7fbdf9b0ee608",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_hosts_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "825df90671742cd3a71ec76592ec3ce1b7b32a743b3cfb93310b5c9ceb10f53b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_verify_job.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "736a52460007b783903b92adb01eb4efb9658c85af59251058f1a93dec5199ff",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_media_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "186923724aa974e678eda70cb8bc6700e7c5a3fc08f01c024271056cfa13212b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_refs_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "612882a50a2936d36ac1b4ba747b05fe49d0c6961cc50347e467acdfa9e4aafa",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_alias_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b2514fcb894f0360d0e34597036561c6ba017dcddc7ed488b5415885e7265db2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_pending_apply_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fb9459a4f2029c25b35de3e10a48a91a43ad81754ffd0ed648cd9f2107c2f8e3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7457917657bc1b78565d3721ed85a3b904b19aa6295183eafcb17e15dacb5a9f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_disk_init_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8912f038a076e0bca6679eb19fc105c9d1c227bcbf154d1da1443e6c27e86dba",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cbc760b04ee4ae0a1666b19c0d00efb2b133ad2a16f7d4adfc82b8e55dcec87d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "beb466728b28440b0dc4e6e956bc2c0eb6ae47e26c0abbabf8622c9766543d4b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_drive.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "85bd0512f3fd093f921e22bb27d85100eace961abf8a67403ff5f2deae2f2204",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_ipam.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c54309e9168b322d111df4e53ceebd74067716da4d2702e4cc4355bf3dffe400",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_backup_job_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0ae201f2ed9db0b1187ac08371394bbfc956d8f89fab260bc7ef3bdcdcf05def",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_backup_job_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ba851799d54a53e622b2b2ed6c08c05f705ba72981e52d788127eefc71b95a62",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_migrate_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4ee7f33f8a7b6d2a7232970704be18ea58867265af99e4e002b818d7ea64de80",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mon.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "827d0462a30d61dc49edf4681bcad0c16dbe8dbb7ce681e9cffbdb603732902a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_prune_job_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a93c3fe7262756f13dbf6588efb5fe8b3579ac379fdc6ffd9ea99a97691ea97",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_service.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2320ddfa2090b5d6f8f8b41da28a7875c7625fdfb4e6acc731560c3e6d2de211",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_log_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa94e2c83941a79cb32d7e6da95d99657a695c306de3d184f17a6b1ae7bde4dd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_list_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "42ce9acf10801c272416245cb1b018d0be31d9c65fc2ff9207a7c1b1c94a13a9",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_notification_matcher.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1ee5a1d0505aea9e94cb6bc4e7a3d91d1542c0b487cfc4521f019883e3d9e63f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_config.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43fa76a816b96ec1753bbf42956d9d9f16af117f45c1187efbc1f28477bcadd3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_template.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6a96adb976f61777230d0790a2a4f0c57d6c4ed16ba7e9d73d711d9623746611",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_user_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1c31201072613f53fff94deb3284e7914270a5080589ba90167405ae63a738af",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_role_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "96f20fd6623fdfc852ca6b8431bab957b7d272563c5f2641c137db97904a2720",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_create_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5011fe8aa384e9403c53ea7694a2bba4cc934efadc59c4a98173caac1f381f1a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_mapping_usb_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bd3bb2d9e8bc0b2dbcb35862d67997b6ef9dcc62e4bcc78582341b109193283e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_agent.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eaae439edfbdbbd5008b43e360f90b4c745cce04e42d73678ad006bd2b3083da",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_dns.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e33a2a495f06454ec365fd99742f07bab3604dc4e704540aa6e63579d993a317",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_resize_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f2d845509324921ece002c64aff36da0a3cb9a1963b416432328ae12804e900e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mgr_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "35280e08007c997896fd3c218842c92795224bf09e7e8becab36f96aeba61eeb",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_gc.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2db04fee8f91dc8588a2af9b25370d9a351d422d9946dec7200c60404340f330",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_create.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d1d2aabfd50cc32cae762ae50b168bc96c9bc190dde2450dfe5ef654900b58f2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_drive_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d96f1671de3268301d2f37a1e920252c6582f0ca18d192fdff583fe05d897e51",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_metrics_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4e99823c64e1e08673bf4c1415c000a18e7d08e9579e4f269f5e799a2d269b7e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_realm_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "37cf6b7972a00c52765f1ffc59061ffeca27599403f48ed7a91c42c92b0309fc",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_mapping_pci.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cb0ea9233abc1db4841d5d5afdcb248985b50219c3217efc9f343934c904de0d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c8075ba92a89f6e32ce62069f987e7bfd0432d6f4c2850191693bba20d19b6f6",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_options.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ef747621dd28f0d7d287f20c8e8865a3fd1d5debde7e8263f7db942e7a7d55a1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_agent_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9174384fe66389bd5df53f39fd30d361fe1321d9f6165b191f37472ebdc650a6",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_power.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "af247a1eae41f255edcd718c4b0e2d36527ca925403fcc5d1ed40238fb1f4eac",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_wake_on_lan_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2c05784829e1c5f0de97c29b694c09fc459dcf22ffea00acc6022e4861c96b35",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_lvm_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "39b364387a946643cfdc8011e5ac042b291cf9ce0631b81368d82eac257e026b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_metrics.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e6080e98f697a65c9e66a26f42dccc7bcfac811866c0f7b058aaceabdbd74a77",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_options.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a56dd2b70c31a92ff5182e4a18383cd476c8c7c8abab6438ac20e5d442299044",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_user.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cca4eb2c114febba2cd3613a171994793591b0159175f57e80b5788f6a92eaf7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_notification_endpoint.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f74aaf868180310ba60122517a77056a3123a2f6601a86e8f510c4aef5ddfcf1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_config.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9930917e4804197fcf15b7abf3a0df5c881611c1c55c6fc70c6fc11832f86bfb",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_replication.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "949dd57a542c71eb1bcc4f8824c3a44e7662beeab0039a152679cca09cf2901c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_power_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6253aee6c52f2d99fb53ed99516c32bea79682d166fa4a6a82dc19315628cbd0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_token.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c0b69e03b5026caafcff54ba02a601156b73eb6670e010b1930eb9dd942b7f87",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_join.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "94d4cb0998358032e8d09ad73a035fad2a89a34b2028a7089d781042fbf6a4d8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_snapshot_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a8425fe32de7834852bbb5d5aa048c066aa4fd92a521b198d605ffcf5ea7595",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_vnet.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "76770f0e0fcb9830e38b611ab9067ea3cc5f4e72ae4de817b5944f71854838a8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_token.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1db4ded7df13aa7b5bfa2fc2200fdcd23cce72d1b0a454f9366cccc12473519c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_prune_job.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ec02e6264f261fb0522ba8b5d5029e31998f305ae7be2e7f79bd16c9ba5584d9",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_create.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b66f6b60cbce14492e717d45adbdda6810f27f09f7e6150ecd0b38b34e5d2db2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_dns.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "609b83a444db58713c3645ea4baee8958bb50544bd8f479bc17e4cdf2cf296d8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vzdump_defaults.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81a745a34c68bbc39fa9c1dd2d21739255cd69f0d624061f1cea9c7e8e30823d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_storage_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ed0aa3672a635cf1688b89cb8b13952031fccc7424d892cb970db17d46238d8d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_time.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2bf79f07af2848b328f0a33add3af6976a0b63a727cd0e8baabc1288e58e4436",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_metrics.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9d84fcb36dc85879ac191765987ccf89c3a3ad876625d6baaac897a42eef8dd8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_config_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "10f68de71dd5aa5dba5304afca7e3ddf44e1f5ed8687494904f71ba1e9691f6c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_subscription_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "97a61fa2ea974a2f1de549caef34bf7a9d5bf5666c0a9fd06498aee3075e9fc6",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_ipam_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "73a999b18da872b2bc1f84f775b59de078a84b3a16d6d012bf22676b2592d887",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_migrate.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6110b773b5a74670fd0018f7602ca675689fe4e91ad4f9bb85e75f1d8f2ef535",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_migrate_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3b7ba2eea6b877c5ded8eb150a359acc8f9e7fb6777401d40bcdeef597c0ff9f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_dhcp.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7aef08a8f2f3273f6f1ea6ba9439644bceb86c46ef9ebd5010872a86bfbfc940",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ha_resource.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e858fccb9d7a84d5f8eee540623e53c719ded048c6a2162fe6dddfb0cce4f52d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_clone.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "77708ea623b013a3dd285d0a2fc94fd6a5047a8db08367606997268158d5308b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_backup_job.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c0bd00827239c37816562b8caa40bf0006a1d1399b8d97ffeb4686981f861077",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_rule_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5b75cceb511c92170dedb86520e9bc0fb348c57474458a2f282c04348630caef",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_remote_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "35bda4fa8132fa07f3057639846b865f12ef97fe6633dadff41ce3973adcefaf",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_realm_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1955e8f1d019e4baf9118b58039784dc18d3ad26b16bf7c71f97d2eb11cb5b63",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_options_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "992596332e8afa7b1d28f66b2543fab585a51f934395ce2a38ed55749e965bd2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_acl.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3e455826aae9e3eaa7d3366249a84ff83fb9959dce1c22db039dfe3164b38c92",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_verify_job_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a631488760b70dceb6b00bff681749dfff19bdb6342a28e97ff9a141874e6c7f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_certificate_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "32222be8e8c024a00d6990e9c54587638cb23fc44e00775e09e857a8874472a4",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_realm.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0fc9bf26b87f5b625b15645330c716fae0f22e038e16bba60c172de715869d13",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_realm.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5b66f60606c1b103590ad1d0442ef3c41502c9bd45e8306ebf0d9a9025d20479",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mgr.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9907dabc466721093afd4097ecc8a96f74000ae24eed81bd171e3c8165c14c75",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ha_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "75749fc7f7c0227ca313a7c1701df73ee071d4fcbe51a542beaf7828cb03e792",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_subnet_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a5a33a0042aab765cc96d792fd31915fe34bca383ede4d6b670907bae5c2e5c0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_wake_on_lan.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ad3840acce8d2ccaf9c2e527e7199a9b8ca3688823ed9ed8a2314522fa082e79",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_namespace.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "db2d9a1635e7006eeefce9e818aa431444cc8b7e6cf9886ebdd1c66701917e31",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_cloudinit.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "23c07e9214275edc4633ee929be1b0603e7af8226f4a6945f812c82580b506b4",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_tape_media_pool_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6f7c0fd8dcd47b275123bbaacd1e7cab657b3bc71bce71115ef93e41afce021b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_time_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "538f81450dce7161d83c7c17d39bb0f0c8ad17aa550496d9fde9279a00884234",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_template_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7dd1cf0084d1213149cd3feb3dba62b0e49f10d69d69444f4a1f1ad396451989",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_mapping_usb.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "de223a41b08e803ea03c4dda894e449b4a22621ea6835e75c4095997d28a9204",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_traffic_control_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6f48c7d9b6a04c714ae117de128eab23c8ff2dea8c373badca0002398af16ae5",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pool_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6b0d22f5279a63da3a509e62f6a871f2f493f907ff0296df3f9dfea5035c04ad",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pool.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd2d996230a9a578fde49ea539946b133cccdc9c5e2203d703ad750604296aae",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_osd_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6ce0c7774db854f42e4e813826a7a9b9251c865c10b57025866d9e4994719e69",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_pool_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6cc5b31e4e7b3b42a43563704cb40f00244dea8f840f4e9169cc446066f2ad40",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_datastore.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9c17a1d6b6ffa183a1527356ec0b0c3a0b52de7536be38ece50d297efcae1832",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_metrics_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ef8bb7935e2d667649697606fe62f16021d288f50d0a87944930661c4647d68b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a9b527ead9f1ec5445b142dfa6c41b5e4d08665301eb67d0cb6791bcb65c1d67",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3008cb34972683c6f9269f1d45582249cab43dd9afeafb5d75fb4d0b294e6cab",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_options_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e2b4b2b9f9572ea1edce5e1525ec75640eac89e98a60dd2a5a53c3afcce3ae74",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_backup_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f933e0316029a13e82c94209f5c435474ef2d09fca30da9153f5f8db93c27d52",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mds.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1a5394e7bfe7b8c840aebdce680b189318688332ac088427992921b6825d478c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_cloudinit_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8c11abce69022281116022362673079c51be27a5aeb7f4d935f29a5b5cefffd1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_power_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "da303d9492e60d76a348a0acde489a9d35b56dfd78e8339a52391767042e80d6",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_storage.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "793f392a0277ed70d420983a2a07ced4e740dfbebf24f49f8a3120546536b296",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_pending_apply.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dad788f4c42385e6e666ecdb6ccdb6aee2c0abe219da44b2b26a2e456406fa6b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_sync_job.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3021b59a7fb26bf1440b20aa5a1b32bdad0565700650bfe43d78b5bb1762a19f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_dns_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "56b709cd875504dfcf2e4a34e0e2a8bff8cdb1dc9cfdf4238196df8b1bf5c1bc",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_traffic_control.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ada4f06cd04593241fad943ec689283ee2b799c4c311a18a51ed656cb83e49b2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ha_resource_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "631a1658c875502a2a02ce0badce29d6cd3c6f9fb2a78a771a735ac2d68073bf",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_syslog_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "073979bd4d562ef69d38ce7c4a5dfc0346fada5593ae49ee4c118e12677ae4a4",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_group_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9380358c851a7fa1e202ab4d6f5b31fe2711526cfd1e948a4a4b95ec0303de39",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_zone.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ed373881b421f348249ca42ec91746f31574f366711af365584f0b257ac156fe",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_storage_status_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3a005b8fa44588478002063259a308d0f26c2a1985fd67b13d215c533fed1bdb",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_datastore_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "28c2519572932a39e7025fb192a7e4c376a4ea60519577ed574a40d8f504117f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_zfs.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5735027955a90ef95518b2ebafb95ec9ee72715bff347efb9219375b272ca599",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_apt_repository_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b483b6454167c3e937f2b5c70cc3857cd7fd8513d33e29e5bbac63e33e7b36f7",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vzdump_defaults_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6d7eafe53663b955165865217bffc6563b5c6e95c887de387e3974d16bfcf9ec",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_join_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a4baba0d3546214271672d188f5bdc7d6535ad008acc8b29844d8980539e7dff",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_alias.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4f36b307a986c253de0e914f5fc2228326861044038a04421147c0cdf3448caa",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_notification_matcher_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "afd74a0d643ea40349b2b1114810a060d159bcd4ba084ad1071fc882abb2d331",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_firewall.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "aa11047e463d5056d66d5c03b5dcc3a4ad153afbd28cebc2db0a6c92f19acb12",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_config_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "876457ddff93f90faec6208fcde32c8f3210e68a29b22592ea3ac6c17a05a273",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_backup_restore.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c5f7ec328bcc86cf0692062be035aeee2d002032f154f1d34ad73c47f8e0f2de",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mds_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c46353cd6435e93f382210366d95e2972806abd86b9f2e84d45cbe89cd52ec3d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_cluster_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a24af55e6f31405c00911c4f83600eac115ec397a47814629378262c1c44bae2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_snapshot.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6ec848e7f354d0467e5aed97237fb72ddb717642afc28d69e8633babc0d9f245",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_lxc_list_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eaf4bfc9a7ec3be7d99470c658e4ffda129e87c11d833974b1ebd90ab6ef13dc",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_acl_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6d8dfa14b4855ae6fcfe06889103a90c8faaca4a8a618fe6bd5a7a411a6c5127",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_apt_repository.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1456bbd6905f00f4978fe5e23231588275cbc3274ffc1f0fa568bdb1116b8a04",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_tfa_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3104287b3c180da92d897bb22fcdff7327ee6c5c26de3143de71219e0db5c3ef",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_acme.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fb03b440d7a626cd5bcc27c984b6d9317fc3602adc2a718517bd583a3fad04da",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_resize.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "49fa69e7c1ae121ad37e839440ff17d280943ff33262d48fe69c08c3ad8f2574",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_disk_init.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "695ee83a03f901b53fc52e10c18ad0cc858cac4d99ea789c3f9a5acd9cfbcbbd",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_certs_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "99f5725fa7d502575c803c985e25047e0cd82c1845369c008321ad666a86e438",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_lvm.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9557dc3208188b501a3d2a5dc7039c936c3875c5b4620738c509270d2b6e96f0",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_replication_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81c2d74963b303cd21748856062019564c7657098f5a1d3d4d90baf9db4ab0a9",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_clone_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a0d95395f4482b9aa86cbc4d437852a7c0585ef489b4c800caeffe9e6af858ab",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_fs.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a47d88fcb89f34788ec7719e007f66fd016f398ce9cb0a48c29f743f1443ea0b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_migrate.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7624fbe44a26585fd301cd0a596e34d85ad0fe2bc78902c3a03e9e9b8e2eb53f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_controller.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "380fd51d888ff0159c24030f87ccb4925222e4079c56be34a554b7e15b8fa1a8",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_group.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ee84c85cb7766d951ebc8a3c2fc561478b3ae2dff4feb43d8c796265280160f2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_namespace_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2585e4ed4027c9965e53055b1a6966676e525e341c28cda3e97c2db0ef9fcc8e",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_ceph_mon_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d6655f1e24ed942488268b5707a8422dfe24ad104d2c81c69e69a5b3de0e6af1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_network.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d3c3b75eade91c9690be0ef900631a0509d0a8a970327e2fbc9f324822982126",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_hosts.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a03d070273cf4024c7d0a32070f90fb4a6342b50b32e0330c695e33b814b0066",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_certificate.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b674beb6902022233dda2d5c754ee2bd6f5a8fd7df93bbebb42b11ef04faba43",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_disks_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b31dbe98403b0f74b4599887edb55e803d3050a81c2a78e04f040ee372981f09",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_apt.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ddd9517836b5771ac05203879314fd25563e0933177967d975cda03bd6a2b6ca",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_firewall_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "13f98d89c5865787bc0040904f5678f27fbea2afe1b29f002bf36d50cc00f746",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_rule.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "086aad2a2460f794664ce08c733e3afd58ab4b5bde6459543f6f4696c8e3aced",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_backup_job.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2d6189269f68f82b37bd4d43b4642d387f0f9b4f93bf3d710562ea43a05cc361",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_firewall_ipset.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6b96278a5657d29366d4bdf9eaa9dad2d393b673e95dfe5a4adb33c7e5a32b82",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_service_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3180a1be4955b3848edfd5424b955459e00469e6fcfa1cd657cf36782b4ea072",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_user_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1bf7196cd6636861aefc1f25f6aa17c7d53c7886890256e39c47e4bbbb1e90c3",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_user.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "82c5829c07fa4978a954820506f770aa8b6e36fca8e294d3e06891d7bcc09aee",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_backup_restore_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bb07f7039df57e0b0b647c034cf2eb94532bc7e5efe009514a07305f94a64088",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_token_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b495d79541031c13b5c9bb0c6920be430e353808bd87a9bab13cc26df8806c3b",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_sdn_controller_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "050c81d6a2b55ff3dd5b92972c0f6c0c7f7d5ba381edbb97077e433e519fd30d",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_tag.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "afa41c4676858ef0080428fd2005a7be87a8ced343bcb4f3c67da4e746c44092",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_notification_endpoint_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cee238b9ac0a019de95b4a70d771b783c12686a34e25b35f3128c1f3fb2d2a0f",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_vm_disk.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a71abe9f6fe4f9df643f695d75f044a22e5702e10bcf1091c0d84ab181e3823",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_task_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3da6410f0654bde4aa7e7f4cf570a3994fee7ab019f86ec37aac3bcce382f328",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_pbs_schedule_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "268b871476e40b2c9acf7f1014866ff05a043575e61d0dc14fb37955e9908594",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_apt_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8917fa22315f8d4200c6df6e33c362cc9a6d731b3e3eeeb8f7e3689ffca184ed",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/proxmox_node_network_info.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9a8750f4bd03bbd655b41ffbd10a9b4d4604bfb1cfd1e8df8fa6ed3222515131",
+   "format": 1
+  },
+  {
+   "name": "test-requirements.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9d0efa46e81a8021d00ab7841044ad7716d510b9eb1a2c0202a69f952775db54",
+   "format": 1
+  },
+  {
+   "name": ".yamllint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c4353cc560442ba28b4b4a3f50ddec54724932df678027cf5a3f797ad8f33703",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/conftest.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c12d062ce5b89f18ab89c63e6b6bc541384954d2e93ea37d52c5f9a2f95b9873",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_sdn_zone.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "024821ee11a73f25e68ccd22745e1824a9f624bd6265e78692f94ec59ee9d612",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_storage.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "378bdf3186c8790ef93b91f18360b9c08b5a2cb8920d5e9ed9d74f2a39e5aac5",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_firewall_rule.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "87b28e59abbcdaee770767f7572dd4392939bdd3e005c109bb2560308775ce91",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_node_network.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c750195c156d9eb068cb16720b86c1b36f22eda95b8dc7a3928a8409190e2d84",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_base.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43928e8ddadfa8812c7073bc0f388082f631ea15ccad41ace7f01f1ff02ac721",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/plugins/modules/test_proxmox_acl.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ae398777a1c5857b2d672bfec4be422edfd9442b44e985eca1691290879cc96b",
+   "format": 1
+  },
+  {
+   "name": "tests/unit/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "tests/.DS_Store",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a4b0e3769c83c17fca933c1ba7cebf1f29311df16d0604ae31170e99eb7eac67",
+   "format": 1
+  },
+  {
+   "name": "tests/integration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8e1a056c720ad8334e105ff42aa4e21cab1df882c487ece573bb4837452b49a6",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c38d63642433969847d049d3a422ea67fd826ee7fe1868135320019dec1baefd",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_storage/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b34ba7344ae244f24dab3369ecd1758acbf3bba998f7f20ec4a7aec12cb6675f",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b60b07063f0afdb39092f098c1ee1aaf874ee57433298134348c26854ba1bbc3",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_sdn_zone/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c0d4f4ad468e54fd1f8f1815bbc05909785bc0271b3d5fd3bd5d9fef89906edc",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6cd3cf3bf97595cdd004721a02beba03f4bdfe54d87a3196e6c6a34bf8793626",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_firewall_rule/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cc15ee4d4edb3def1858a1a3ceb129c5041705f6ebdfeaaf8cebe8abf6fe24cc",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7ec3b4335fc6c8fd4597579e3ba5901f5e39aa010f8257273b4adb0ca0b6629b",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_acl/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7a4dc6d5a5b6edc9dd19503c0aa5f7af69b279832be0461a57db0b389be80733",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a080c8061e9f0e9577b3b7b123c30a96e93b6bb3dad2b484a2cc72921387a754",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_vm/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bf13a76ba10cdb18056efa18c004d7199e7e58f2499e267f5f91ce7e5ed4774b",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9f14e4974aec2c330e82c0eb370f4081b9002e1da20c14a29367a1a2bfaaf8c5",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_user/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "084199f1ecd1019a6d92ee94f6f3ba005caf40b7a40f9490859b9c0c5f0910ef",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6cd3cf3bf97595cdd004721a02beba03f4bdfe54d87a3196e6c6a34bf8793626",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_node_info/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f3abc9e9d9201a04a404cce84a1de39508fd8c04af664cd9243978a8798b97d9",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1f3e4c2de97e49ababbf8811109a8913f644641b4432713376f9bbd55fc3d815",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/proxmox_container/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "81bc4d45ae2b170cd7da5211be0a3bf6141cafbe2acb9d67ca1f790e8d34f489",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/cloud-config-proxmox.ini.template",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8c994555425663fd86f59bd5a648ab381f805d8a2284bddf520eaa3f300204b4",
+   "format": 1
+  },
+  {
+   "name": "meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "meta/runtime.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b776fa2661c9790be7e88c630c589b3e83594f8b0ee2c6761ae8b6556d0dfc4e",
+   "format": 1
+  },
+  {
+   "name": "roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2e455f55b5cd7fa72e3149e0b99f4a4653e34f625cfd6c8fd823c519c2675925",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bd4b12ea5c679ecf90999b81e44d084b4791c5117deb9107472e6d45f6fd975a",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bac04fcfaa25f1e768bb5b843d10409be203e135ef721a19f8001a659329f656",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "588ffc3e1d0db8a3f83bc2ac8bc5de9c5e8bfaf39310d2ba254441514b5579ff",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_network_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "722cd984740ecff0be6134fc0771679b6efbe5d2c4b62fbb36367de26c5f1abe",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3243239c1677a117c13decc4ba9574272619da7b70045b981a0abfa0b4aee050",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7066e6df6bde92aecfa2f6f7a3dc2fb7b6dacfe6f4614b25239596dde70b5726",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4fb7885867ba482eceb169b6a113f01562a904510ee9b8fa45ebc91fcb62f268",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9bcdb81278f8b14aad7229063d496b07af4acf68286fe718dbc66767e028597c",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_template_management/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9729b152f6b9ee79248e8901fefb847e9514faff5d755b9b7ea8c70446cb0cfb",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9d6ebc443007a26d0fa8d8c8b9d68684ccc4abe412b3be8f090c943dc12ae3f7",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f1fef97ebe69f67d54e4e2d4d1c5fa3b38669faa4e72da39decc54d5923b815f",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "42cd571c17967a2783683dc64869363cd70a7df62a5fb2f840c27a8cd265ac3f",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f4c88560e8e29c517b1ffdeb417442c3c4d27c26df851a0cd624b1ee602be8b2",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_vm_provision/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "668870b42f54fbbb847b470ea2333962ade06c86fcc637e123f1d305004f6e4b",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3ac6caed5c0845dd82456dcf0b8cf8a7d1dee0e8a5c2ec08e5798481bc3d80be",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f677c8ad2daad779054476c1394184f880b8e1fbdfdfc18fbd527f7660a57b63",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7b1d7cd1ed4a0e92262b80807e5588777a31ab917a97bb333b90cbfe85855171",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "83c7a7366aafdac627ed31864d1eaf36105e936818605a77492516f25283f025",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_upgrade/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5fc79f7ee7c5a44c302801a00d5674a07b80f627c21ee13bf3ddeb361685d5ec",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "255ff2aacf8bdb55bf1fa64f4b55aa7141301d756c8a0ff9d3e0a5fa6f97346c",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3b679ff901b02fae2409c3c5299ff18da8cd9954b0ef6c892905406ec0613e41",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4f56e5c2813c8855b7a56aa9d5dd5f41d4dbd52d080ea36e11fcdf862c7855c0",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd7c413d48aed2619972c80eb2687e26c729be3059a585f6949efc3fc675a6c0",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_storage_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dc1c1696a76bf383bec80884eacf9c39c7ec4f593f5ec7117651723d232d9ce5",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a25299e0f43cebbc77cfafc379f15f10e898d32fdc27003e1755773c90936b24",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "747f3ddcc62477fbd43166158aef7d482b5800ebc7d16caf043626f42393a783",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9974b2dc53325ab04009fe359631155afe400fd85ad0c322eac3b4e56d926196",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e2e1e660bf5dd9573820542eaa269bdc8a9269bf5f130eba1bcb8ad119a7e42a",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_migration/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f745993975a107d37dcb09739ff50950f912905826bb87436ff6c8628be67079",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f14fd8365f7642abe240998667526aea9bab5c5f3ffd9fff953c6036f42e3be1",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "714b9d8ecfe30979e7315e20f8692157168462e7a202de35bc0f743f6110f1fe",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d8f01b0e79d0fa9a0beb8e7bff4bcbf549c647e7fb41d0ec4dba7d0e2910330a",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "74efd8143b5f543ac243805c0b74833956f9347139088d83a1cce0deea055005",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_backup_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f2ce368ca0511ee47664355760911b6a81004dce9e4fabfecff6f4d302596ec0",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "57c033ede63e5f0b0f731b0a5f6c3e2b9ba32c6a6e385f2b38a340ef299db286",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dd2c748613394888865b82de1a1fa1441270bb0b5ab09bb41a3810e249736141",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fa67a1c8915756352a848482014f6b6ee2f850d5ea23ec41f79cb989204f795d",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4ba4d30a3ab929fc1b34d2a16fdc03c4ee4aea7347890e890cb54412ff0b5632",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_cluster_setup/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "52c00e901e4153ec3334421ff4556f17b8106dda074ce70f6e76bb5db89c85e2",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2b2e59d62172b6f25aa3b3f9884bf9a6baf76e52df7ffd2cbbcee131aeadc905",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2a0ca4e985ea60d216a098838ddd01fd90ad1c417a643e8170c0130abdd7a986",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9ac86abbcf29058f767e8d48feb58642049fbd184bd07937a65449f36c17f069",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_ceph_deploy/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "751f728290d846cd32e39d78cf4a447f4784419160fdb71752ef9637efe6e062",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2273e7e37c06d41a9f9063eeffe28f8798e3cdfd6c93513b115b04d36e1a2924",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "09add0e109e5f443a66e6d8f069bfc8780fcce0319721295fcdb757c10190a2c",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "43912690ce2a7601c897b72968160ed2131e69f8f654665174c3242f4969987a",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "dbd36efff21ae7c63e749245ab3413a986edd10ace66fbcc70d066f2f9de0718",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_monitoring/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "21f3430123d19f31d8ab75bdaf60b664e811624a8d02007cbac0838a628c5ef3",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "afec44d989a19467b782891c0c2063d8e30b6f8b7fda7a0271497641e8ebd7eb",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/meta/argument_specs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "609d25735eea9b06b18f36206eb725ecd2996bfdcad1650a6124658789e094ae",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eab96da8529f3ac599cf0289dcb9ca5afe13e7addd6a5fbbced2f8e587850468",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "740e8af27e2d7fbeccbb358c2517d3617343ea1cc5d38f3a065f79220a4440bf",
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/proxmox_security_hardening/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "76bfc8a522f200c408a0f2c4c5798ce0603f8cef9d0b0a5d472b88d415b9648b",
+   "format": 1
+  },
+  {
+   "name": "docs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/testing.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "eee23fe13b45b65c1bcceb817581597cfbf53cb36ec61221178c59fbbd2edea6",
+   "format": 1
+  },
+  {
+   "name": "MAINTAINERS",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2df330799316ac4332c30aece95283941a03155eac79035f5c3e5e8125ac6566",
+   "format": 1
+  },
+  {
+   "name": "extensions",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/proxmox_webhook.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4f80dd805b546b161fd4a225b376499e7e863635dc9558cff817843feffd1bfa",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/plugins/event_source/syslog.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "14ddc475542e63097162bc2c35b6ba48bda66b7a48b3efe02c8987bf54ff717e",
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/rulebooks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/eda/rulebooks/alert_remediation.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "073fc76e3eb441c760269c87288e6e43ebedc9afc05416dcfdd7719323ba06a3",
+   "format": 1
+  },
+  {
+   "name": "extensions/audit",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/audit/event_query.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "630f97c4073ed210e5f7b065b7a94faea0b03b7e4838f794c1dafce65c148556",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8ed2dd404d953c76566dd7503e1f503570267246df42b0fdf3cf92dd94b38ce2",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f89b78522185d8937138ee5c0c8a34e7c52c2621d086173c5539958edd2f701b",
+   "format": 1
+  },
+  {
+   "name": "extensions/molecule/default/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a6f0f958e0dcf86bace36ccbf8435145de1b937cfe3f62ed8a091f106333a443",
+   "format": 1
+  },
+  {
+   "name": "changelogs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "changelogs/fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "changelogs/fragments/.keep",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "changelogs/config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e257d7c7bd99f1768efc36e349123b63d251beac228aaad408aa79a8a53d73c1",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d6d6fa698643cb192f8f1a3ba23fafe167fae8cbebca74219e7b133a7fb4f216",
+   "format": 1
+  },
+  {
+   "name": ".ansible-lint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a4baacbcf0440c83adb71ff69cfaa210ad081400b8d60e0e632bd15f451c47c",
+   "format": 1
+  },
+  {
+   "name": ".gitignore",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f44f9a3c53183edf07a83b8b656bfb23fb1bfe04d1a0aa3a985cac633cbff3e2",
+   "format": 1
+  },
+  {
+   "name": "CONTRIBUTING.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4546abd05dff4aa84d1d2147ae058d276d82370da864b86aaa18da5202b712af",
+   "format": 1
+  },
+  {
+   "name": "ruff.toml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c943f9b55d2a735333cfa2e265765d28f239a605700ee0bf69bc268a1a65c805",
+   "format": 1
+  },
+  {
+   "name": ".ansible",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/.lock",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": ".ansible/roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections/ansible_collections",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".ansible/collections/ansible_collections/stevefulme1",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/publish.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b762e7dcca9bfd702bc02d0e1cd64def005ab9ba019199773b8cd391be6c6c7e",
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/auto-merge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "02cfce404900ded4f48e9fccff028d2510f457da0031c1356d61f2ceae1d2d88",
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/ci.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5db60b513693eac1e8f39a4938a7b3d00a1d39354925c340a5aaa2c3e76adb60",
+   "format": 1
+  },
+  {
+   "name": "REVIEW_CHECKLIST.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8d2e51b92f60b444936a962e388575b84746548cfe72bc1e368830ea7eb4cd2e",
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "78ccf46342faa5dc3b40a90d44d72094bc1d4973a47e7a9ac71598224916451e",
+   "format": 1
+  },
+  {
+   "name": "noxfile.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "51afb45222c2f4a9c0c0c3cb271dbc73525e64fa83a5874e0602c2bc1a58d2f4",
+   "format": 1
+  },
+  {
+   "name": "SECURITY.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0f1cacb0199fb125112d55ef4b2a935e8d6e45d4ecbf6644a9570a98faf677dd",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_monitoring
+# Set up alerts and metrics collection
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_monitoring_host is defined
+    fail_msg: "proxmox_monitoring_host must be defined"
+    quiet: true
+
+- name: Execute proxmox monitoring
+  ansible.builtin.debug:
+    msg: >-
+      Set up alerts and metrics collection.
+      Target: {{ proxmox_monitoring_host }}

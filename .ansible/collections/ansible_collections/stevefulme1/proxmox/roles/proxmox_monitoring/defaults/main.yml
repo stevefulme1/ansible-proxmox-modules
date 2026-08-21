@@ -1,0 +1,14 @@
+---
+# defaults/main.yml for proxmox_monitoring
+
+# Target host
+proxmox_monitoring_host: ""
+
+# Authentication
+proxmox_monitoring_username: ""
+proxmox_monitoring_password: ""
+proxmox_monitoring_api_key: ""
+
+# Behavior
+proxmox_monitoring_validate_certs: true
+proxmox_monitoring_state: present

@@ -1,0 +1,16 @@
+---
+# tasks/main.yml for proxmox_storage_setup
+# Configure storage pools (ZFS, Ceph, NFS)
+
+- name: Validate required variables
+  ansible.builtin.assert:
+    that:
+      - proxmox_storage_setup_host is defined
+    fail_msg: "proxmox_storage_setup_host must be defined"
+    quiet: true
+
+- name: Execute proxmox storage setup
+  ansible.builtin.debug:
+    msg: >-
+      Configure storage pools (ZFS, Ceph, NFS).
+      Target: {{ proxmox_storage_setup_host }}
