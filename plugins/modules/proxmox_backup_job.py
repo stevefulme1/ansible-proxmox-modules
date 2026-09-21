@@ -33,13 +33,23 @@ options:
     description:
       - The storage location for backups.
     type: str
+  schedule:
+    description:
+      - Backup schedule using a subset of systemd calendar events, for example C(mon..fri 02:00).
+      - Mutually exclusive with O(starttime) and O(dow).
+      - Either O(schedule) or O(starttime) is required when creating a job.
+      - Omit scheduling options to preserve an existing job's schedule.
+    type: str
   dow:
     description:
       - Days of the week to run the backup, comma-separated (e.g. C(mon,wed,fri)).
+      - Legacy option; prefer O(schedule). Requires O(starttime) and cannot be used with O(schedule).
+      - If omitted with O(starttime), the backup runs every day.
     type: str
   starttime:
     description:
       - Start time for the backup job in C(HH:MM) format.
+      - Legacy option; prefer O(schedule). Cannot be used with O(schedule).
     type: str
   mode:
     description:
@@ -92,8 +102,7 @@ EXAMPLES = r'''
     job_id: backup-daily
     vmid: "100,101,102"
     storage: nfs-backup
-    dow: mon,tue,wed,thu,fri
-    starttime: "02:00"
+    schedule: "02:00"
     mode: snapshot
     compress: zstd
     mailnotification: failure
@@ -101,6 +110,17 @@ EXAMPLES = r'''
     maxfiles: 7
     enabled: true
     state: present
+
+- name: Create a weekday backup job using legacy scheduling
+  stevefulme1.proxmox.proxmox_backup_job:
+    api_host: proxmox.example.com
+    api_user: root@pam
+    api_password: secret
+    job_id: backup-weekdays
+    vmid: "100,101,102"
+    storage: nfs-backup
+    dow: mon,tue,wed,thu,fri
+    starttime: "02:00"
 
 - name: Remove a backup job
   stevefulme1.proxmox.proxmox_backup_job:
@@ -127,11 +147,12 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 
 
 def main():
-    module = ProxmoxModule(
+    proxmox_module = ProxmoxModule(
         argument_spec=dict(
             job_id=dict(type='str', required=True),
             vmid=dict(type='str'),
             storage=dict(type='str'),
+            schedule=dict(type='str'),
             dow=dict(type='str'),
             starttime=dict(type='str'),
             mode=dict(type='str', choices=['snapshot', 'suspend', 'stop']),
@@ -146,16 +167,28 @@ def main():
         required_if=[
             ('state', 'present', ['storage']),
         ],
+        mutually_exclusive=[
+            ('schedule', 'starttime'),
+            ('schedule', 'dow'),
+        ],
         supports_check_mode=True,
     )
 
+    module = proxmox_module.module
     job_id = module.params['job_id']
     state = module.params['state']
 
-    proxmox = module.proxmox_api()
+    if module.params['dow'] is not None and module.params['starttime'] is None:
+        module.fail_json(msg="dow requires starttime; alternatively use schedule")
+    for param in ('schedule', 'starttime', 'dow'):
+        value = module.params[param]
+        if value is not None and not value.strip():
+            module.fail_json(msg="{0} must not be empty".format(param))
+
+    proxmox = proxmox_module.get_api()
 
     config_params = [
-        'vmid', 'storage', 'dow', 'starttime', 'mode', 'compress',
+        'vmid', 'storage', 'schedule', 'dow', 'starttime', 'mode', 'compress',
         'mailnotification', 'mailto', 'maxfiles', 'enabled', 'notes_template',
     ]
 
@@ -197,6 +230,8 @@ def main():
 
     if existing_job is None:
         # Create new job
+        if module.params['schedule'] is None and module.params['starttime'] is None:
+            module.fail_json(msg="Either schedule or starttime is required when creating a backup job")
         if module.check_mode:
             module.exit_json(changed=True, job_id=job_id)
 
@@ -207,20 +242,32 @@ def main():
 
         module.exit_json(changed=True, job_id=job_id, job=job_params)
     else:
-        # Check if update is needed
-        changes = {}
-        for param in config_params:
-            value = module.params[param]
-            if value is None:
-                continue
-            current_value = existing_job.get(param)
-            if isinstance(value, bool):
-                api_value = 1 if value else 0
-                if current_value != api_value:
-                    changes[param] = api_value
+        # Modern Proxmox returns schedule even when legacy inputs were used.
+        desired = {key: value for key, value in job_params.items() if key != 'id'}
+        legacy_schedule = 'starttime' in desired and 'schedule' in existing_job
+        if legacy_schedule:
+            starttime = desired.pop('starttime')
+            dow = desired.pop('dow', 'mon,tue,wed,thu,fri,sat,sun')
+            # Match PVE::Tools::split_list: null separators take precedence,
+            # otherwise commas, semicolons and whitespace separate entries.
+            # Perl's split also discards trailing empty entries.
+            if '\0' in dow:
+                days = dow.rstrip('\0').split('\0')
             else:
-                if str(current_value) != str(value):
-                    changes[param] = value
+                days = dow.replace(',', ' ').replace(';', ' ').split()
+            dow = ','.join(days)
+            desired['schedule'] = starttime if dow == 'mon,tue,wed,thu,fri,sat,sun' else '{0} {1}'.format(dow, starttime)
+
+        changes = {key: value for key, value in desired.items()
+                   if existing_job.get(key) != value and str(existing_job.get(key)) != str(value)}
+        if legacy_schedule and 'schedule' in changes:
+            del changes['schedule']
+            changes['starttime'] = job_params['starttime']
+            if 'dow' in job_params:
+                changes['dow'] = job_params['dow']
+        elif 'dow' in changes:
+            # The legacy API requires starttime whenever dow is supplied.
+            changes['starttime'] = job_params['starttime']
 
         if not changes:
             module.exit_json(changed=False, job_id=job_id, job=existing_job)
@@ -234,7 +281,7 @@ def main():
             module.fail_json(msg="Failed to update backup job '{0}': {1}".format(job_id, str(e)))
 
         updated_job = existing_job.copy()
-        updated_job.update(changes)
+        updated_job.update(desired)
         module.exit_json(changed=True, job_id=job_id, job=updated_job)
 
 
