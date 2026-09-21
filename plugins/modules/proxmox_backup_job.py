@@ -74,6 +74,14 @@ options:
     description:
       - Maximum number of backup files to keep. Use 0 for unlimited.
     type: int
+  prune_backups:
+    description:
+      - Backup retention options overriding the storage retention configuration.
+      - A comma-separated property string, for example C(keep-last=7,keep-weekly=4).
+      - Supports C(keep-all), C(keep-last), C(keep-hourly), C(keep-daily), C(keep-weekly), C(keep-monthly), and C(keep-yearly).
+      - Use C(keep-all=1) to retain all backups. Omit this option to leave existing job retention unchanged.
+    type: str
+    aliases: ['prune-backups']
   enabled:
     description:
       - Whether the backup job is enabled.
@@ -107,7 +115,7 @@ EXAMPLES = r'''
     compress: zstd
     mailnotification: failure
     mailto: admin@example.com
-    maxfiles: 7
+    prune_backups: "keep-last=7,keep-weekly=4"
     enabled: true
     state: present
 
@@ -146,6 +154,27 @@ job:
 from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import ProxmoxModule
 
 
+def normalize_prune_backups(value):
+    """Compare API property strings and returned objects without changing the payload."""
+    if value is None:
+        return None
+    try:
+        properties = value if isinstance(value, dict) else dict(item.split('=', 1) for item in value.split(',') if item)
+        normalized = {}
+        for key, count in properties.items():
+            if key == 'keep-all':
+                count = str(count).lower()
+                if count in ('true', 'yes', 'on'):
+                    count = 1
+                elif count in ('false', 'no', 'off'):
+                    count = 0
+            normalized[key] = int(count)
+        return normalized
+    except (ValueError, TypeError):
+        # Leave validation of malformed property strings to Proxmox.
+        return value
+
+
 def main():
     proxmox_module = ProxmoxModule(
         argument_spec=dict(
@@ -160,6 +189,7 @@ def main():
             mailnotification=dict(type='str', choices=['always', 'failure']),
             mailto=dict(type='str'),
             maxfiles=dict(type='int'),
+            prune_backups=dict(type='str', aliases=['prune-backups']),
             enabled=dict(type='bool'),
             notes_template=dict(type='str'),
             state=dict(type='str', choices=['present', 'absent'], default='present'),
@@ -228,6 +258,9 @@ def main():
             else:
                 job_params[param] = value
 
+    if module.params['prune_backups'] is not None:
+        job_params['prune-backups'] = module.params['prune_backups']
+
     if existing_job is None:
         # Create new job
         if module.params['schedule'] is None and module.params['starttime'] is None:
@@ -260,6 +293,9 @@ def main():
 
         changes = {key: value for key, value in desired.items()
                    if existing_job.get(key) != value and str(existing_job.get(key)) != str(value)}
+        if 'prune-backups' in changes:
+            if normalize_prune_backups(existing_job.get('prune-backups')) == normalize_prune_backups(desired['prune-backups']):
+                del changes['prune-backups']
         if legacy_schedule and 'schedule' in changes:
             del changes['schedule']
             changes['starttime'] = job_params['starttime']
