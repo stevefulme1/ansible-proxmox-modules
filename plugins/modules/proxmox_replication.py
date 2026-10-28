@@ -120,34 +120,19 @@ from ansible_collections.stevefulme1.proxmox.plugins.module_utils.proxmox import
 
 REPL_PARAMS = ['target', 'schedule', 'rate', 'comment', 'disable']
 
-PARAM_API_MAP = {
-    'rep_id': 'id',
-}
 
-
-def _get_existing_job(module, rep_id):
-    """Retrieve an existing replication job or return None."""
-    try:
-        return module.proxmox_request(
-            'GET', 'cluster/replication/{0}'.format(rep_id),
-        )
-    except Exception:
-        return None
-
-
-def _build_api_params(module):
+def _build_api_params(params):
     """Build API parameters from module params, skipping None values."""
-    params = {}
+    api_params = {}
     for key in REPL_PARAMS:
-        value = module.params.get(key)
+        value = params.get(key)
         if value is None:
             continue
-        api_key = PARAM_API_MAP.get(key, key)
         if isinstance(value, bool):
-            params[api_key] = int(value)
+            api_params[key] = int(value)
         else:
-            params[api_key] = value
-    return params
+            api_params[key] = value
+    return api_params
 
 
 def _needs_update(existing, desired):
@@ -162,7 +147,7 @@ def _needs_update(existing, desired):
 
 
 def main():
-    module = ProxmoxModule(
+    proxmox_module = ProxmoxModule(
         argument_spec=dict(
             rep_id=dict(type='str', required=True),
             target=dict(type='str', required=True),
@@ -179,58 +164,62 @@ def main():
         supports_check_mode=True,
     )
 
+    module = proxmox_module.module
+    proxmox = proxmox_module.get_api()
+
     rep_id = module.params['rep_id']
     state = module.params['state']
     remove_job = module.params.get('remove_job')
 
-    existing = _get_existing_job(module, rep_id)
+    try:
+        jobs = proxmox.cluster.replication.get()
+    except Exception as e:
+        module.fail_json(msg="Failed to list replication jobs: {0}".format(str(e)))
+
+    existing = None
+    for job in jobs:
+        if job.get('id') == rep_id:
+            existing = job
+            break
+
     changed = False
 
     if state == 'present':
-        api_params = _build_api_params(module)
+        api_params = _build_api_params(module.params)
         if existing is None:
             changed = True
-            msg = "Replication job '{0}' created successfully.".format(
-                rep_id,
-            )
+            msg = "Replication job '{0}' created successfully.".format(rep_id)
             if not module.check_mode:
                 api_params['id'] = rep_id
                 api_params['type'] = 'local'
-                module.proxmox_request(
-                    'POST', 'cluster/replication', data=api_params,
-                )
+                try:
+                    proxmox.cluster.replication.post(**api_params)
+                except Exception as e:
+                    module.fail_json(msg="Failed to create replication job '{0}': {1}".format(rep_id, str(e)))
         else:
             if _needs_update(existing, api_params):
                 changed = True
-                msg = "Replication job '{0}' updated successfully.".format(
-                    rep_id,
-                )
+                msg = "Replication job '{0}' updated successfully.".format(rep_id)
                 if not module.check_mode:
-                    module.proxmox_request(
-                        'PUT',
-                        'cluster/replication/{0}'.format(rep_id),
-                        data=api_params,
-                    )
+                    try:
+                        proxmox.cluster.replication(rep_id).put(**api_params)
+                    except Exception as e:
+                        module.fail_json(msg="Failed to update replication job '{0}': {1}".format(rep_id, str(e)))
             else:
-                msg = "Replication job '{0}' is already up to date.".format(
-                    rep_id,
-                )
+                msg = "Replication job '{0}' is already up to date.".format(rep_id)
 
     elif state == 'absent':
         if existing is not None:
             changed = True
-            msg = "Replication job '{0}' deleted successfully.".format(
-                rep_id,
-            )
+            msg = "Replication job '{0}' deleted successfully.".format(rep_id)
             if not module.check_mode:
-                params = {}
-                if remove_job:
-                    params['keep'] = 1 if remove_job == 'local' else 0
-                module.proxmox_request(
-                    'DELETE',
-                    'cluster/replication/{0}'.format(rep_id),
-                    params=params,
-                )
+                try:
+                    delete_params = {}
+                    if remove_job:
+                        delete_params['keep'] = 1 if remove_job == 'local' else 0
+                    proxmox.cluster.replication(rep_id).delete(**delete_params)
+                except Exception as e:
+                    module.fail_json(msg="Failed to delete replication job '{0}': {1}".format(rep_id, str(e)))
         else:
             msg = "Replication job '{0}' does not exist.".format(rep_id)
 

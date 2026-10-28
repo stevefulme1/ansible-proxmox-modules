@@ -1,0 +1,2 @@
+bugfixes:
+  - proxmox_replication - use the ProxmoxModule wrapper correctly, accessing the underlying AnsibleModule for params/exit_json/fail_json and using proxmoxer's chained API instead of the nonexistent proxmox_request method.
