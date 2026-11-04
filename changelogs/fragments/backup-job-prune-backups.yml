@@ -1,0 +1,2 @@
+minor_changes:
+  - proxmox_backup_job - add prune_backups (alias prune-backups) for job retention settings, comparing API property strings and returned objects idempotently.

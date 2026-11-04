@@ -1,0 +1,4 @@
+minor_changes:
+  - proxmox_backup_job - support calendar-based scheduling with the schedule option while retaining mutually exclusive legacy starttime/dow inputs.
+bugfixes:
+  - proxmox_backup_job - use the shared module wrapper correctly and compare legacy scheduling inputs with schedule values returned by current Proxmox APIs.
